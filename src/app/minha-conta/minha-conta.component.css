@@ -1,0 +1,76 @@
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.saldo {
+    text-align: start;
+    background-color: #002A84;
+    font-size: 14px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 20px;
+
+}
+
+.card {
+    background-color: #C2620A;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.card button {
+    background-color: #002A84;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #001F5B;
+}
+
+.transacoes {
+    background-color: #C2620A;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.transacoes h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.transacoes ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.transacoes li {
+    margin-bottom: 10px;
+}
+
+.cartao {
+    background-color: #C2620A;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.cartao h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
