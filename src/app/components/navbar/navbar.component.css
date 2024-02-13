@@ -1,16 +1,17 @@
 .custom-h1 {
-    font-family: "Nasalization";
+
     color: var(--laranja);
     flex-grow: 1;
     text-align: center;
 }
+
 .custom-h1:hover {
     color: var(--azul-escuro);
 }
 
 * {
     font-size: 0.875rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Nasalization";
     color: var(--azul-escuro);
 }
 
