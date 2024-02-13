@@ -18,3 +18,8 @@
 a:hover {
     color: var(--laranja);
 }
+
+.custom-nav {
+    z-index: 1000;
+    
+}

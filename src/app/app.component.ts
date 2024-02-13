@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { RegisterPageComponent } from './models/register-page/register-page.component';
+import { RegisterPageComponent } from './components/register-page/register-page.component';
+
 
 @Component({
   selector: 'app-root',
