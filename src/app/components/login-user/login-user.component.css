@@ -4,28 +4,6 @@
     box-sizing: border-box;
 }
 
-.form-center {
-    margin: 0 auto;
-}
-
-h2 {
-    font-family: 'Nasalization', sans-serif;
-}
-
-.btn-style {
-    padding: 5px;
-    background-color: var(--laranja);
-    color: #fff;
-    border-radius: 50px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
-    border: none;
-}
-.btn-style:focus,
-.btn-style:active {
-    background-color: var(--laranja); /* ou a cor desejada */
-    color: #fff; 
-    border: none;
-}
 
 .div-left {
     height: 100vh;
@@ -33,28 +11,13 @@ h2 {
     background-size: cover;
 }
 
-input {
-    border: 1px solid rgba(164, 164, 164, 0.055) !important;
-    padding: 2px;
-    transition: border-color 0.3s ease;
-    box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
-}
-
-::placeholder {
-    color: rgb(89, 85, 85) !important;
-    text-align: center;
-}
-
-.form-control:focus {
-    border-color: rgba(128, 192, 244, 0.436) !important;
-    box-shadow: 0 0 0 0.15rem rgba(129, 192, 244, 0.561), 0px -2px 4px rgba(0, 0, 0, 0.1);
-    outline: none;
-}
-
-
 
 
 @media (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+
     .with-background {
         position: absolute;
         top: 0;
@@ -63,29 +26,18 @@ input {
         height: 100%;
         background-image: url('/assets/images/image_211.png');
         background-size: cover;
-        opacity: 0.8;
+        opacity: 0.9;
         background-position: center center;
+        z-index: -1;
     }
     .div-left {
         display: none;
     }
-    .div-right {
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-
-    }
-    .center-itens {
-        margin-top: 4px;
-        justify-content: center;
-        align-items: center;
-    }
     .form-end {
         z-index: 1;
         color: #fff;
+        padding: 20px;
     }
-    label {
-        color: #fff;
-        font-weight: bolder;
-    }
+  
+
 }

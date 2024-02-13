@@ -5,10 +5,12 @@ import { RegisterPageComponent } from './components/register-page/register-page.
 import { LoginUserComponent } from './components/login-user/login-user.component';
 
 
+
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RegisterPageComponent,LoginUserComponent],
+  imports: [CommonModule, RouterOutlet, RegisterPageComponent, LoginUserComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
