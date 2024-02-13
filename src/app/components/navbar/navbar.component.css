@@ -4,9 +4,16 @@
     flex-grow: 1;
     text-align: center;
 }
+.custom-h1:hover {
+    color: var(--azul-escuro);
+}
 
 * {
     font-size: 0.875rem;
     font-family: 'Poppins', sans-serif;
     color: var(--azul-escuro);
+}
+
+a:hover {
+    color: var(--laranja);
 }
