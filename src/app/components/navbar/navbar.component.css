@@ -1,0 +1,20 @@
+.custom-h1 {
+
+    color: var(--laranja);
+    flex-grow: 1;
+    text-align: center;
+}
+
+.custom-h1:hover {
+    color: var(--azul-escuro);
+}
+
+* {
+    font-size: 0.875rem;
+    font-family: "Nasalization";
+    color: var(--azul-escuro);
+}
+
+a:hover {
+    color: var(--laranja);
+}
