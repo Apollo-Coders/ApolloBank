@@ -81,7 +81,7 @@
                 <div class="mb-3">
                     <label for="birthday" class="form-label">Data de Nascimento</label>
                     <input type="date" class="form-control" formControlName="birthday" id="birthday"
-                        [class.is-invalid]="form.get('birthday')?.invalid && (form.get('birthday')?.dirty || form.get('birthday')?.touched)">
+                        [class.is-invalid]="form.get('birthday')?.invalid && (form.get('birthday')?.dirty || form.get('birthday')?.touched)" required>
                     <div *ngIf="form.get('birthday')?.invalid && (form.get('birthday')?.dirty || form.get('birthday')?.touched)"
                         class="invalid-feedback">
                         <div *ngIf="form.get('birthday')?.errors?.['dateOfBirthInvalid']">A data de nascimento deve ser
@@ -92,13 +92,13 @@
 
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck"
-                        formControlName="policies" required>
-                    <label class="form-check-label" for="invalidCheck">
+                    <input class="form-check-input" type="checkbox" value="" id="validCheck"
+                        formControlName="policies" [class.is-invalid]="form.get('policies')?.invalid && (form.get('policies')?.dirty || form.get('policies')?.touched)" required>
+                    <label class="form-check-label" for="validCheck">
                         Concordo com as diretrizes.
                     </label>
                     <div *ngIf="form.get('policies')?.invalid && (form.get('policies')?.dirty || form.get('policies')?.touched)"
-                        class="alert alert-danger">
+                        class="invalid-feedback">
                         Você deve aceitar as diretrizes para continuar.
                     </div>
                 </div>
