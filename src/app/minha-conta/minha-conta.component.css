@@ -1,7 +1,4 @@
-.container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 20px;
+.section {
     background-color: #fff;
     border-radius: 10px;
 }
@@ -10,27 +7,26 @@
     text-align: start;
     background-color: #002A84;
     font-size: 14px;
+    border-radius: 0px 0px 40px 40px;
     margin-bottom: 20px;
-    border-radius: 10px;
     padding: 20px;
 
 }
 
-.card {
-    background-color: #C2620A;
+.action {
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-.card h2 {
+.action h2 {
     font-size: 20px;
     margin-bottom: 10px;
 }
 
-.card button {
-    background-color: #002A84;
-    color: #fff;
+.action button {
+    color: #000;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -38,15 +34,15 @@
     cursor: pointer;
 }
 
-.card button:hover {
+.action button:hover {
     background-color: #001F5B;
 }
 
 .transacoes {
-    background-color: #C2620A;
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
+    color: #000;
 }
 
 .transacoes h2 {
@@ -54,18 +50,14 @@
     margin-bottom: 10px;
 }
 
-.transacoes ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+.transacoes td {
+    padding: 0px 10px 10px 0px;
 }
 
-.transacoes li {
-    margin-bottom: 10px;
-}
 
 .cartao {
-    background-color: #C2620A;
+    color: #000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 10px;
 }
@@ -73,4 +65,18 @@
 .cartao h2 {
     font-size: 20px;
     margin-bottom: 10px;
+}
+
+.opcoes{
+    color: #000;
+}
+.opcoes h2{
+    font-size: 20px;
+}
+.opcoes button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
 }
