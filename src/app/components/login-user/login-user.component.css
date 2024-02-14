@@ -13,7 +13,11 @@
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 360px) and (max-height: 740px),
+    (max-width: 768px) and (max-height: 1024px),
+    (max-width: 820px) and (max-height: 1180px),
+    (max-width: 1024px) and (max-height: 1366px),
+    (max-width: 912px) and (max-height: 1368px)  {
     .container {
         width: 100%;
     }
@@ -36,8 +40,7 @@
     .form-end {
         z-index: 1;
         color: #fff;
-        padding: 20px;
+        width: 100vw;
     }
-  
-
+    .form-right{margin-top: 90px;}
 }
