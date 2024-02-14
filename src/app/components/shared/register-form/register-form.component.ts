@@ -1,11 +1,12 @@
 import { CommonModule, FormStyle } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Form, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { nameValidator } from '../../../utils/validators/checkName';
 import { FormTypes } from './form-types';
 import { phoneValidator } from '../../../utils/validators/checkPhone';
 import { cpfValidator } from '../../../utils/validators/checkCPF';
 import { birthValidator } from '../../../utils/validators/checkBirthday';
+
 
 @Component({
   selector: 'app-register-form',
@@ -36,6 +37,7 @@ export class RegisterFormComponent {
 
     return trimmedValues as FormTypes;
   }
+  @Output() formCompleted = new EventEmitter<void>();
 
 
 
@@ -44,6 +46,8 @@ export class RegisterFormComponent {
       const formValues: FormTypes = this.form.value;
       const cleanValues = this.trimFormValues(formValues);
       console.log('Form Data: ', cleanValues);
+      this.form.reset();
+      this.formCompleted.emit();
 
     }
   }

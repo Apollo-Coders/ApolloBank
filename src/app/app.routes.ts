@@ -11,7 +11,7 @@ export const routes: Routes = [
     {
         path: 'register',
         loadComponent: () => import('./components/register-page/register-page.component').then(m => m.RegisterPageComponent)
-    },
+    },  
 
     {
         path: 'not-found',
