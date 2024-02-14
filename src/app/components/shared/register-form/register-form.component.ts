@@ -6,6 +6,9 @@ import { FormTypes } from './form-types';
 import { phoneValidator } from '../../../utils/validators/checkPhone';
 import { cpfValidator } from '../../../utils/validators/checkCPF';
 import { birthValidator } from '../../../utils/validators/checkBirthday';
+import { passwordValidator } from '../../../utils/validators/checkPassword';
+import { confirmPasswordValidator } from '../../../utils/validators/checkConfirmPassword';
+import { passwordRulesValidator } from '../../../utils/validators/checkPasswordRules';
 
 
 @Component({
@@ -59,8 +62,10 @@ export class RegisterFormComponent {
       email: new FormControl('', [Validators.required, Validators.email]),
       cpf: new FormControl('', [Validators.required, Validators.minLength(11), Validators.maxLength(11), cpfValidator()]),
       birthday: new FormControl('', [Validators.required, birthValidator()]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6), passwordValidator(), passwordRulesValidator()]),
+      confirmPassword: new FormControl('', [Validators.required]),
       policies: new FormControl(false, Validators.requiredTrue)
-    });
+    }, { validators: [confirmPasswordValidator()] });
   }
 
 
