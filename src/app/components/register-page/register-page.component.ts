@@ -11,5 +11,6 @@ import { NavbarComponent } from '../shared/navbar/navbar.component';
   styleUrl: './register-page.component.css'
 })
 export class RegisterPageComponent {
-
+  navbarButton = 'Acesse sua conta';
+  route="/login"
 }
