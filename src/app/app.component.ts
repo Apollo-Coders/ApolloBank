@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { HomeComponent } from "./components/home/home.component";
+import { NavbarComponent } from "./components/shared/navbar/navbar.component";
 import { SubsequentRegistrationPageComponent } from './components/subsequent-registration-page/subsequent-registration-page.component';
 
 

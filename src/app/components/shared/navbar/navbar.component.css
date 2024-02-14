@@ -1,5 +1,9 @@
+* {
+    font-size: 0.875rem;
+    font-family: "Nasalization";
+    color: var(--azul-escuro);    
+}
 .custom-h1 {
-
     color: var(--laranja);
     flex-grow: 1;
     text-align: center;
@@ -9,17 +13,18 @@
     color: var(--azul-escuro);
 }
 
-* {
-    font-size: 0.875rem;
-    font-family: "Nasalization";
-    color: var(--azul-escuro);
-}
 
 a:hover {
     color: var(--laranja);
 }
 
-.custom-nav {
+.custom-nav {    
     z-index: 1000;
-    
+}
+.navbar-nav .nav-item {
+    display: inline-block !important; 
+}
+
+.navbar-nav .nav-link {
+    white-space: nowrap; 
 }
