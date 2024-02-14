@@ -5,5 +5,7 @@ export type FormTypes = {
     email: string;
     cpf: string;
     birthday: string;
+    password: number;
+    confirmPassword: number;
     policies: boolean;
 }
