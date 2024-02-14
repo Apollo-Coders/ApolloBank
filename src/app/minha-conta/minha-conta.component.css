@@ -3,14 +3,32 @@
     border-radius: 10px;
 }
 
-.saldo {
+.header {
     text-align: start;
     background-color: #002A84;
     font-size: 14px;
     border-radius: 0px 0px 40px 40px;
     margin-bottom: 20px;
-    padding: 20px;
+    padding: 20px 60px;
+    gap: 10%;
+    height: 150px;
+}
 
+.header .saldo h1{
+    font-size: 20px;
+}
+
+.header .saldo h2{
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    transform: translate(50%,40%);
+    background-color: #9f9f9f;
 }
 
 .action {
@@ -32,10 +50,11 @@
     border-radius: 5px;
     margin-right: 10px;
     cursor: pointer;
+    background-color: #fff;
 }
 
 .action button:hover {
-    background-color: #001F5B;
+    color: #C2620A;
 }
 
 .transacoes {
@@ -56,10 +75,12 @@
 
 
 .cartao {
-    color: #000;
+    color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 10px;
+    background: linear-gradient(45deg, blue, #C2620A);
+    opacity: 0.9;
 }
 
 .cartao h2 {
@@ -70,6 +91,9 @@
 .opcoes{
     color: #000;
 }
+.opcoes-box{
+    background-color: #9f9f9f28;
+}
 .opcoes h2{
     font-size: 20px;
 }
@@ -78,5 +102,7 @@
     border: none;
     border-radius: 5px;
     margin-right: 10px;
+    background-color: #fff;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }

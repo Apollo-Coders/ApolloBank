@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './minha-conta.component.css'
 })
 export class MinhaContaComponent {
-
+  user = 'Usuário';
 }
