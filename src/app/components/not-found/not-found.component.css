@@ -1,0 +1,15 @@
+.background-cover {
+    background-image: url('../../../assets/images/astronaut.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    object-fit: cover;
+    color: var(--cinza);
+    background-blend-mode: overlay;
+}
+
+button {
+    background-color: var(--azul-escuro);
+    color: var(--cinza);
+}
