@@ -1,4 +1,4 @@
-class User {
+export class UserCreateRequest {
   id: string | null;
   name: string;
   phone: string;

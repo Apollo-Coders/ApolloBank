@@ -1,11 +1,10 @@
 export enum TransactionType {
-  DEPOSIT = 'Deposito',
-  WITHDRAW = 'Saque',
-  TRANSFER_TO = 'Transfência',
-  TRANSFER_FROM = 'Transfência',
+  /* DEPOSIT = 'Deposito',
+  WITHDRAW = 'Saque', */
+  TRANSFER = 'Transfência',
 }
 
-export class Transaction {
+export class TransactionResponse {
   amount: number;
   to: string | null;
   from: string | null;
