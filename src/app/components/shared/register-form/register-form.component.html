@@ -20,9 +20,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-md-2 mb-3">
-                        <label for="DDD">DDD</label>
+                        <label for="DDD" class="form-label">DDD</label>
                         <select class="form-select" formControlName="ddd" id="DDD"
                             [class.is-invalid]="form.get('ddd')?.invalid && (form.get('ddd')?.dirty || form.get('ddd')?.touched)"
                             required>
@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="col-md-10 mb-3">
-                        <label for="phone" class="form-label">Telefone</label>
+                        <label for="phone" class="form-label">Telefone (Apenas números)</label>
                         <input type="text" class="form-control" id="phone" formControlName="phone"
                             placeholder="Digite aqui seu telefone."
                             [class.is-invalid]="form.get('phone')?.invalid && (form.get('phone')?.dirty || form.get('phone')?.touched)"
@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="email">Email</label>
+                    <label for="email" class="form-label">Email</label>
                     <input type="email" id="email" formControlName="email" class="form-control"
                         placeholder="Digite aqui seu email."
                         [class.is-invalid]="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched)"
@@ -95,32 +95,32 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="password" class="form-label">Senha</label>
+                    <label for="password" class="form-label">Senha (Apenas números)</label>
                     <input type="password" class="form-control" formControlName="password" id="password"
-                           placeholder="Crie uma senha."
-                           [class.is-invalid]="form.get('password')?.errors && (form.get('password')?.dirty || form.get('password')?.touched)"
-                           required>
-                   
-                    <div *ngIf="form.get('password')?.errors && (form.get('password')?.dirty || form.get('password')?.touched)">
-                        <div *ngIf="form.get('password')?.errors?.['passwordInvalid']" class="invalid-feedback d-block">
-                            A senha deve conter 6 caracteres numéricos.
-                        </div>
-                        <div *ngIf="form.get('password')?.errors?.['passwordContainsBirthday']" class="invalid-feedback d-block">
-                            A senha não pode conter sua data de aniversário.
-                        </div>
-                        <div *ngIf="form.get('password')?.errors?.['passwordContainsCPF']" class="invalid-feedback d-block">
-                            A senha não pode conter sequências do seu CPF.
-                        </div>
+                        placeholder="Crie uma senha."
+                        [class.is-invalid]="form.errors || (form.get('password')?.invalid && (form.get('password')?.dirty || form.get('password')?.touched))"
+                        required>
+                    <span *ngIf="form.errors?.['passwordEqualsBirthday'] ||form.errors?.['passwordEqualsCPF']"
+                        class="invalid-feedback">
+                        Senha não pode ser igual ao CPF, data de aniversário, ou conter sequências do CPF.
+                    </span>
+
+                    <div *ngIf="form.get('password')?.errors && (form.get('password')?.dirty || form.get('password')?.touched)"
+                        class="invalid-feedback">
+                        <span *ngIf="form.get('password')?.errors?.['passwordInvalid']">
+                            A senha deve ter 6 números.
+                        </span>
+
                     </div>
                 </div>
-                
+
 
 
 
                 <div class="mb-3">
-                    <label for="confirm-password" class="form-label">Confirme sua senha</label>
+                    <label for="confirm-password" class="form-label">Confirme sua senha (Apenas números)</label>
                     <input type="password" class="form-control" formControlName="confirmPassword" id="confirmPassword"
-                        placeholder="Crie uma senha."
+                        placeholder="Confirme sua uma senha."
                         [class.is-invalid]="form.errors?.['passwordMismatch'] && (form.get('confirmPassword')?.dirty || form.get('confirmPassword')?.touched)"
                         required>
 
