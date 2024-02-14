@@ -6,6 +6,4 @@ export type SubsequentFormType = {
     complemento: string,
     bairro: string,
     number: string,
-    password: string,
-    policies: boolean
 }

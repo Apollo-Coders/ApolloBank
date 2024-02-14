@@ -1,10 +1,9 @@
 import { CommonModule, FormStyle } from '@angular/common';
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormTypes } from '../register-form/form-types';
 import { cepValidator } from '../../../utils/validators/checkCEP';
 import { searchCepService } from '../../../services/search-cep.service';
-import { nameValidator } from '../../../utils/validators/checkName';
 
 @Component({
   selector: 'app-subsequent-form',
@@ -21,9 +20,9 @@ export class SubsequentFormComponent {
   ufs: string[] = ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO']
 
   form!: FormGroup;
-  errorMessage: string | null = null;
+  errorMessage: string | null = '';
   searchAttempted: boolean = false;
-
+  @Output() formCompleted = new EventEmitter<void>();
 
   private trimFormValues(formValues: FormTypes): FormTypes {
     const trimmedValues: any = {};
@@ -45,26 +44,27 @@ export class SubsequentFormComponent {
       const formValues: FormTypes = this.form.value;
       const cleanValues = this.trimFormValues(formValues);
       console.log('Form Data: ', cleanValues);
-
+      this.form.reset();
+      this.formCompleted.emit();
     }
   }
   ngOnInit() {
     this.form = this.formBuilder.group({
-      cep: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(8), cepValidator()]),
-      uf: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(2)]),
+      cep: new FormControl('', [Validators.required,Validators.maxLength(10), Validators.minLength(8), cepValidator()]),
+      uf: new FormControl('', [Validators.required, Validators.maxLength(2), Validators.minLength(2)]),
       cidade: new FormControl('', [Validators.required]),
       logradouro: new FormControl('', [Validators.required]),
-      complemento: new FormControl('', [Validators.required]),
+      complemento: new FormControl(''),
       bairro: new FormControl('', [Validators.required]),
       number: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-      policies: new FormControl('', [Validators.required, Validators.requiredTrue]),
+
+
     });
   }
   searchCEP() {
 
     this.searchAttempted = false;
-    this.errorMessage = null;
+    this.errorMessage = '';
 
     const cep = this.form.get('cep')?.value;
     if (cep && cep !== '') {
@@ -76,7 +76,6 @@ export class SubsequentFormComponent {
 
             this.errorMessage = 'CEP não encontrado.';
           } else {
-            console.log(data);
             this.form.patchValue({
               uf: data.uf,
               cidade: data.localidade,
