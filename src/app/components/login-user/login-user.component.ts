@@ -12,5 +12,6 @@ import { LoginFormComponent } from '../shared/login-form/login-form.component';
   styleUrl: './login-user.component.css'
 })
 export class LoginUserComponent {
-
+  navbarButton = 'Abra sua conta';
+  route="/register"
 }

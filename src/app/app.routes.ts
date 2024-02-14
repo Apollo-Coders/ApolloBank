@@ -6,4 +6,5 @@ import { LoginPasswordComponent } from './components/login-password/login-passwo
 export const routes: Routes = [
   { path: 'Login', component: LoginUserComponent },
   { path: 'Password', component: LoginPasswordComponent },
+  
 ];
