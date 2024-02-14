@@ -1,0 +1,53 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+
+}
+
+
+
+.img-home {
+background-image: url("../../../assets/images/image-HomePage.png");
+margin-top: 20px;
+height: 500px;
+background-size: cover;
+background-position: right center;
+
+}
+
+.text {
+ 
+font-family: 'Nasalization';
+font-style: normal;
+font-weight: 400;
+font-size: 0.6rem;
+line-height: 36px;
+display: flex;
+align-items: center;
+text-align: center;
+color: #000000;
+}
+
+
+.button-open{
+
+width: 50%;
+height: 50px;
+background: #F86B02;
+border-radius: 25px;
+display: flex;
+justify-content: center;
+
+}
+
+.btn-default{
+
+color: #FFFFFF;
+font-family: 'Poppins';
+font-weight: 300;
+font-size: 24px;
+line-height: 36px;
+padding: 6px ,6px 6px 6px;
+
+}
