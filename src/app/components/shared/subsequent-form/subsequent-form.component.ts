@@ -1,12 +1,10 @@
 import { CommonModule, FormStyle } from '@angular/common';
-import { Component } from '@angular/core';
-import { Form, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { nameValidator } from '../../../utils/validators/checkName';
-import { SubsequentFormType } from './subsequent-form-types';
-import { phoneValidator } from '../../../utils/validators/checkPhone';
-import { cpfValidator } from '../../../utils/validators/checkCPF';
-import { birthValidator } from '../../../utils/validators/checkBirthday';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormTypes } from '../register-form/form-types';
+import { cepValidator } from '../../../utils/validators/checkCEP';
+import { searchCepService } from '../../../services/search-cep.service';
+import { nameValidator } from '../../../utils/validators/checkName';
 
 @Component({
   selector: 'app-subsequent-form',
@@ -16,10 +14,16 @@ import { FormTypes } from '../register-form/form-types';
   styleUrl: './subsequent-form.component.css'
 })
 export class SubsequentFormComponent {
-  form!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
-  uf: string[] = ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO']
+
+  constructor(private formBuilder: FormBuilder, private cepService: searchCepService, private cdr: ChangeDetectorRef) { }
+
+  ufs: string[] = ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO']
+
+  form!: FormGroup;
+  errorMessage: string | null = null;
+  searchAttempted: boolean = false;
+
 
   private trimFormValues(formValues: FormTypes): FormTypes {
     const trimmedValues: any = {};
@@ -46,14 +50,53 @@ export class SubsequentFormComponent {
   }
   ngOnInit() {
     this.form = this.formBuilder.group({
-      uf: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(2), nameValidator()]),
-      localidade: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]),
-      logradouro: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(9), phoneValidator()]),
-      complemento: new FormControl('', [Validators.required, Validators.email]),
-      bairro: new FormControl('', [Validators.required, Validators.minLength(11), Validators.maxLength(11), cpfValidator()]),
-      senha: new FormControl('', [Validators.required]),
+      cep: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(8), cepValidator()]),
+      uf: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(2)]),
+      cidade: new FormControl('', [Validators.required]),
+      logradouro: new FormControl('', [Validators.required]),
+      complemento: new FormControl('', [Validators.required]),
+      bairro: new FormControl('', [Validators.required]),
+      number: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
+      policies: new FormControl('', [Validators.required, Validators.requiredTrue]),
     });
   }
+  searchCEP() {
 
+    this.searchAttempted = false;
+    this.errorMessage = null;
 
+    const cep = this.form.get('cep')?.value;
+    if (cep && cep !== '') {
+      this.searchAttempted = true;
+      this.cepService.buscarCEP(cep).subscribe({
+        next: (data) => {
+          if (data.erro) {
+            console.log(data.erro);
+
+            this.errorMessage = 'CEP não encontrado.';
+          } else {
+            console.log(data);
+            this.form.patchValue({
+              uf: data.uf,
+              cidade: data.localidade,
+              logradouro: data.logradouro,
+              bairro: data.bairro,
+            });
+          }
+          this.cdr.detectChanges();
+        },
+        error: () => {
+
+          this.errorMessage = 'Erro ao buscar o CEP. Por favor, tente novamente.';
+          this.cdr.detectChanges();
+        }
+      });
+    } else {
+
+      this.errorMessage = 'Formato de CEP inválido.';
+      this.searchAttempted = true;
+    }
+  }
 }
+
