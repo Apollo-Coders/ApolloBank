@@ -1,0 +1,101 @@
+<div class="container mt-5">
+    <section class="row">
+        <div class="col-md-12">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="cep" class="form-label">CEP</label>
+                        <input type="text" class="form-control" formControlName="cep" id="cep"
+                            placeholder="Digite aqui o seu cep."
+                            [class.is-invalid]="form.get('cep')?.invalid && (form.get('cep')?.dirty || form.get('cep')?.touched)"
+                            required>
+                        <div *ngIf="form.get('cep')?.invalid && (form.get('cep')?.dirty || form.get('cep')?.touched)"
+                            class="invalid-feedback">
+                            <!-- Pendente: fazer validação de cep utilizando a API 'ViaCep' -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="uf" class="form-label">UF</label>
+                        <input type="text" class="form-control" formControlName="uf" id="uf"
+                            placeholder="Selecione a sua unidade federativa"
+                            [class.is-invalid]="form.get('uf')?.invalid && (form.get('uf')?.dirty || form.get('uf')?.touched)"
+                            required>
+                        <div *ngIf="form.get('uf')?.invalid && (form.get('uf')?.dirty || form.get('uf')?.touched)"
+                            class="invalid-feedback">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="localidade" class="form-label">Localidade</label>
+                        <input type="text" class="form-control" formControlName="localidade" id="localidade"
+                            placeholder="Digite aqui o nome da localidade."
+                            [class.is-invalid]="form.get('localidade')?.invalid && (form.get('localidade')?.dirty || form.get('localidade')?.touched)"
+                            required>
+                        <div *ngIf="form.get('localidade')?.invalid && (form.get('localidade')?.dirty || form.get('localidade')?.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="form.get('localidade')?.errors?.['nameInvalid']">
+                                <div *ngIf="form.get('localidade')?.errors?.['reason'] === 'Not enough words'">Por
+                                    favor, informe sua localidade.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="logradouro" class="form-label">Logradouro</label>
+                        <input type="text" class="form-control" formControlName="logradouro" id="logradouro"
+                            placeholder="Digite aqui o nome do logradouro."
+                            [class.is-invalid]="form.get('logradouro')?.invalid && (form.get('logradouro')?.dirty || form.get('logradouro')?.touched)"
+                            required>
+                        <div *ngIf="form.get('logradouro')?.invalid && (form.get('logradouro')?.dirty || form.get('logradouro')?.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="form.get('logradouro')?.errors?.['nameInvalid']">
+                                <div *ngIf="form.get('logradouro')?.errors?.['reason'] === 'Not enough words'">Por
+                                    favor, informe o logradouro.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="complemento" class="form-label">Complemento</label>
+                        <input type="text" class="form-control" formControlName="complemento" id="complemento"
+                            placeholder="Digite aqui o complemento do endereço.">
+
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="bairro" class="form-label">Bairro</label>
+                        <input type="text" class="form-control" formControlName="bairro" id="bairro"
+                            placeholder="Digite aqui o nome do bairro."
+                            [class.is-invalid]="form.get('bairro')?.invalid && (form.get('bairro')?.dirty || form.get('bairro')?.touched)"
+                            required>
+                        <div *ngIf="form.get('bairro')?.invalid && (form.get('bairro')?.dirty || form.get('bairro')?.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="form.get('bairro')?.errors?.['nameInvalid']">
+                                <div *ngIf="form.get('bairro')?.errors?.['reason'] === 'Not enough words'">Por
+                                    favor, informe o logradouro.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="validCheck" formControlName="policies"
+                        [class.is-invalid]="form.get('policies')?.invalid && (form.get('policies')?.dirty || form.get('policies')?.touched)"
+                        required>
+                    <label class="form-check-label" for="validCheck">
+                        Concordo com as diretrizes.
+                    </label>
+                    <div *ngIf="form.get('policies')?.invalid && (form.get('policies')?.dirty || form.get('policies')?.touched)"
+                        class="invalid-feedback">
+                        Você deve aceitar as diretrizes para continuar.
+                    </div>
+                </div>
+                <br/>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Continuar</button>
+
+                </div>
+            </form>
+        </div>
+
+    </section>
+</div>
