@@ -7,5 +7,4 @@ export type FormTypes = {
     birthday: string;
     password: number;
     confirmPassword: number;
-    policies: boolean;
 }
