@@ -66,7 +66,6 @@ export class RegisterFormComponent {
       birthday: new FormControl('', [Validators.required, birthValidator()]),
       password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6), passwordValidator()]),
       confirmPassword: new FormControl('', [Validators.required]),
-      policies: new FormControl(false, Validators.requiredTrue)
     }, { validators: [confirmPasswordValidator(), passwordRulesValidator()] });
   }
 
