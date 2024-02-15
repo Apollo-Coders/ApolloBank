@@ -16,10 +16,13 @@ background-position: right center;
 
 }
 
+h3{
+  font-family: "Nasalization";
+}
 
 .text {
  
-font-family: 'Nasalization';
+
 font-style: normal;
 font-weight:400%;
 font-size: 0.1rem;
@@ -44,7 +47,28 @@ display: flex;
 justify-content: center;
 box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 min-width: 300px;
+transition: background-color 0.3s;
 
+}
+
+.button-open:hover {
+  background-color: #f58147; 
+}
+
+.button-open button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: white;
+  font-family: 'Poppins';
+  font-size: 1.0rem;
+  line-height: 20px;
+  padding: 0px 10px;
+  min-width: 300px;
+}
+
+.button-open button:focus {
+  outline: none;
 }
 
 .btn-default{
