@@ -1,9 +1,15 @@
 <div class="section">
     <div class="header row">
-        <span class="col-md-12">Olá, {{user}}
-            <i class="bi bi-chevron-right"></i>
-        </span>
-        <img src="" class="img" alt="">
+        <div class="col-md-12 d-flex justify-content-between">
+            <span>Olá, {{user}}
+                <i class="bi bi-chevron-right"></i>
+            </span>
+            <span>
+                <i class="bi bi-box-arrow-right"></i>
+                Sair
+            </span>
+        </div>
+        <img src="../../assets/perfil.png" class="img" alt="">
         <div class="saldo d-flex flex-column justify-content-end">
             <h1>Saldo:</h1>
             <h2>R$ 1.000,00</h2>
@@ -13,7 +19,7 @@
         <div class="col-md-6 d-flex justify-content-center align-items-center">
             <div class="action d-flex align-items-center">
                 <button class="d-flex flex-column align-items-center">
-                    <i class="bi bi-asterisk"></i>
+                    <i class="bi bi-x-diamond-fill"></i>
                     Pix
                 </button>
                 <button class="d-flex flex-column align-items-center">

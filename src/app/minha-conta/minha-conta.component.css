@@ -26,8 +26,9 @@
 .img{
     height: 100px;
     width: 100px;
+    border: solid 2px #C2620A;
     border-radius: 50%;
-    transform: translate(50%,40%);
+    transform: translate(50%,30%);
     background-color: #9f9f9f;
 }
 
