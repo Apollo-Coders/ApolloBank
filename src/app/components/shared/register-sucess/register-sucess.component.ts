@@ -9,5 +9,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './register-sucess.component.css'
 })
 export class RegisterSucessComponent {
-
+title: string = 'Cadastro realizado com sucesso!';
+paragraph: string = 'Agora você já pode acessar sua conta!';
 }

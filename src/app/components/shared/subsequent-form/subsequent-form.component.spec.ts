@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SubsequentFormComponent } from './subsequent-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('SubsequentFormComponent', () => {
   let component: SubsequentFormComponent;
@@ -8,7 +9,7 @@ describe('SubsequentFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SubsequentFormComponent]
+      imports: [SubsequentFormComponent, HttpClientModule]
     })
     .compileComponents();
     
