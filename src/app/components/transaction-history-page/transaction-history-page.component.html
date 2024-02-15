@@ -1,0 +1,67 @@
+<main>
+  <section>
+    <h2>Histórico de lançamentos</h2>
+
+    <div class="boxes">
+      <button class="box" id="orange-button">último mês</button>
+      <button class="box">últimos 6 meses</button>
+      <button class="box">Todos</button>
+      <button class="box">Selecionar período</button>
+    </div>
+
+    <div class="barra-filter">
+      <input type="text" name="pesquisa" placeholder="Buscar atividade" />
+      <div class="lineBoxes">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+
+        <div class="filter-box"  >
+          <div>
+            <p>Valor</p>
+            <div class="radio-box"><input type="radio" name="valor"/> Crescente</div>
+            <div class="radio-box"><input type="radio" name="valor"/> Decrescente</div>
+          </div>
+
+          <div>
+            <p>Data</p>
+            <div class="radio-box"><input type="radio" /> Crescente</div>
+            <div class="radio-box"><input type="radio" /> Decrescente</div>
+          </div>
+
+          <div>
+            <p>Método</p>
+            <div class="radio-box" *ngFor="let method of paymentMethods" ><input type="checkbox" /> {{method}} </div>
+          </div>
+
+            <div>
+              <button>limpar filtros</button>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="transactions-content">
+      <div *ngFor="let transactionsFromDate of transactionsDisplay$ | async" class="first-content">
+        <p>{{ transactionsFromDate.dataLabel }}</p>
+        <div *ngFor="let transaction of transactionsFromDate.transactions" class="detail-box">
+          <div class="detail-box-left-side">
+            <div class="circle"></div>
+            <div class="two-texts">
+              <p>{{ transaction.description }}</p>
+              <p id="for">{{ transaction.from || transaction.to }}</p>
+            </div>
+          </div>
+          <div class="day-pay">
+            <p> {{transaction.direction}} {{ transaction.amount.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) }}</p>
+            <p id="hour">
+              {{transaction.date.getHours().toString().padStart(2, '0')}}
+              :
+              {{transaction.date.getMinutes().toString().padStart(2, '0')}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
