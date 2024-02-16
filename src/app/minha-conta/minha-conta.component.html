@@ -10,9 +10,13 @@
             </span>
         </div>
         <img src="../../assets/perfil.png" class="img" alt="">
-        <div class="saldo d-flex flex-column justify-content-end">
-            <h1>Saldo:</h1>
-            <h2>R$ 1.000,00</h2>
+        <div class="saldo d-flex flex-column justify-content-center">
+            <h2>Saldo:</h2>
+            <div class="d-flex text-align-center">
+                <h2 class="d-flex align-items-center">R$</h2>
+                <input type="number" value="1000.00" disabled="disabled">
+                <i class="bi bi-eye-slash p-1" (click)="changeViewSaldo()"></i>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -37,20 +41,16 @@
             </div>
         </div>
 
-        <div class="transacoes col-md-6">
-            <h2>Últimas Transações</h2>
+        <div class="transacoes col-md-6 d-flex flex-column align-items-center">
+            <div class="d-flex align-items-center justify-content-evenly">
+                <h2>Últimas Transações</h2>
+                <i class="bi bi-chevron-right"></i>
+            </div>
             <table>
-                <tr>
-                    <td>Compra no mercado</td>
-                    <td>R$ 50,00</td>
-                </tr>
-                <tr>
-                    <td>Transferência para João</td>
-                    <td>R$ 200,00</td>
-                </tr>
-                <tr>
-                    <td>Depósito em dinheiro</td>
-                    <td>R$ 300,00</td>
+                <tr *ngFor="let transacao of transacoes">
+                    <td><i class="bi bi-arrow-bar-{{transacao.tipo}}"></i></td>
+                    <td>{{transacao.nome}}</td>
+                    <td>R$ {{transacao.valor}}</td>
                 </tr>
             </table>
         </div>
@@ -68,7 +68,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="opcoes">
+            <div class="opcoes d-flex flex-column align-items-center">
                 <h2>Acesse as opções</h2>
                 <div class="opcoes-box d-flex flex-column align-items-center justify-content-center p-3 w-75 rounded">
                     <button class="m-2 w-75">
