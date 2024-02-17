@@ -1,11 +1,11 @@
 <div class="container mt-5">
     <section class="row">
         <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
-        
+            <h3 class="text-center mb-5 pt-5">Prepare-se para decolar com o <br /> Apollo Bank</h3>
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8 mb-3">
-                    <label for="cpf" class="form-label">CPF (Apenas números)</label>
+                    <label for="cpf" class="form-label">Digite seu CPF (apenas números)</label>
                     <input type="text" class="form-control" id="cpf" formControlName="cpf" aria-describedby="cpf"
                         placeholder="Digite aqui seu CPF."
                         [class.is-invalid]="form.get('cpf')?.invalid && (form.get('cpf')?.dirty || form.get('cpf')?.touched)"
@@ -24,7 +24,7 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-8 mb-3">
                     <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Continuar</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Login</button>
                     </div>
                 </div>
             </div>
