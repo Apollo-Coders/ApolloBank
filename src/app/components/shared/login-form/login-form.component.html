@@ -1,0 +1,32 @@
+<div class="container mt-5">
+    <section class="row">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 mb-3">
+                    <label for="cpf" class="form-label">CPF (Apenas números)</label>
+                    <input type="text" class="form-control" id="cpf" formControlName="cpf" aria-describedby="cpf"
+                        placeholder="Digite aqui seu CPF."
+                        [class.is-invalid]="form.get('cpf')?.invalid && (form.get('cpf')?.dirty || form.get('cpf')?.touched)"
+                        required>
+                    <div *ngIf="form.get('cpf')?.invalid && (form.get('cpf')?.dirty || form.get('cpf')?.touched)"
+                        class="invalid-feedback">
+                        <span *ngIf="form.get('cpf')?.errors?.['cpfInvalid'] === 'allDigitsEqual'">Todos os dígitos do
+                            CPF não podem ser iguais.</span>
+                        <span *ngIf="form.get('cpf')?.errors?.['cpfInvalid'] === 'invalidLength'">O CPF deve conter
+                            exatamente 11 dígitos.</span>
+                        <span *ngIf="form.get('cpf')?.errors?.['cpfInvalid'] === true">CPF inválido.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 mb-3">
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn custom-btn" [disabled]="form.invalid">Continuar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</div>
