@@ -37,6 +37,11 @@
     --laranja: #F86B02;
     --azul-escuro: #002A84;
     --cinza: #E6E6E6; 
+    
+    html, body {
+      min-height: 100vh;
+      width: 100%;
+    }
   }
   
   * {
@@ -45,7 +50,3 @@
     box-sizing: border-box;
   }
   
-  html, body {
-    min-height: 100vh;
-    width: 100%;
-  }

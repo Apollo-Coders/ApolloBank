@@ -4,6 +4,7 @@ import { LoginPasswordComponent } from './components/login-password/login-passwo
 
 
 export const routes: Routes = [
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'Login', component: LoginUserComponent },
   { path: 'Password', component: LoginPasswordComponent },
   
