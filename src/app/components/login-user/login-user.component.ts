@@ -18,8 +18,8 @@ export class LoginUserComponent {
   route="/register";
   currentForm = 'register';
 
-  FormLogin:boolean= false;
-  FormPassword:boolean= true; 
+  FormLogin:boolean= true;
+  FormPassword:boolean= false; 
 
   switchToSubsequentForm() {
    this.FormLogin = false;

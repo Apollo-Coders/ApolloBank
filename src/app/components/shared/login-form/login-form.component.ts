@@ -44,6 +44,7 @@ export class LoginFormComponent {
     if (this.form.valid) {
       const formValues: string = this.form.value;
       const cleanValues = this.trimFormValues(formValues);
+      // localStorage.getItem('users.cpf');
       console.log('Form Data: ', cleanValues);
       this.form.reset();
       this.formCompleted.emit();

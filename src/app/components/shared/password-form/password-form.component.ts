@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FormGroup, FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 interface IPairPasswordNums {
   fisrtNum: number;
   secondNum: number;
@@ -14,7 +15,7 @@ interface IPairPasswordNums {
   styleUrl: './password-form.component.css'
 })
 export class PasswordFormComponent {
-
+  constructor(private router: Router) {}
 
 
   title = 'testeLogin';
@@ -47,6 +48,8 @@ export class PasswordFormComponent {
   isPasswordCorrect() {
     let isCorrect = true;
 
+   
+
     for (let i = 0; i < 6; i++) {
       const pair = this.passwordInsert[i];
       const passNumPos = parseInt(this.correctPassword[i]);
@@ -57,7 +60,7 @@ export class PasswordFormComponent {
     }
 
     if (isCorrect) {
-      alert('Senha correta!');
+      this.router.navigate(['/home']);
     } else {
       alert('Senha incorreta!');
     }
