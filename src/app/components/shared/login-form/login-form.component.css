@@ -1,3 +1,6 @@
+*{
+  font-family: 'Poppins', sans-serif; 
+}
 ::placeholder {
   color: rgb(89, 85, 85) !important;
   text-align: center;
@@ -6,10 +9,7 @@ h2 {
  
   font-family: 'Nasalization', sans-serif;
 }
-label{
-  font-size: 18px;
-  font-weight: bold;
-}
+
 
 .btn-primary{
   background-color: var(--laranja) !important;

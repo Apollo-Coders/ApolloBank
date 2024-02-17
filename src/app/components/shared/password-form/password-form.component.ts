@@ -34,8 +34,10 @@ export class PasswordFormComponent {
 
   //recebe o valor do botao e adiciona em passwordInsert
   addToPassword(pair: IPairPasswordNums) {
-    this.passwordInsert.push(pair);
-    this.passwordMask += '*';
+    if (this.passwordInsert.length < 6) { // Verifica se já foram inseridos menos de 6 caracteres
+      this.passwordInsert.push(pair);
+      this.passwordMask += '*';
+    }
   }
 
   //funcionalidade do botao de apagar
@@ -89,25 +91,6 @@ export class PasswordFormComponent {
     }
     return nums;
   }
+ 
 
-
-  // @Output() passwordMaskChanged: EventEmitter<string> = new EventEmitter<string>();
-
-  // private _passwordMask: string = '';
-
-  // get passwordMask(): string {
-  //   return this._passwordMask;
-  // }
-
-  // set passwordMask(value: string) {
-  //   this._passwordMask = value;
-  //   this.passwordMaskChanged.emit(value);
-  //}
-
-  @Output() formCompleted = new EventEmitter<void>();
-
-
-    onSubmit() {
-      this.formCompleted.emit();
-  }
 }
