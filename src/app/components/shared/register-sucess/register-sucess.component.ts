@@ -9,6 +9,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './register-sucess.component.css'
 })
 export class RegisterSucessComponent {
-title: string = 'Cadastro realizado com sucesso!';
-paragraph: string = 'Agora você já pode acessar sua conta!';
+title: string = 'Cadastro criado!';
+paragraph: string = 'Faça login na sua conta e desfrute de todos os benefícios e liberdade que o banco Apollo pode te fornecer!';
 }

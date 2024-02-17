@@ -149,10 +149,12 @@
                             confiável e ética no âmbito financeiro.
                         </div>
                         <div class="modal-footer bg-light clearfix">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Eu
-                                concordo com as diretrizes.</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                                (click)="declinePoliciesModal()" data-bs-dismiss="modal">Não concordo.
+                            <button type="button" class="btn custom-btn me-auto" data-bs-dismiss="modal">
+                                Eu concordo com as diretrizes.
+                            </button>
+                            <button type="button" class="btn btn-danger ms-auto" data-bs-dismiss="modal"
+                                (click)="declinePoliciesModal()">
+                                Não concordo.
                             </button>
                         </div>
                     </div>
@@ -175,7 +177,7 @@
             <div class="d-grid gap-2">
                 <button type="submit" class="btn custom-btn" [disabled]="form.invalid">Seja Apollo</button>
                 <button class="btn custom-btn" (click)="goBackClicked()">
-                    <i class="bi bi-arrow-bar-left" ></i>
+                    <i class="bi bi-arrow-bar-left"></i>
                     Voltar
                 </button>
             </div>
