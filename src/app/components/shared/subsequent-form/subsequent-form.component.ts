@@ -7,7 +7,7 @@ import { searchCepService } from '../../../services/search-cep.service';
 import { LocalStorageService } from '../../../services/local-storage.service';
 import * as bootstrap from 'bootstrap';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subscription, take } from 'rxjs';
 import { FormService } from '../../../services/form.service';
 @Component({
   selector: 'app-subsequent-form',
@@ -58,13 +58,20 @@ export class SubsequentFormComponent {
     if (this.form.valid) {
       const formValues: FormTypes = this.form.value;
       const cleanValues = this.trimFormValues(formValues);
-      let user: any;
-      this.formService.getFormData().subscribe(data => {
-        user = data;
-        this.localStorageService.saveUserLocalStorage("UserData", user);
-      });
 
-      this.formCompleted.emit();
+      this.formService.getFormData().pipe(take(1)).subscribe(data => {
+        const completeUser = { ...data, ...cleanValues };
+
+        const userExists = this.localStorageService.checkUserEmailExists(completeUser.email) || this.localStorageService.checkUserCPFExists(completeUser.cpf);
+        if (!userExists) {
+          this.localStorageService.saveUserLocalStorage(completeUser);
+          this.formCompleted.emit(); 
+          this.form.reset(); 
+        } else {
+          
+          console.error('Usuário já existe.');
+        }
+      });
     }
   }
 
@@ -86,7 +93,6 @@ export class SubsequentFormComponent {
       this.formService.setFormData(values);
     });
     this.formService.getFormData().subscribe(data => {
-      console.log(data)
       if (data) {
         this.form.patchValue(data);
       }

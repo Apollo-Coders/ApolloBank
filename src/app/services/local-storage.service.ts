@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { RegisterTypes } from '../types/register-type';
 
 @Injectable({
   providedIn: 'root'
@@ -9,36 +10,34 @@ export class LocalStorageService {
   constructor() { }
 
 
-  saveFirstForm(key: string, value: any): void {
-    localStorage.setItem(key, JSON.stringify(value));
-  }
-
-  retrieveInitialFormRegister(key: string): any {
-    const valueInitialForm = localStorage.getItem(key);
-    return valueInitialForm ? JSON.parse(valueInitialForm) : null;
-
-  }
 
   getRegisteredUsers(): any[] {
     const registeredUsers = localStorage.getItem('users');
     return registeredUsers ? JSON.parse(registeredUsers) : [];
   }
 
-  saveUserLocalStorage(newUser: string, valueUser: any): void {
+  private usersList = this.getRegisteredUsers();
 
-    const usersList = this.getRegisteredUsers() || [];
-    const hasDuplication = usersList.some(user => user && user.value && (user.value.email === valueUser.email || user.value.cpf === valueUser.cpf));
-    if (!hasDuplication) {
-      usersList.push({ newUser, valueUser });
-      localStorage.setItem('users', JSON.stringify(usersList));
-      this.clearFirstFormKey("firstForm");
-    } else {
-      throw new Error('There is already a user with their CPF or email registered.')
-    }
+  checkUserEmailExists(email: string): boolean {
+
+    const userEmailExists = this.usersList.some(user => user.email === email);
+
+
+    return userEmailExists;
+  }
+  checkUserCPFExists(cpf: number): boolean {
+
+    const userCPFExists = this.usersList.some(user => user.cpf === cpf);
+
+
+    return userCPFExists;
+  }
+
+  saveUserLocalStorage(User: RegisterTypes): void {
+
+    this.usersList.push( User );
+    localStorage.setItem('users', JSON.stringify(this.usersList));
 
   }
 
-  clearFirstFormKey(key: string): void {
-    localStorage.removeItem(key);
-  }
 }

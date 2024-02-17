@@ -11,7 +11,7 @@ export function nameValidator(): ValidatorFn {
       return { 'nameInvalid': true, 'reason': 'Not enough words' };
     }
     for (let word of words) {
-      if (word.length < 3) {
+      if (word.length < 2) {
         return { 'nameInvalid': true, 'reason': 'Word too short' };
       }
       if (!validCharsRegex.test(word)) {
