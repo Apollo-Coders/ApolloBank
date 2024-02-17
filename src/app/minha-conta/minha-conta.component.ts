@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { NavbarContaComponent } from '../shared/navbar-conta/navbar-conta.component';
 
 @Component({
   selector: 'app-minha-conta',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NavbarContaComponent],
   templateUrl: './minha-conta.component.html',
   styleUrl: './minha-conta.component.css'
 })
@@ -46,6 +47,8 @@ export class MinhaContaComponent {
     saldo.forEach(s => s.setAttribute("type", `${type}`));
 
   }
+
+  
   getInputWidth(value: number): number {
     const decimalCount = (value.toString()).length;
     const baseWidth = 15;

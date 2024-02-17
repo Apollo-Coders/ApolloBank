@@ -1,28 +1,7 @@
 <div class="section">
-    <div class="header">
-        <div class="d-flex justify-content-between">
-            <span class="header-welcome">Olá, {{user}}
-                <i class="bi bi-chevron-right"></i>
-            </span>
-            <span class="header-logout">
-                <i class="bi bi-box-arrow-right"></i>
-                Sair
-            </span>
-        </div>
-        <div class="info-conta d-flex">
-            <img src="../../assets/perfil.png" class="img" alt="">
-            <div class="saldo d-flex flex-column justify-content-center">
-                <h2>Saldo:</h2>
-                <div class="d-flex text-align-center">
-                    <h2 class="d-flex align-items-center">R$</h2>
-                    <input type="number" class="valor" [style.width.px]="getInputWidth(saldo)" value="{{saldo.toFixed(2)}}" disabled>
-                    <i class="bi bi-eye-slash p-1" (click)="changeViewSaldo()"></i>
-                </div>
-            </div>
-        </div>
-    </div>
+    <app-navbar-conta></app-navbar-conta>
     <div class="row">
-        <div class="col-md-6 d-flex justify-content-center align-items-center">
+        <div class="col-md-6 d-flex justify-content-center align-items-center mt-5">
             <div class="action d-flex align-items-center flex-wrap justify-content-center">
                 <button class="d-flex flex-column align-items-center">
                     <i class="bi bi-x-diamond-fill"></i>

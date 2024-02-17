@@ -1,0 +1,22 @@
+<div class="header">
+    <div class="d-flex justify-content-between">
+        <span class="header-welcome">Olá, {{user}}
+            <i class="bi bi-chevron-right"></i>
+        </span>
+        <span class="header-logout">
+            <i class="bi bi-box-arrow-right"></i>
+            Sair
+        </span>
+    </div>
+    <div class="info-conta d-flex">
+        <img src="../../assets/perfil.png" class="img" alt="">
+        <div class="saldo d-flex flex-column justify-content-center">
+            <h2>Saldo:</h2>
+            <div class="d-flex text-align-center">
+                <h2 class="d-flex align-items-center">R$</h2>
+                <input type="password" class="valor" [style.width.px]="getInputWidth(saldo)" value="{{saldo.toFixed(2)}}" disabled>
+                <i class="bi bi-eye-slash p-1" (click)="changeViewSaldo()"></i>
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,20 +8,12 @@
     border-radius: 10px;
 }
 
-.header {
-    text-align: start;
-    background-color: #002A84;
-    font-size: 14px;
-    border-radius: 0px 0px 40px 40px;
-    padding: 20px 60px;
-    gap: 10%;
-    height: 150px;
-}
 
-.header .saldo h2{
-    font-size: 20px;
-    margin: 0;
-}
+
+
+
+
+
 
 .valor{
     font-size: 20px;
@@ -31,34 +23,8 @@
     border: none;
     text-align: end;
 }
-.header .saldo i{
-    cursor: pointer;
-    font-size: 20px;
-}
-
-.header-logout, .header-welcome{
-    cursor: pointer;
-    padding: 5px;
-    font-size: 18px;
-    border: solid 2px transparent;
-}
-
-.header-logout:hover, .header-welcome:hover{
-    border-color: transparent transparent #fff transparent;
-    transition: 0.5s;
-    scale: 1.1;
-}
 
 
-.info-conta .img{
-    height: 100px;
-    width: 100px;
-    border: solid 2px var(--orange);
-    border-radius: 50%;
-    position: relative;
-    top: 50px;
-    background-color: #9f9f9f;
-}
 
 .action {
     padding: 20px;
@@ -115,6 +81,7 @@
 .transacoes h2 {
     font-size: 20px;
     margin: 0;
+    
 }
 
 .transacoes table {
@@ -164,7 +131,7 @@
 }
 .opcoes h2{
     font-size: 20px;
-    text-align: center;
+    text-align: center;font-weight: 520;
 }
 .opcoes button{
     padding: 10px 20px;
