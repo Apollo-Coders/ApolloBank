@@ -63,7 +63,7 @@
                         placeholder="Digite aqui seu email."
                         [class.is-invalid]="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched) ||form.errors?.['userEmailExists']"
                         required>
-                    <span *ngIf="form.errors?.['userEmailExists']" class="text-danger" >Email já cadastrado.</span>
+                    <span *ngIf="form.errors?.['userEmailExists']" class="text-danger">Email já cadastrado.</span>
                     <div *ngIf="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched) ||form.errors?.['emailExists']"
                         class="invalid-feedback">
                         <div *ngIf="form.get('email')?.errors?.['required']">
@@ -116,10 +116,16 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-8 mb-3">
                     <label for="password" class="form-label">Senha (Apenas números)</label>
-                    <input type="password" class="form-control" formControlName="password" id="password"
-                        placeholder="Crie uma senha."
-                        [class.is-invalid]="form.errors?.['passwordEqualsBirthday'] || (form.get('password')?.invalid && (form.get('password')?.dirty || form.get('password')?.touched))"
-                        required>
+                    <div class="input-group">
+                        <input [type]="showPassword ? 'text' : 'password'" class="form-control"
+                            formControlName="password" id="password" placeholder="Crie uma senha de 6 números."
+                            [class.is-invalid]="form.errors?.['passwordEqualsBirthday'] || (form.get('password')?.invalid && (form.get('password')?.dirty || form.get('password')?.touched))"
+                            required>
+                        <span class="input-group-text">
+                            <i class="bi" [class.bi-eye-fill]="!showPassword" [class.bi-eye-slash-fill]="showPassword"
+                                (click)="showPassword = !showPassword"></i>
+                        </span>
+                    </div>
                     <span *ngIf="form.errors?.['passwordEqualsBirthday'] ||form.errors?.['passwordEqualsCPF']"
                         class="invalid-feedback">
                         Senha não pode ser igual ao CPF, data de aniversário, ou conter sequências do CPF.
@@ -137,10 +143,16 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-8 mb-3">
                     <label for="confirm-password" class="form-label">Confirme sua senha (Apenas números)</label>
-                    <input type="password" class="form-control" formControlName="confirmPassword" id="confirmPassword"
-                        placeholder="Confirme sua uma senha."
-                        [class.is-invalid]="form.errors?.['passwordMismatch'] && (form.get('confirmPassword')?.dirty || form.get('confirmPassword')?.touched)"
-                        required>
+                    <div class="input-group">
+                        <input [type]="showPasswordConfirmation ? 'text' : 'password'" class="form-control" formControlName="confirmPassword"
+                            id="confirmPassword" placeholder="Confirme sua uma senha."
+                            [class.is-invalid]="form.errors?.['passwordMismatch'] && (form.get('confirmPassword')?.dirty || form.get('confirmPassword')?.touched)"
+                            required>
+                        <span class="input-group-text">
+                            <i class="bi" [class.bi-eye-fill]="!showPasswordConfirmation" [class.bi-eye-slash-fill]="showPasswordConfirmation"
+                                (click)="showPasswordConfirmation = !showPasswordConfirmation"></i>
+                        </span>
+                    </div>
                     <div *ngIf="form.errors?.['passwordMismatch'] && (form.get('confirmPassword')?.dirty || form.get('confirmPassword')?.touched)"
                         class="invalid-feedback">
                         As senhas não coincidem.
