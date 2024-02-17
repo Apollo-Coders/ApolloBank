@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { LoginUserComponent } from './components/login-user/login-user.component';
+import { PasswordFormComponent } from './components/shared/password-form/password-form.component';
 
 
 
