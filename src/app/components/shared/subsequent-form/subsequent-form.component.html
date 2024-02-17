@@ -1,0 +1,190 @@
+<div class="container mt-5">
+    <section class="row">
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row mb-3">
+                        <div class="col-md-8">
+                            <label for="cep" class="form-label">CEP (Apenas números)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" formControlName="cep" id="cep"
+                                    placeholder="Digite aqui o seu CEP"
+                                    [class.is-invalid]="form.get('cep')?.invalid && (form.get('cep')?.dirty || form.get('cep')?.touched)"
+                                    required>
+                                <button class="btn btn-outline-primary" type="button" (click)="searchCEP()">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                            <div *ngIf="form.get('cep')?.invalid && (form.get('cep')?.dirty || form.get('cep')?.touched)"
+                                class="invalid-feedback">
+                                Formato de CEP inválido. O CEP deve conter exatamente 8 dígitos numéricos.
+                            </div>
+                            <div *ngIf="errorMessage  && searchAttempted " class="invalid-feedback">
+                                {{ errorMessage }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="uf" class="form-label">UF</label>
+                    <select type="text" class="form-control" formControlName="uf" id="uf"
+                        placeholder="Selecione a sua unidade federativa"
+                        [class.is-invalid]="form.get('uf')?.invalid && (form.get('uf')?.dirty || form.get('uf')?.touched)"
+                        required>
+                        <option value="" selected>Selecione</option>
+                        <option *ngFor="let uf of ufs" [value]="uf">{{uf}}</option>
+                    </select>
+                    <div *ngIf="form.get('uf')?.invalid && (form.get('uf')?.dirty || form.get('uf')?.touched)"
+                        class="invalid-feedback">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label for="logradouro" class="form-label">Logradouro | Rua</label>
+                    <input type="text" class="form-control" formControlName="logradouro" id="logradouro"
+                        placeholder="Digite aqui o nome do logradouro."
+                        [class.is-invalid]="form.get('logradouro')?.invalid && (form.get('logradouro')?.dirty || form.get('logradouro')?.touched)"
+                        required>
+                    <div *ngIf="form.get('logradouro')?.invalid && (form.get('logradouro')?.dirty || form.get('logradouro')?.touched)"
+                        class="invalid-feedback">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="number" class="form-label">Número</label>
+                    <input type="text" class="form-control" formControlName="number" id="number"
+                        placeholder="Digite aqui o número do endereço."
+                        [class.is-invalid]="form.get('number')?.invalid && (form.get('number')?.dirty || form.get('number')?.touched)"
+                        required>
+                    <div *ngIf="form.get('number')?.invalid && (form.get('number')?.dirty || form.get('number')?.touched)"
+                        class="invalid-feedback">
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="cidade" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" formControlName="cidade" id="cidade"
+                        placeholder="Digite aqui o nome da cidade."
+                        [class.is-invalid]="form.get('cidade')?.invalid && (form.get('cidade')?.dirty || form.get('cidade')?.touched)"
+                        required>
+                    <div *ngIf="form.get('localidade')?.invalid && (form.get('cidade')?.dirty || form.get('cidade')?.touched)"
+                        class="invalid-feedback">
+
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="bairro" class="form-label">Bairro</label>
+                    <input type="text" class="form-control" formControlName="bairro" id="bairro"
+                        placeholder="Digite aqui o nome do bairro."
+                        [class.is-invalid]="form.get('bairro')?.invalid && (form.get('bairro')?.dirty || form.get('bairro')?.touched)"
+                        required>
+                    <div *ngIf="form.get('bairro')?.invalid && (form.get('bairro')?.dirty || form.get('bairro')?.touched)"
+                        class="invalid-feedback">
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="complemento" class="form-label">Complemento</label>
+                <input type="text" class="form-control" formControlName="complemento" id="complemento"
+                    placeholder="Digite aqui o complemento do endereço.">
+
+            </div>
+            <div class="modal fade" #RejectPoliciesModal data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Comunicado Apollo Coders <i
+                                    class="bi bi-exclamation-octagon"></i></h1>
+                        </div>
+                        <div class="modal-body">
+                            Compreendemos e respeitamos sua decisão de não concordar com as diretrizes da nossa
+                            empresa, o ApolloBank. Valorizamos a diversidade de opiniões e perspectivas,
+                            reconhecendo que cada indivíduo tem suas próprias crenças e princípios.
+
+                            Embora lamentemos que nossas diretrizes não estejam alinhadas com suas expectativas,
+                            queremos assegurar-lhe que respeitamos sua liberdade de escolha. Acreditamos que o
+                            diálogo aberto e respeitoso é fundamental para o desenvolvimento de uma comunidade
+                            sólida.
+
+                            Caso tenha sugestões construtivas ou preocupações específicas que gostaria de
+                            compartilhar, estamos abertos a ouvir e entender melhor suas perspectivas. Nosso
+                            objetivo é cultivar um ambiente inclusivo e colaborativo, e suas contribuições são
+                            valiosas para o aprimoramento contínuo da nossa empresa.
+
+                            Agradecemos por considerar expressar sua opinião e esperamos que, mesmo discordando das
+                            diretrizes atuais, você encontre um ambiente onde suas preocupações e valores sejam
+                            respeitados.
+
+                            Atenciosamente,
+
+                            Equipe ApolloBank
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" #policiesModal data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Termos e diretrizes</h1>
+                        </div>
+                        <div class="modal-body">
+                            Ao criar uma conta no ApolloBank, você expressa seu compromisso em seguir nossos termos
+                            e diretrizes, assegurando a preservação da segurança, transparência e conformidade com
+                            as normas regulatórias financeiras. Em parceria, estamos edificando uma comunidade
+                            financeira sólida e responsável. Junte-se a nós nessa jornada para estabelecer uma base
+                            confiável e ética no âmbito financeiro.
+                        </div>
+                        <div class="modal-footer bg-light clearfix">
+                            <button type="button" class="btn custom-btn me-auto" data-bs-dismiss="modal">
+                                Eu concordo com as diretrizes.
+                            </button>
+                            <button type="button" class="btn btn-danger ms-auto" data-bs-dismiss="modal"
+                                (click)="declinePoliciesModal()">
+                                Não concordo.
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="validCheck" formControlName="policies"
+                    [class.is-invalid]="form.get('policies')?.invalid && (form.get('policies')?.dirty || form.get('policies')?.touched)"
+                    (change)="openPoliciesModal()" required>
+                <label class="form-check-label" for="validCheck">
+                    Visualizar as diretrizes obrigatórias.
+                </label>
+                <div *ngIf="form.get('policies')?.invalid && (form.get('policies')?.dirty || form.get('policies')?.touched)"
+                    class="invalid-feedback">
+                    Você deve aceitar as diretrizes para continuar.
+                </div>
+            </div>
+
+            <br />
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn custom-btn" [disabled]="form.invalid">Seja Apollo</button>
+                <button class="btn custom-btn" (click)="goBackClicked()">
+                    <i class="bi bi-arrow-bar-left"></i>
+                    Voltar
+                </button>
+            </div>
+
+
+        </form>
+
+
+    </section>
+</div>
