@@ -31,7 +31,7 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-2 mb-3">
                     <label for="DDD" class="form-label">DDD</label>
-                    <select class="form-select" formControlName="ddd" id="DDD"
+                    <select class="form-select" size="1" formControlName="ddd" id="DDD"
                         [class.is-invalid]="form.get('ddd')?.invalid && (form.get('ddd')?.dirty || form.get('ddd')?.touched)"
                         required>
                         <option value="" selected>Selecione</option>
@@ -121,7 +121,6 @@
                         class="invalid-feedback">
                         Senha não pode ser igual ao CPF, data de aniversário, ou conter sequências do CPF.
                     </span>
-
                     <div *ngIf="form.get('password')?.errors && (form.get('password')?.dirty || form.get('password')?.touched)"
                         class="invalid-feedback">
                         <span *ngIf="form.get('password')?.errors?.['passwordInvalid']">
@@ -139,7 +138,6 @@
                         placeholder="Confirme sua uma senha."
                         [class.is-invalid]="form.errors?.['passwordMismatch'] && (form.get('confirmPassword')?.dirty || form.get('confirmPassword')?.touched)"
                         required>
-
                     <div *ngIf="form.errors?.['passwordMismatch'] && (form.get('confirmPassword')?.dirty || form.get('confirmPassword')?.touched)"
                         class="invalid-feedback">
                         As senhas não coincidem.
