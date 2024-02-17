@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { FormTypes } from '../register-form/form-types';
 import { cepValidator } from '../../../utils/validators/checkCEP';
 import { searchCepService } from '../../../services/search-cep.service';
+import { LocalStorageService } from '../../../services/local-storage.service';
 import * as bootstrap from 'bootstrap';
 @Component({
   selector: 'app-subsequent-form',
@@ -14,7 +15,7 @@ import * as bootstrap from 'bootstrap';
 })
 export class SubsequentFormComponent {
 
-  constructor(private formBuilder: FormBuilder, private cepService: searchCepService, private cdr: ChangeDetectorRef) { }
+  constructor(private formBuilder: FormBuilder, private cepService: searchCepService, private cdr: ChangeDetectorRef, private localStorageService: LocalStorageService) { }
 
 
   ufs: string[] = ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO']
@@ -27,6 +28,7 @@ export class SubsequentFormComponent {
 
   private trimFormValues(formValues: FormTypes): FormTypes {
     const trimmedValues: any = {};
+
     (Object.keys(formValues) as Array<keyof FormTypes>).forEach(key => {
       const value = formValues[key];
       if (typeof value === 'string') {
@@ -45,6 +47,14 @@ export class SubsequentFormComponent {
       const formValues: FormTypes = this.form.value;
       const cleanValues = this.trimFormValues(formValues);
       console.log('Form Data: ', cleanValues);
+
+      const retrieveDataFirstForm = this.localStorageService.retrieveInitialFormRegister("firstForm");
+      if (retrieveDataFirstForm) {
+        const completeUser = { ...retrieveDataFirstForm, ...cleanValues };
+        alert(completeUser.email);
+        this.localStorageService.saveUserLocalStorage("UserData", completeUser);
+      }
+
       this.form.reset();
       this.formCompleted.emit();
     }
@@ -97,6 +107,7 @@ export class SubsequentFormComponent {
       this.searchAttempted = true;
     }
   }
+
   @ViewChild('policiesModal') policiesModal!: ElementRef;
   @ViewChild('RejectPoliciesModal') rejectPoliciesModal!: ElementRef;
 
