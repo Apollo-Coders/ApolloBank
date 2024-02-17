@@ -9,6 +9,7 @@ import { birthValidator } from '../../../utils/validators/checkBirthday';
 import { passwordValidator } from '../../../utils/validators/checkPassword';
 import { confirmPasswordValidator } from '../../../utils/validators/checkConfirmPassword';
 import { passwordRulesValidator } from '../../../utils/validators/checkPasswordRules';
+import { LocalStorageService } from '../../../services/local-storage.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ import { passwordRulesValidator } from '../../../utils/validators/checkPasswordR
   styleUrl: './register-form.component.css'
 })
 export class RegisterFormComponent {
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private localStorageService : LocalStorageService) { }
   form!: FormGroup;
   errorMessage: string | null = '';
 
@@ -50,6 +51,7 @@ export class RegisterFormComponent {
       const formValues: FormTypes = this.form.value;
       const cleanValues = this.trimFormValues(formValues);
       console.log('Form Data: ', cleanValues);
+      this.localStorageService.saveFirstForm("firstForm", cleanValues);
       this.form.reset();
       this.formCompleted.emit();
       
