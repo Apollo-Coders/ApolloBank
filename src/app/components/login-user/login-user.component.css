@@ -41,6 +41,7 @@
         z-index: 1;
         color: #fff;
         width: 100vw;
+        font-weight: bold;
     }
     .form-right{margin-top: 90px;}
 }

@@ -6,7 +6,7 @@
         <app-navbar [navbarButton]="navbarButton" [navButtonRoute]="route"></app-navbar>
        
         <div class="form-right">
-            <app-login-form  *ngIf="FormLogin"  (formCompleted)="switchToSubsequentForm()" ></app-login-form>
+            <app-login-form  *ngIf="FormLogin"  (formCompleted)="switchToSubsequentForm()"></app-login-form>
             <app-password-form  *ngIf="FormPassword"></app-password-form>
         </div>
     </div>
