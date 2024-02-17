@@ -6,12 +6,12 @@ import { BehaviorSubject, distinctUntilChanged, take } from 'rxjs';
 export class FormService {
   private formData = new BehaviorSubject<any>(null);
 
- 
+
 
   setFormData(data: any) {
     this.formData.pipe(take(1)).subscribe(currentData => {
       const combinedData = { ...currentData, ...data };
-      this.formData.next(combinedData);    
+      this.formData.next(combinedData);
     });
   }
 
@@ -20,5 +20,8 @@ export class FormService {
     return this.formData.asObservable().pipe(
       distinctUntilChanged((prev, curr) => JSON.stringify(prev) === JSON.stringify(curr)),
     );
+  }
+  clearFormData() {
+    this.formData.next(null);
   }
 }

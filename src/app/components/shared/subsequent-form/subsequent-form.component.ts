@@ -9,6 +9,7 @@ import * as bootstrap from 'bootstrap';
 import { Router } from '@angular/router';
 import { Subscription, take } from 'rxjs';
 import { FormService } from '../../../services/form.service';
+import { data } from 'autoprefixer';
 @Component({
   selector: 'app-subsequent-form',
   standalone: true,
@@ -60,18 +61,21 @@ export class SubsequentFormComponent {
       const cleanValues = this.trimFormValues(formValues);
 
       this.formService.getFormData().pipe(take(1)).subscribe(data => {
+
         const completeUser = { ...data, ...cleanValues };
 
         const userExists = this.localStorageService.checkUserEmailExists(completeUser.email) || this.localStorageService.checkUserCPFExists(completeUser.cpf);
         if (!userExists) {
           this.localStorageService.saveUserLocalStorage(completeUser);
-          this.formCompleted.emit(); 
-          this.form.reset(); 
+          this.formCompleted.emit();
+          this.form.reset();
         } else {
-          
+
           console.error('Usuário já existe.');
         }
       });
+      this.formService.clearFormData();
+
     }
   }
 
