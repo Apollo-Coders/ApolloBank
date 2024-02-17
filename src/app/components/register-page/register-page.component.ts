@@ -24,4 +24,7 @@ export class RegisterPageComponent {
   switchToSuccess(){
     this.currentForm = 'success';
   }
+  switchToFirst(){
+    this.currentForm = 'register';
+  }
 }

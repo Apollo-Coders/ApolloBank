@@ -1,11 +1,14 @@
-import { CommonModule, FormStyle } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { CommonModule, Location } from '@angular/common';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormTypes } from '../register-form/form-types';
 import { cepValidator } from '../../../utils/validators/checkCEP';
 import { searchCepService } from '../../../services/search-cep.service';
 import { LocalStorageService } from '../../../services/local-storage.service';
 import * as bootstrap from 'bootstrap';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { FormService } from '../../../services/form.service';
 @Component({
   selector: 'app-subsequent-form',
   standalone: true,
@@ -14,8 +17,13 @@ import * as bootstrap from 'bootstrap';
   styleUrl: './subsequent-form.component.css'
 })
 export class SubsequentFormComponent {
+  formSubscription: Subscription | undefined;
 
-  constructor(private formBuilder: FormBuilder, private cepService: searchCepService, private cdr: ChangeDetectorRef, private localStorageService: LocalStorageService) { }
+
+  constructor(private formBuilder: FormBuilder, private cepService: searchCepService, private cdr: ChangeDetectorRef, private localStorageService: LocalStorageService, private router: Router, private formService: FormService) {
+
+  }
+
 
 
   ufs: string[] = ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO']
@@ -25,6 +33,10 @@ export class SubsequentFormComponent {
   errorMessage: string | null = '';
   searchAttempted: boolean = false;
   @Output() formCompleted = new EventEmitter<void>();
+  @Output() goBack = new EventEmitter<void>();
+  goBackClicked() {
+    this.goBack.emit();
+  }
 
   private trimFormValues(formValues: FormTypes): FormTypes {
     const trimmedValues: any = {};
@@ -46,19 +58,18 @@ export class SubsequentFormComponent {
     if (this.form.valid) {
       const formValues: FormTypes = this.form.value;
       const cleanValues = this.trimFormValues(formValues);
-      console.log('Form Data: ', cleanValues);
+      let user: any;
+      this.formService.getFormData().subscribe(data => {
+        user = data;
+        this.localStorageService.saveUserLocalStorage("UserData", user);
+      });
 
-      const retrieveDataFirstForm = this.localStorageService.retrieveInitialFormRegister("firstForm");
-      if (retrieveDataFirstForm) {
-        const completeUser = { ...retrieveDataFirstForm, ...cleanValues };
-        alert(completeUser.email);
-        this.localStorageService.saveUserLocalStorage("UserData", completeUser);
-      }
-
-      this.form.reset();
       this.formCompleted.emit();
     }
   }
+
+
+
   ngOnInit() {
     this.form = this.formBuilder.group({
       cep: new FormControl('', [Validators.required, Validators.maxLength(10), Validators.minLength(8), cepValidator()]),
@@ -70,7 +81,20 @@ export class SubsequentFormComponent {
       number: new FormControl('', [Validators.required]),
       policies: new FormControl(false, Validators.requiredTrue)
     });
+
+    this.formSubscription = this.form.valueChanges.subscribe(values => {
+      this.formService.setFormData(values);
+    });
+    this.formService.getFormData().subscribe(data => {
+      console.log(data)
+      if (data) {
+        this.form.patchValue(data);
+      }
+    });
+
+
   }
+
   searchCEP() {
 
     this.searchAttempted = false;
@@ -82,8 +106,6 @@ export class SubsequentFormComponent {
       this.cepService.buscarCEP(cep).subscribe({
         next: (data) => {
           if (data.erro) {
-            console.log(data.erro);
-
             this.errorMessage = 'CEP não encontrado.';
           } else {
             this.form.patchValue({
@@ -122,5 +144,6 @@ export class SubsequentFormComponent {
     RejectModal.show();
     this.form.get('policies')?.setValue(false);
   }
+
 }
 
