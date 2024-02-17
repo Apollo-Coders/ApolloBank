@@ -1,5 +1,5 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-minha-conta',
@@ -10,6 +10,9 @@ import {CommonModule} from '@angular/common';
 })
 export class MinhaContaComponent {
   user = 'Usuário';
+  saldo: number = 100;
+  fatura: number = 500;
+  limite:number = 2000;
   transacoes = [{
     tipo: "down",
     nome: "Compra no mercado",
@@ -28,11 +31,11 @@ export class MinhaContaComponent {
   ];
 
   changeViewSaldo() {
-    var saldo = document.querySelector('.saldo input');
+    var saldo = document.querySelectorAll('.valor');
     var btnchange = document.querySelector('.saldo .bi');
-    console.log(btnchange);
 
-    var type = saldo?.getAttribute("type");
+    var type = saldo[0]?.getAttribute("type");
+    //verifica se o tipo do input é number e troca pra password caso seja, trocando também o icone
     if (type == "number") {
       type = "password";
       btnchange?.classList.replace("bi-eye-slash", "bi-eye");
@@ -40,7 +43,13 @@ export class MinhaContaComponent {
       type = "number";
       btnchange?.classList.replace("bi-eye", "bi-eye-slash");
     }
-    saldo?.setAttribute("type", `${type}`);
+    saldo.forEach(s => s.setAttribute("type", `${type}`));
 
+  }
+  getInputWidth(value: number): number {
+    const decimalCount = (value.toString()).length;
+    const baseWidth = 15;
+    // Aumentar o tamanho do campo de entrada com base no número de casas decimais
+    return baseWidth * decimalCount + 60;
   }
 }

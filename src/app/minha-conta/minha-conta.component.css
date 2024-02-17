@@ -8,7 +8,6 @@
     background-color: #002A84;
     font-size: 14px;
     border-radius: 0px 0px 40px 40px;
-    margin-bottom: 20px;
     padding: 20px 60px;
     gap: 10%;
     height: 150px;
@@ -19,30 +18,47 @@
     margin: 0;
 }
 
-.header .saldo input{
+.valor{
     font-size: 20px;
     font-weight: 900;
-    background-color: #002A84;
+    background-color: transparent;
     color: #fff;
     border: none;
     text-align: end;
-    width: 40%;
+}
+.header .saldo i{
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.header-logout, .header-welcome{
+    cursor: pointer;
+    padding: 5px;
+    font-size: 18px;
+    border: solid 2px transparent;
+}
+
+.header-logout:hover, .header-welcome:hover{
+    border-color: transparent transparent #fff transparent;
+    transition: 0.5s;
+    scale: 1.1;
 }
 
 
-.img{
+.info-conta .img{
     height: 100px;
     width: 100px;
-    border: solid 2px #C2620A;
+    border: solid 2px var(--orange);
     border-radius: 50%;
-    transform: translate(50%,30%);
+    position: relative;
+    top: 50px;
     background-color: #9f9f9f;
 }
 
 .action {
     padding: 20px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -72,13 +88,32 @@
     color: #000;
 }
 
+.transacoes .transacoes-view{
+    background-color: var(--blue);
+    color: #fff;
+    padding: 5px;
+    border: solid 2px transparent;
+    cursor: pointer;
+}
+
+.transacoes .transacoes-view:hover i {
+    scale: 1.5;
+    transition: 0.3s;
+    color: var(--orange);
+}
+
+.transacoes-view:hover h2{
+    color: var(--orange);
+    transition: 0.3s;
+}
+
 .transacoes h2 {
     font-size: 20px;
-    margin-bottom: 10px;
+    margin: 0;
 }
 
 .transacoes table {
-    width: 80%;
+    width: 75%;
     border-collapse: collapse;
 }
 
@@ -107,7 +142,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 10px;
-    background: linear-gradient(45deg, blue, #C2620A);
+    background: linear-gradient(45deg, var(--blue), #C2620A);
     opacity: 0.9;
 }
 
@@ -129,9 +164,28 @@
 .opcoes button{
     padding: 10px 20px;
     border: none;
+    display: flex;
+    justify-content: space-between;
     border-radius: 5px;
     margin-right: 10px;
     background-color: #fff;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.opcoes button:hover span{
+    color: var(--orange);
+}
+.opcoes button:hover i{
+    scale: 1.5;
+    color: var(--orange);
+}
+.opcoes button span{
+    color: #002A84;
+}
+
+
+@media (max-width: 770px){
+    .header{
+        margin-bottom: 50px;
+    }
 }
