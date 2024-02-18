@@ -1,5 +1,5 @@
 *{
-  margin:0;
+  margin: 0;
   padding:0;
   box-sizing: border-box;
   font-family: 'Poppins';
@@ -10,7 +10,9 @@ background-image: url("../../../assets/images/image-HomePage.png");
 margin-top: 20px;
 height: 500px;
 background-size: cover;
-background-position: right center;
+background-position: center;
+
+
 }
 
 h3{
@@ -64,8 +66,8 @@ min-width: 300px;
 }
 
 .photocard{  
-  width: 430px;
-  height: 400px;
+  width: 480px;
+  height: 380px;
   
 }
 .h2{
@@ -106,6 +108,8 @@ color: #002A84;
 }
 
 
+
+
 @media  (min-width: 810px) and (max-width: 1148px){
 
   .main-container h2{
@@ -123,6 +127,14 @@ color: #002A84;
 
 
 }
+
+
+
+ 
+
+
+
+
 
 
 @media (min-width: 521px) and (max-width:810px){
@@ -144,6 +156,57 @@ color: #002A84;
  .traveling{
   padding: 0;
  }
+
+.photocard{
+  width: 250px;
+  height: 250px;
+  margin-left: 20px;
+}
+
+.section-one{
+  height: 60vW;
+  gap: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.container-texts h2{
+  text-align: center;
+}
+
+.container-texts p{
+  text-align: center;
+}
+
+}
+
+
+
+@media(min-width: 810px) and (max-width: 1174px){
+
+
+.section-one{
+  height: 50vW;
+  gap: 10px;
+  padding: 20px;
+}
+
+
+.photocard{
+  width: 370px;
+  height: 250px;
+}
+
+.container-texts h2{
+  font-size: 1.6rem;
+  text-align: center;
+
+}
+
+.container-texts p{
+  text-align: center;
+}
+
 
 
 
@@ -171,8 +234,40 @@ color: #002A84;
   .main-container{
     display: flex;
     flex-direction: column;
+   
   }
+
+  .section-one{
+    flex-direction: column;
+    height: 80vW;
+    gap: 15px;
+  }
+
+  .photocard{
+    width: 200px;
+    height: 150px;
+  }
+
+  .container-texts{
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .container-texts h2 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .container-texts p{
+    font-size: 0.9rem;
+    padding-left: 10px;
+    text-align: center;
+  }
+
+  
 
 
 
 }
+
