@@ -1,9 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { RegisterPageComponent } from './register-page.component';
 import { ActivatedRoute } from '@angular/router';
 import { NavbarComponent } from '../shared/navbar/navbar.component';
 import { By } from '@angular/platform-browser';
+import { RegisterFormComponent } from '../shared/register-form/register-form.component';
+import { SubsequentFormComponent } from '../shared/subsequent-form/subsequent-form.component';
 
 describe('RegisterPageComponent', () => {
   let component: RegisterPageComponent;
@@ -19,7 +21,7 @@ describe('RegisterPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RegisterPageComponent, NavbarComponent],
+      imports: [RegisterPageComponent, NavbarComponent, RouterTestingModule],
       providers: [
         { provide: ActivatedRoute, useValue: activatedRouteStub }
       ]
@@ -65,6 +67,22 @@ describe('RegisterPageComponent', () => {
 
   it('should start with the register form', () => {
     expect(component.currentForm).toBe('register');
+  });
+
+  it('should pass navbarButton and route to the navbar component', () => {
+    const navbarComponentDE = fixture.debugElement.query(By.directive(NavbarComponent));
+    const navbarComponentInstance = navbarComponentDE.componentInstance as NavbarComponent;
+
+    expect(navbarComponentInstance.navbarButton).toEqual(component.navbarButton);
+    expect(navbarComponentInstance.navButtonRoute).toEqual(component.route);
+  });
+  
+  it('should only display register form when currentForm is "register"', () => {
+    const registerFormDE = fixture.debugElement.query(By.directive(RegisterFormComponent));
+    expect(registerFormDE).not.toBeNull();
+  
+    const subsequentFormDE = fixture.debugElement.query(By.directive(SubsequentFormComponent));
+    expect(subsequentFormDE).toBeNull();
   });
   
 
