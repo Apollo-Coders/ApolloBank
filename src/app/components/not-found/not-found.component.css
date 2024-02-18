@@ -1,0 +1,29 @@
+.background-cover {
+    position: relative;
+    height: 100vh;
+    
+}
+.info{
+    color: var(--cinza);
+    position: absolute;
+}
+
+.background-cover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../../../assets/images/astronaut.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9;
+
+}
+
+button {
+    background-color: var(--azul-escuro);
+    color: var(--cinza);
+}

@@ -5,6 +5,9 @@
     font-weight: bold;
 }
 
-span {
-    font-size: 0.875em;
+p {
+    font-family: 'Poppins', sans-serif;
+}
+h3{
+    font-family: 'Nasalization', sans-serif;
 }

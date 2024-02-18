@@ -1,0 +1,6 @@
+.custom-btn {
+    background-color: var(--cinza);
+    color: var(--azul-escuro);
+    border: none;
+    font-weight: bold;
+}
