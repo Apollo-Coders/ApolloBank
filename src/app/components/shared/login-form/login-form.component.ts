@@ -65,10 +65,15 @@ export class LoginFormComponent {
     return (control: AbstractControl): ValidationErrors | null => {
       const cpf = control.value;
       const cpfAsNumber = Number(cpf);
-      const cpftest = this.localStorageService.checkUserCPFExists(cpfAsNumber);
-      if (!cpftest) {
+      if (!cpf) {
+        return null;
+    }
+    
+      const userDoesNotExist = cpf ? !this.localStorageService.checkUserCPFExists(cpf) : true;
+      if (userDoesNotExist) {
         return {cpfInvalid: 'DoesNotExist' };
       }
+
       return null;
     };
   }
