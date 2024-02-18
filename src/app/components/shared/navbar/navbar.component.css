@@ -13,8 +13,9 @@ a {
 
 
 .header-nav {
-    padding: 30px 15px;
+    padding: 0px 15px;
     color: var(--azul-escuro);
+    
 }
 
 .header-nav .logo {
@@ -74,6 +75,9 @@ a {
     left: 15px;
     transition: 0.5s ease-in-out;
 }
+
+
+
 
 .header-nav .hamburguer:before,
 .header-nav .hamburguer:after {
