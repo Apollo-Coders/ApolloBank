@@ -11,8 +11,8 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-
   isCollapsed = true;
   @Input() navbarButton = '';
   @Input() navButtonRoute: string = '';
+
 }
