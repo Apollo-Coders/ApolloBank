@@ -40,4 +40,9 @@ export class LocalStorageService {
 
   }
 
+  logadeUserLocalStorage(User: any): void {
+    this.usersList.push( User );
+    localStorage.setItem('users', JSON.stringify(this.usersList));
+  }
+
 }

@@ -50,10 +50,6 @@ export class LoginFormComponent {
     if (this.form.valid) {
       const formValues: string = this.form.value;
       const cleanValues = this.trimFormValues(formValues);
-     
-     
-     
-     
       console.log('Form Data: ', cleanValues);
       this.form.reset();
       this.formCompleted.emit();
@@ -68,12 +64,10 @@ export class LoginFormComponent {
       if (!cpf) {
         return null;
     }
-    
       const userDoesNotExist = cpf ? !this.localStorageService.checkUserCPFExists(cpf) : true;
       if (userDoesNotExist) {
         return {cpfInvalid: 'DoesNotExist' };
       }
-
       return null;
     };
   }
