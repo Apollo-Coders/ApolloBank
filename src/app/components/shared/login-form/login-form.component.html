@@ -17,6 +17,7 @@
                         <span *ngIf="form.get('cpf')?.errors?.['cpfInvalid'] === 'invalidLength'">O CPF deve conter
                             exatamente 11 dígitos.</span>
                         <span *ngIf="form.get('cpf')?.errors?.['cpfInvalid'] === true">CPF inválido.</span>
+                        <span *ngIf="form.get('cpf')?.errors?.['cpfInvalid'] === 'DoesNotExist'">O CPF informado não está cadastrado em nosso sistema. Por favor, verifique e tente novamente.</span>
                     </div>
                 </div>
             </div>
