@@ -175,11 +175,14 @@
 
             <br />
             <div class="d-grid gap-2">
-                <button type="submit" class="btn custom-btn" [disabled]="form.invalid">Seja Apollo</button>
-                <button class="btn custom-btn" (click)="goBackClicked()">
-                    <i class="bi bi-arrow-bar-left"></i>
-                    Voltar
-                </button>
+                <div class="align-btns col-md-12 mb-2 mx-auto">
+                    <button class="col-md-6 btn custom-btn mb-2" (click)="goBackClicked()">
+                        <i class="bi bi-arrow-bar-left"></i>
+                        Voltar
+                    </button>
+                    <button type="submit" class=" col-md-6 btn custom-btn mb-2 mr-2" [disabled]="form.invalid">Seja Apollo</button>
+                </div>
+                
             </div>
 
 
