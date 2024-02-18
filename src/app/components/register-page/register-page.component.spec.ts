@@ -84,6 +84,20 @@ describe('RegisterPageComponent', () => {
     const subsequentFormDE = fixture.debugElement.query(By.directive(SubsequentFormComponent));
     expect(subsequentFormDE).toBeNull();
   });
+
+  it('should render navbar component', () => {
+    const fixture = TestBed.createComponent(RegisterPageComponent);
+    fixture.detectChanges();
+    const navbar = fixture.debugElement.query(By.directive(NavbarComponent));
+    expect(navbar).not.toBeNull();
+  });
+  
+  it('should render register form component initially', () => {
+    const fixture = TestBed.createComponent(RegisterPageComponent);
+    fixture.detectChanges();
+    const registerForm = fixture.debugElement.query(By.directive(RegisterFormComponent));
+    expect(registerForm).not.toBeNull();
+  });
   
 
 });
