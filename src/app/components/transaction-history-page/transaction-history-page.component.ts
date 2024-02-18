@@ -12,6 +12,7 @@ import { ITransactionDisplay } from '../../utils/transactionToDisplay';
   styleUrl: './transaction-history-page.component.css',
 })
 export class TransactionHistoryPageComponent implements OnInit {
+  filterOpen = true;
   paymentMethods = ['PIX', 'Transferência', 'Crédito'];
   transactionsDisplay$: Observable<ITransactionDisplay[]> = new Observable<
     ITransactionDisplay[]
@@ -19,9 +20,13 @@ export class TransactionHistoryPageComponent implements OnInit {
 
   constructor(private transactionsService: TransactionsService) {}
 
+  toggleFilter() {
+    this.filterOpen = !this.filterOpen;
+  }
+
   async ngOnInit() {
     this.transactionsService.setMockTransactions();
     this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
-    console.log(this.transactionsDisplay$);
+    this.transactionsDisplay$.subscribe((d) => console.log(d));
   }
 }

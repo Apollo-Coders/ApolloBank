@@ -64,9 +64,17 @@ export class TransactionsService {
   }
 
   private parseTransactionType(transactionTypeString: string): TransactionType {
-    return TransactionType[
+    if (transactionTypeString === 'Pix') {
+      return TransactionType.PIX;
+    } else if (transactionTypeString === 'Crédito') {
+      return TransactionType.CREDIT;
+    } else {
+      //(transactionTypeString === 'Transferência')
+      return TransactionType.TRANSFER;
+    }
+    /* return TransactionType[
       transactionTypeString as keyof typeof TransactionType
-    ];
+    ]; */
   }
 }
 
@@ -113,8 +121,8 @@ const transacionsJSON = [
     to: 'Mia',
     from: null,
     date: '2024-01-01T06:17:29.516Z',
-    description: 'Para Mia',
-    transactionType: 'Transfência',
+    description: 'Pix para Mia',
+    transactionType: 'Pix',
   },
   {
     amount: 211.337,
@@ -158,8 +166,8 @@ const transacionsJSON = [
     to: 'Olivia',
     from: null,
     date: '2023-01-21T16:05:52.072Z',
-    description: 'Para Olivia',
-    transactionType: 'Transfência',
+    description: 'Pix para Olivia',
+    transactionType: 'Pix',
   },
   {
     amount: 934.883,

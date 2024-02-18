@@ -1,7 +1,7 @@
 export enum TransactionType {
-  /* DEPOSIT = 'Deposito',
-  WITHDRAW = 'Saque', */
-  TRANSFER = 'Transfência',
+  PIX = 'Pix',
+  CREDIT = 'Crédito',
+  TRANSFER = 'Transferência',
 }
 
 export class Transaction {

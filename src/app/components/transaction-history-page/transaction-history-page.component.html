@@ -13,7 +13,7 @@
 
 
     <div class="transactions-content">
-      
+
       <div class="barra-filter">
         <form class="filter">
           <input type="text" name="pesquisa" class="form-control" placeholder="Buscar atividade"/>
@@ -24,17 +24,16 @@
           </button>
         </form>
 
-        <div class="lineBoxes">
+        <button (click)="toggleFilter()" class="lineBoxes">
           <div class="line1"></div>
           <div class="line2"></div>
           <div class="line3"></div>
-        </div>
-        
+        </button>
+
       </div>
-      
+
       <div class="row">
-        
-        <div class="col-lg-3 col-md-4 order-md-2">
+        <div *ngIf="filterOpen" class="col-lg-3 col-md-4 order-md-2">
           <div class="sidebar">
             <div class="filter-box">
               <div>
@@ -45,16 +44,16 @@
                 </div>
               </div>
             </div>
-          </div><!--sidebar-->
-        </div><!--col-->
+          </div><!-- sidebar -->
+        </div><!-- col -->
 
-        <div class="col-lg-9 col-md-8 order-md-1">
+        <div [ngClass]="{'col-lg-12': !filterOpen}" class="col-lg-9 col-md-8 order-md-1">
           <div *ngFor="let transactionsFromDate of transactionsDisplay$ | async" class="first-content">
             <p>{{ transactionsFromDate.dataLabel }}</p>
             <div *ngFor="let transaction of transactionsFromDate.transactions" class="detail-box">
               <div class="detail-box-left-side">
                 <div class="circle">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-diamond-fill" viewBox="0 0 16 16">
+                  <svg *ngIf="transaction.transactionType === 'Pix'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-diamond-fill" viewBox="0 0 16 16">
                     <path d="M9.05.435c-.58-.58-1.52-.58-2.1 0L4.047 3.339 8 7.293l3.954-3.954L9.049.435zm3.61 3.611L8.708 8l3.954 3.954 2.904-2.905c.58-.58.58-1.519 0-2.098l-2.904-2.905zm-.706 8.614L8 8.708l-3.954 3.954 2.905 2.904c.58.58 1.519.58 2.098 0l2.905-2.904zm-8.614-.706L7.292 8 3.339 4.046.435 6.951c-.58.58-.58 1.519 0 2.098z"/>
                   </svg>
                 </div>
@@ -74,7 +73,7 @@
             </div>
           </div>
         </div><!--col-->
-        
+
       </div><!-- row -->
     </div>
   </section>

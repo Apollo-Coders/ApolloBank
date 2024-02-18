@@ -34,7 +34,7 @@ margin: 0 auto;
 .boxes{
     width: 100%;
   }
-  
+
   .boxes button {
     background-color: #A5A3A1;
     color: white;
@@ -46,7 +46,7 @@ margin: 0 auto;
     transition: background-color 0.3s;
     width: 100%;
   }
-  
+
   .boxes button:hover {
     background-color: #F86B02;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
@@ -70,7 +70,7 @@ margin: 0 auto;
 #orange-button{
   background-color: #F86B02;
   color: white;
-} 
+}
 
 .barra-filter{
   padding-top: 30px;
@@ -109,7 +109,7 @@ margin: 0 auto;
 .filter-box {
   border-radius: 10px;
   background-color: #E6E6E6;
-  padding: 12px; 
+  padding: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #ccc;
 }
@@ -292,6 +292,10 @@ input[type="text"] {
 @media (max-width: 767px) {
   .sidebar {
     padding-left: 0;
+  }
+
+  .filter-box {
+    margin-bottom: 2rem;
   }
 
   .boxes {
