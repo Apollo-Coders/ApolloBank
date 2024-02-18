@@ -64,28 +64,13 @@ min-width: 300px;
 }
 
 .photocard{  
-  width: 450px;
+  width: 430px;
   height: 400px;
   
 }
 .h2{
 color: #002A84;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -161,6 +146,7 @@ color: #002A84;
  }
 
 
+
 }
 
 @media (min-width: 350px) and (max-width: 521px){
@@ -180,4 +166,13 @@ color: #002A84;
   .traveling{
     padding: 0;
   }
+
+
+  .main-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
 }
