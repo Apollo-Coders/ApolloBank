@@ -3,11 +3,18 @@
     color: #fff;
     border: none;
     font-weight: bold;
+    border-radius: 10px;
+}
+
+.custom-btn:hover{
+    background-color: rgb(240, 127, 62);
 }
 
 p {
     font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
 }
 h3{
     font-family: 'Nasalization', sans-serif;
+    font-size: 2.0rem;
 }
