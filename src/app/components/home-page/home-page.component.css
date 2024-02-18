@@ -2,10 +2,8 @@
   margin:0;
   padding:0;
   box-sizing: border-box;
-
+  font-family: 'Poppins';
 }
-
-
 
 .img-home {
 background-image: url("../../../assets/images/image-HomePage.png");
@@ -13,12 +11,13 @@ margin-top: 20px;
 height: 500px;
 background-size: cover;
 background-position: right center;
-
 }
 
+h3{
+  font-family: 'Nasalization';
+}
 
 .text {
- 
 font-family: 'Nasalization';
 font-style: normal;
 font-weight:400%;
@@ -34,7 +33,6 @@ justify-content: center;
 background-position: left center;
 }
 
-
 .button-open{
 width: 25%;
 height: 50px;
@@ -44,11 +42,9 @@ display: flex;
 justify-content: center;
 box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 min-width: 300px;
-
 }
 
 .btn-default{
-
 color: #FFFFFF;
 font-family: 'Poppins';
 font-weight: 200%;
@@ -57,9 +53,131 @@ line-height: 20px;
 padding: 0px 10px;
 border:none;
 min-width: 300px;
+}
 
+/* sections */ 
+
+.section-one{
+  background-color: #F7F4F4;
+  gap: 50px;
+  height: 35vW;
+}
+
+.photocard{  
+  width: 450px;
+  height: 400px;
+  
+}
+.h2{
+color: #002A84;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.section-two{
+  background-image: url('/assets/images/image2.jpg');
+  height: 35vW;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.traveling{
+ margin-top: 14%;
+ padding-right: 50%;
+ 
+}
+
+.main-container{
+  gap: 5px;
+}
+
+.main-container h2{
+  font-size: 2.2rem;
+  color: white;
+}
+
+.main-container p{
+  font-size: 1.1rem;
+  color: white;
+  font-weight: bold;
+ 
+}
+
+
+@media  (min-width: 810px) and (max-width: 1148px){
+
+  .main-container h2{
+    font-size: 1.8rem;
+  }
+  
+  .main-container p{
+    font-size: 1.0rem;
+  }
+
+  .traveling{
+    margin-right: 35%;
+    padding: 0;
+  }
 
 
 }
 
 
+@media (min-width: 521px) and (max-width:810px){
+
+
+
+ .main-container h2{
+  font-size: 1.6rem;
+ }
+
+ .main-container p{
+  font-size: 0.9rem;
+ }
+
+ .main-container{
+  margin-top: 15%;
+ }
+
+ .traveling{
+  padding: 0;
+ }
+
+
+}
+
+@media (min-width: 350px) and (max-width: 521px){
+  
+  .main-container h2{
+    font-size: 0.9rem;
+  }
+
+  .main-container p{
+    font-size: 0.5rem;
+  }
+
+  .main-container{
+    margin-right: 20%;
+  }
+  
+  .traveling{
+    padding: 0;
+  }
+}
