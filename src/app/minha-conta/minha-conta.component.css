@@ -59,8 +59,22 @@
     color: #000;
 }
 
-.transacoes .transacoes-view{
+.options {
     background-color: var(--blue);
+    color: #fff;
+    padding: 1px;
+    border: solid 2px transparent;
+    cursor: pointer;
+}
+
+.options h2{
+    font-size: 15px;
+    margin-left: 8px;
+    margin-bottom: 3px;
+}
+
+.transacoes .transacoes-view{
+    background-color: var(--orange);
     color: #fff;
     padding: 5px;
     border: solid 2px transparent;
@@ -71,6 +85,7 @@
     scale: 1.5;
     transition: 0.3s;
     color: var(--orange);
+    
 }
 
 .transacoes-view:hover h2{
@@ -79,8 +94,9 @@
 }
 
 .transacoes h2 {
-    font-size: 20px;
+    font-size: 18px;
     margin: 0;
+    margin-left: 8px;
     
 }
 
@@ -113,7 +129,7 @@
     color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 30px;
     background: linear-gradient(45deg, var(--blue), #C2620A);
     opacity: 0.9;
 }
@@ -127,11 +143,13 @@
     color: #000;
 }
 .opcoes-box{
-    background-color: #9f9f9f28;
+    background-color: #b4b4b428;
+    
 }
 .opcoes h2{
     font-size: 20px;
-    text-align: center;font-weight: 520;
+    text-align: center;
+
 }
 .opcoes button{
     padding: 10px 20px;

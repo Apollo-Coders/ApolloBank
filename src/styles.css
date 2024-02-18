@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-<<<<<<< HEAD
+
 
 :root{
     --orange: #C2620A;
@@ -12,7 +12,7 @@ body {
     margin: 0;
     padding: 0;
 }
-=======
+
 /* You can add global styles to this file, and also import other style files */
 @font-face {
     font-family: 'Nasalization';
@@ -66,4 +66,4 @@ body {
     text-decoration: none;
   }
   
->>>>>>> 0bb7f9af98a92393c2345378d5c8d6d74409759c
+
