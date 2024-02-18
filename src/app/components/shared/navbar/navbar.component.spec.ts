@@ -56,13 +56,7 @@ describe('NavbarComponent', () => {
 
   });
 
-  it('navigates to /home when the logo is clicked', () => {
-    const logoLink = fixture.debugElement.nativeElement.querySelector('a[routerLink="/home"]');
-    logoLink.click();
-    fixture.whenStable().then(() => {
-      expect(location.path()).toBe('/home');
-    });
-  });
+
 
   it('should have a link', () => {
     const link = fixture.nativeElement.querySelector('a');
@@ -131,6 +125,13 @@ describe('NavbarComponent', () => {
     expect(navLinks[0].nativeElement.textContent).toContain('Início');
     expect(navLinks[1].nativeElement.textContent).toContain(navbarButton); 
     expect(navLinks[2].nativeElement.textContent).toContain('Ajuda');
+  });
+  it('navigates to /home when the logo is clicked', () => {
+    const logoLink = fixture.debugElement.nativeElement.querySelector('a[routerLink="/home"]');
+    logoLink.click();
+    fixture.whenStable().then(() => {
+      expect(location.path()).toBe('/home');
+    });
   });
  
 
