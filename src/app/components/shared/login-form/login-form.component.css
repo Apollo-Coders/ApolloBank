@@ -1,0 +1,54 @@
+*{
+  font-family: 'Poppins', sans-serif; 
+}
+::placeholder {
+  color: rgb(187, 187, 187) !important;
+  text-align: center;
+}
+h2 {
+ 
+  font-family: 'Nasalization', sans-serif;
+}
+
+h3 {
+ 
+  font-family: 'Nasalization', sans-serif;
+  margin-top: 10%
+  
+}
+
+.forgot-password{
+  text-decoration: underline;
+  font-size: 0.9rem;
+  color: rgb(11, 11, 157);
+  cursor: pointer;
+
+}
+
+
+.btn-primary{
+  background-color: var(--laranja) !important;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+input{
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  padding: 8px;
+  background-color: transparent !important;
+  color: inherit !important; /* Mantém a cor do texto padrão */
+  border-color: #ced4da !important; /* Mantém a cor da borda padrão */
+  margin-top: 20px;
+}
+
+
+.btn-primary{
+  background-color: var(--laranja) !important;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border: none;
+  border-radius: 30px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+ 
+  
+}

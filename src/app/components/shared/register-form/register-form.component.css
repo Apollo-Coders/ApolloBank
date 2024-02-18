@@ -1,0 +1,10 @@
+.custom-btn {
+    background-color: var(--laranja);
+    color: #fff;
+    border: none;
+    font-weight: bold;
+}
+
+span {
+    font-size: 0.875em;
+}
