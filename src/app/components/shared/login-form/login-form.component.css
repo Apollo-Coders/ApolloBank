@@ -1,0 +1,18 @@
+::placeholder {
+  color: rgb(89, 85, 85) !important;
+  text-align: center;
+}
+h2 {
+ 
+  font-family: 'Nasalization', sans-serif;
+}
+label{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn-primary{
+  background-color: var(--laranja) !important;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  border: none;
+}

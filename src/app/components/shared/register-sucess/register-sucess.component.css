@@ -1,0 +1,13 @@
+.custom-btn {
+    background-color: var(--laranja);
+    color: #fff;
+    border: none;
+    font-weight: bold;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+}
+h3{
+    font-family: 'Nasalization', sans-serif;
+}
