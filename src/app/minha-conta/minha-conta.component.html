@@ -41,35 +41,35 @@
                 <div class="fatura col-md-6 text-center">
                     <span>Fatura Atual<br></span>
                     <span>R$</span>
-                    <input type="number" [style.width.px]="getInputWidth(fatura)" class="valor" value="{{fatura.toFixed(2)}}" id="">
+                    <input disabled type="number" [style.width.px]="getInputWidth(fatura)" class="valor"
+                        value="{{fatura.toFixed(2)}}" id="">
                 </div>
                 <div class="limite col-md-6 text-center">
                     <span>Limite Disponível<br></span>
                     <span>R$</span>
-                    <input type="number" [style.width.px]="getInputWidth(limite)" class="valor" value="{{limite.toFixed(2)}}" id="">
+                    <input disabled type="number" [style.width.px]="getInputWidth(limite)" class="valor"
+                        value="{{limite.toFixed(2)}}" id="">
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="opcoes d-flex flex-column align-items-center mb-4">
-                <div class="options d-flex align-items-center justify-content-between w-75">
-                    <h2>Acesse as opções</h2>
+        <div class="col-md-6 opcoes d-flex flex-column align-items-center mb-4">
+            <div class="options d-flex align-items-center justify-content-between w-75">
+                <h2>Acesse as opções</h2>
+                <i class="bi bi-chevron-right"></i>
+            </div>
+            <div class="opcoes-box d-flex flex-column align-items-center justify-content-center p-3 w-75">
+                <button class="m-2 w-75">
+                    <span>Programa de Pontos</span>
                     <i class="bi bi-chevron-right"></i>
-                </div>
-                <div class="opcoes-box d-flex flex-column align-items-center justify-content-center p-3 w-75">
-                    <button class="m-2 w-75">
-                        <span>Programa de Pontos</span>
-                        <i class="bi bi-chevron-right"></i>
-                    </button>
-                    <button class="m-2 w-75">
-                        <span>Crédito Pessoal</span>
-                        <i class="bi bi-chevron-right"></i>
-                    </button>
-                    <button class="m-2 w-75">
-                        <span>Documentos</span>
-                        <i class="bi bi-chevron-right"></i>
-                    </button>
-                </div>
+                </button>
+                <button class="m-2 w-75">
+                    <span>Crédito Pessoal</span>
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+                <button class="m-2 w-75">
+                    <span>Documentos</span>
+                    <i class="bi bi-chevron-right"></i>
+                </button>
             </div>
         </div>
     </div>
