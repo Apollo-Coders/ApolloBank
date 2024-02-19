@@ -26,31 +26,14 @@ export class LoginFormComponent {
 
   form!: FormGroup;
   errorMessage: string | null = '';
-  private trimFormValues(formValues: string): string {
-    const trimmedValues: any = {};
-
-    (Object.keys(formValues) as Array<keyof string>).forEach(key => {
-      const value = formValues[key];
-      if (typeof value === 'string') {
-        trimmedValues[key] = value.trim();
-      } else {
-
-        trimmedValues[key] = value;
-      }
-    });
-
-    return trimmedValues as string;
-  }
-
-
+  
 
   @Output() formCompleted = new EventEmitter<void>();
 
   onSubmit() {
     if (this.form.valid) {
       const formValues: string = this.form.value;
-      const cleanValues = this.trimFormValues(formValues);
-      console.log('Form Data: ', cleanValues);
+     this.formService.setFormData(formValues)    
       this.form.reset();
       this.formCompleted.emit();
     }
