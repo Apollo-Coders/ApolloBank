@@ -15,6 +15,15 @@ export class LocalStorageService {
     const registeredUsers = localStorage.getItem('users');
     return registeredUsers ? JSON.parse(registeredUsers) : [];
   }
+  getNome(cpf: String): any {
+    const user = this.usersList.find(user => user.cpf === cpf);
+    return user.name;
+  }
+  getPassword(cpf: string): any {
+    const user = this.usersList.find(user => user.cpf === cpf);
+    return user.password;
+
+  }
 
   private usersList = this.getRegisteredUsers();
 
@@ -35,9 +44,13 @@ export class LocalStorageService {
 
   saveUserLocalStorage(User: RegisterTypes): void {
 
-    this.usersList.push( User );
+    this.usersList.push(User);
     localStorage.setItem('users', JSON.stringify(this.usersList));
 
+  }
+
+  saveLoggedUserLocalStorage(LoggedUser: any): void {
+    localStorage.setItem('LoggedUser', JSON.stringify(LoggedUser));
   }
 
 }
