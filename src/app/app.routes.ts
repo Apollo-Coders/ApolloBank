@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { LoginUserComponent } from './components/login-user/login-user.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { MinhaContaComponent } from './minha-conta/minha-conta.component';
 
 
 export const routes: Routes = [
@@ -17,11 +18,12 @@ export const routes: Routes = [
         loadComponent: () => import('./components/not-found/not-found.component').then(m => m.NotFoundComponent)
     },
     {
+        path: 'minha-conta', component: MinhaContaComponent
+    },
+    {
         path: '**',
         redirectTo: 'not-found'
     }
 ];
-
-
 
 
