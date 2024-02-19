@@ -63,7 +63,7 @@ export class PasswordFormComponent {
   deleteEntirePassword() {
     this.passwordInsert = [];
     this.passwordMask = '';
-}
+  }
 
   //verifica se a senha está correta
   isPasswordCorrect() {
@@ -82,7 +82,8 @@ export class PasswordFormComponent {
 
     if (isCorrect) {
       this.formService.getFormData().subscribe(formValues => {
-        this.localStorageService.saveLoggedUserLocalStorage(formValues);
+        var Logged = { nome: this.localStorageService.getNome(formValues.cpf), cpf: formValues.cpf };
+        this.localStorageService.saveLoggedUserLocalStorage(Logged);
         this.router.navigate(['/home']);
       });
     } else {

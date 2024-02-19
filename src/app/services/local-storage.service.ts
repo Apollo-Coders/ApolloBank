@@ -15,6 +15,10 @@ export class LocalStorageService {
     const registeredUsers = localStorage.getItem('users');
     return registeredUsers ? JSON.parse(registeredUsers) : [];
   }
+  getNome(cpf: String): any {
+    const user = this.usersList.find(user => user.cpf === cpf);
+    return user.name;
+  }
   getPassword(cpf: string): any {
     const user = this.usersList.find(user => user.cpf === cpf);
     return user.password;
