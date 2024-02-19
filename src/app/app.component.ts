@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-
+<<<<<<< HEAD
 import { RouterOutlet, RouterModule } from '@angular/router';
-import { RegisterPageComponent } from './components/register-page/register-page.component';
-import { LoginUserComponent } from './components/login-user/login-user.component';
 import { Component } from '@angular/core';
-
+=======
+import { RouterOutlet, RouterModule } from '@angular/router';
+import { Component } from '@angular/core';
+>>>>>>> feature/minha-conta
 
 
 
