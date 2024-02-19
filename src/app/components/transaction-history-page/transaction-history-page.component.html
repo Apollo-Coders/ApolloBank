@@ -4,10 +4,10 @@
 
     <div class="boxes">
       <div class="row">
-        <div class="col-md-3 col-6"><button class="box">Último mês</button></div>
-        <div class="col-md-3 col-6"><button class="box">Últimos 6 meses</button></div>
-        <div class="col-md-3 col-6"><button class="box">Todos</button></div>
-        <div class="col-md-3 col-6"><button class="box">Selecionar período</button></div>
+        <div class="col-md-3 col-6"><button type="button" class="box">Último mês</button></div>
+        <div class="col-md-3 col-6"><button type="button" class="box">Últimos 6 meses</button></div>
+        <div class="col-md-3 col-6"><button type="button" class="box selected">Todos</button></div>
+        <div class="col-md-3 col-6"><button type="button" class="box">Selecionar período</button></div>
       </div>
     </div>
 
@@ -16,7 +16,7 @@
 
       <div class="barra-filter">
         <form class="filter">
-          <input type="text" name="pesquisa" class="form-control" placeholder="Buscar atividade"/>
+          <input [(ngModel)]="searchFilter" (ngModelChange)="handleSearchFilterChange()" type="text" name="pesquisa" class="form-control" placeholder="Buscar atividade"/>
           <button class="btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
               <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
@@ -38,9 +38,16 @@
             <div class="filter-box">
               <div>
                 <p>Método</p>
-                <div class="radio-box" *ngFor="let method of paymentMethods" ><input type="checkbox" /> {{method}} </div>
+                <div class="radio-box">
+                  <input id="pix" (change)="toggleFitlerByPix()" [(ngModel)]="filterByPix" type="checkbox" />
+                  <label for="pix" >PIX</label>
+                </div>
+                <div class="radio-box">
+                  <input id="transfer" (change)="toggleFitlerByTrans()" [(ngModel)]="filterByTrans" type="checkbox" />
+                  <label for="transfer" >Transferência</label>
+                </div>
                 <div>
-                  <button class="limpar-filtro-button">Limpar Filtros</button>
+                  <button (click)="resetFilters()" class="limpar-filtro-button">Resetar Filtros</button>
                 </div>
               </div>
             </div>

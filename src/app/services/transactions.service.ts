@@ -15,6 +15,9 @@ export class TransactionsService {
     new BehaviorSubject<Transaction[]>([]);
   private transactionsToDisplaySubject: BehaviorSubject<ITransactionDisplay[]> =
     new BehaviorSubject<ITransactionDisplay[]>([]);
+  private _filterByTrans: boolean = false;
+  private _filterByPix: boolean = true;
+  private _searchFilterText: string = '';
 
   public transactions$: Observable<Transaction[]> =
     this.transactionsSubject.asObservable();
@@ -29,9 +32,61 @@ export class TransactionsService {
   }
 
   updateTransactionsToDisplay(transactions: Transaction[]): void {
-    // Aqui você pode fazer qualquer processamento que desejar para atualizar transactionsToDisplay
-    // Por exemplo, filtrar ou mapear transactions
-    this.transactionsToDisplaySubject.next(transactionToDisplay(transactions));
+    let filteredTransactions = transactions;
+    if (!this._filterByTrans) {
+      filteredTransactions = filteredTransactions.filter(
+        (transaction) =>
+          transaction.transactionType !== TransactionType.TRANSFER
+      );
+    }
+    if (!this._filterByPix) {
+      filteredTransactions = filteredTransactions.filter(
+        (transaction) => transaction.transactionType !== TransactionType.PIX
+      );
+    }
+    if (this._searchFilterText !== '') {
+      const searchText = this._searchFilterText.toLowerCase();
+      filteredTransactions = filteredTransactions.filter(
+        (transaction) =>
+          transaction.description.toLowerCase().includes(searchText) ||
+          transaction.from?.toLowerCase().includes(searchText) ||
+          transaction.to?.toLowerCase().includes(searchText) ||
+          transaction.amount.toString().toLowerCase().includes(searchText)
+      );
+    }
+
+    /* Atualiza transactionsToDisplaySubject com os dados de filteredTransactions  */
+    this.transactionsToDisplaySubject.next(
+      transactionToDisplay(filteredTransactions)
+    );
+  }
+
+  /*
+    GETTERS - SETTERS
+  */
+
+  public set filterByTrans(value: boolean) {
+    this._filterByTrans = value;
+    this.updateTransactionsToDisplay(this.transactionsSubject.getValue());
+  }
+  public get filterByTrans() {
+    return this._filterByTrans;
+  }
+
+  public set filterByPix(value: boolean) {
+    this._filterByPix = value;
+    this.updateTransactionsToDisplay(this.transactionsSubject.getValue());
+  }
+  public get filterByPix() {
+    return this._filterByPix;
+  }
+
+  public set searchFilterText(value: string) {
+    this._searchFilterText = value;
+    this.updateTransactionsToDisplay(this.transactionsSubject.getValue());
+  }
+  public get searchFilterText() {
+    return this._searchFilterText;
   }
 
   setMockTransactions() {
