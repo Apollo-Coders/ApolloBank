@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ITransactionDisplay } from '../../utils/transactionToDisplay';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-transaction-history-page',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './transaction-history-page.component.html',
   styleUrl: './transaction-history-page.component.css',
 })

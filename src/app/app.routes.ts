@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { LoginUserComponent } from './components/login-user/login-user.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { MinhaContaComponent } from './minha-conta/minha-conta.component';
+import { TransactionHistoryPageComponent } from './components/transaction-history-page/transaction-history-page.component';
 
 
 export const routes: Routes = [
@@ -19,6 +20,9 @@ export const routes: Routes = [
     },
     {
         path: 'minha-conta', component: MinhaContaComponent
+    },
+    {
+        path: 'transactions', component: TransactionHistoryPageComponent
     },
     {
         path: '**',

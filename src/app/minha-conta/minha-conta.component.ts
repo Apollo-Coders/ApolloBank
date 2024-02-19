@@ -1,15 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { NavbarContaComponent } from '../shared/navbar-conta/navbar-conta.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-minha-conta',
   standalone: true,
-  imports: [CommonModule, NavbarContaComponent],
+  imports: [CommonModule, NavbarContaComponent, RouterLink],
   templateUrl: './minha-conta.component.html',
   styleUrl: './minha-conta.component.css'
 })
 export class MinhaContaComponent {
+
+  route = "/minha-conta";
+
   user = 'Usuário';
   saldo: number = 100;
   fatura: number = 500;
