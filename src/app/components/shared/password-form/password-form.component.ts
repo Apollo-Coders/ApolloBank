@@ -60,6 +60,10 @@ export class PasswordFormComponent {
     this.passwordInsert.pop();
     this.passwordMask = this.passwordMask.slice(0, -1);
   }
+  deleteEntirePassword() {
+    this.passwordInsert = [];
+    this.passwordMask = '';
+}
 
   //verifica se a senha está correta
   isPasswordCorrect() {
@@ -83,10 +87,7 @@ export class PasswordFormComponent {
       });
     } else {
       this.erroMessage = 'Senha incorreta!';
-
-      this.passwordMask = ''
-
-      alert('Senha incorreta!');
+      this.deleteEntirePassword();
     }
   }
 
