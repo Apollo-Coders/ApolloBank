@@ -1,4 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+:root{
+    --orange: #C2620A;
+    --blue:#002A84;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
 /* You can add global styles to this file, and also import other style files */
 @font-face {
     font-family: 'Nasalization';
@@ -52,3 +66,4 @@
     text-decoration: none;
   }
   
+

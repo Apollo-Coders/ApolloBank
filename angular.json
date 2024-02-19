@@ -22,7 +22,12 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "*.svg",
+                "input": "./node_modules/bootstrap-icons/",
+                "output": "/b-icons/"
+              }
             ],
             "styles": [
               "src/styles.css",
@@ -86,15 +91,25 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/popper.js/dist/umd/popper.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
           }
         }
       }
     }
   },
   "cli": {
+<<<<<<< HEAD
+    "analytics": "73ec6ffe-56bb-4c98-b7e4-86bd2fdb818d"
+=======
     "analytics": false
+>>>>>>> 0bb7f9af98a92393c2345378d5c8d6d74409759c
   }
 }
