@@ -1,11 +1,6 @@
 import { CommonModule } from '@angular/common';
-<<<<<<< HEAD
 import { RouterOutlet, RouterModule } from '@angular/router';
 import { Component } from '@angular/core';
-=======
-import { RouterOutlet, RouterModule } from '@angular/router';
-import { Component } from '@angular/core';
->>>>>>> feature/minha-conta
 
 
 
