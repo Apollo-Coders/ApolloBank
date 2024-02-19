@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { FormGroup, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormService } from '../../../services/form.service';
@@ -13,7 +13,7 @@ interface IPairPasswordNums {
 @Component({
   selector: 'app-password-form',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, FormsModule],
+  imports: [CommonModule, RouterOutlet, FormsModule, RouterLink],
   templateUrl: './password-form.component.html',
   styleUrl: './password-form.component.css'
 })
