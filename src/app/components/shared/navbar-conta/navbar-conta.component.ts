@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import {
   ILoggedUser,
   LocalStorageService,
-} from '../../services/local-storage.service';
+} from '../../../services/local-storage.service';
 
 @Component({
   selector: 'app-navbar-conta',
@@ -17,10 +17,18 @@ export class NavbarContaComponent implements OnInit {
   saldo: number = 100;
   user!: ILoggedUser;
 
-  constructor(private localstorageService: LocalStorageService) {}
+  constructor(
+    private localstorageService: LocalStorageService,
+    private route: Router
+  ) {}
 
   ngOnInit(): void {
     this.user = this.localstorageService.getLoggedUser();
+  }
+
+  logout(): void {
+    this.localstorageService.logout();
+    this.route.navigate(['/login']);
   }
 
   changeViewSaldo() {

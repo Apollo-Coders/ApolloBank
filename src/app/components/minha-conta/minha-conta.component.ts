@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { NavbarContaComponent } from '../../shared/navbar-conta/navbar-conta.component';
+import { NavbarContaComponent } from '../shared/navbar-conta/navbar-conta.component';
 import { RouterLink } from '@angular/router';
 import {
   ILoggedUser,

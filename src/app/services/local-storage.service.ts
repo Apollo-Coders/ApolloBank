@@ -31,6 +31,10 @@ export class LocalStorageService {
     return user;
   }
 
+  logout(): void {
+    localStorage.removeItem('LoggedUser');
+  }
+
   private usersList = this.getRegisteredUsers();
 
   checkUserEmailExists(email: string): boolean {

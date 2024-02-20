@@ -1,12 +1,12 @@
 <div class="header d-flex flex-column  justify-content-between ">
     <div class="d-flex justify-content-between">
-        <span class="header-welcome">Olá, {{user.nome}}
+        <a routerLink="/minha-conta" class="header-welcome">Olá, {{user.nome}}
             <i class="bi bi-chevron-right"></i>
-        </span>
-        <span routerLink="/home" class="header-logout">
+        </a>
+        <button (click)="logout()" class="reset-btn header-logout">
             <i class="bi bi-box-arrow-right"></i>
             Sair
-        </span>
+        </button>
     </div>
     <div class="info-conta d-flex">
         <img src="../../assets/perfil.png" class="img-perfil" alt="">
