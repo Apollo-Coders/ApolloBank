@@ -5,11 +5,12 @@ import { Component, OnInit } from '@angular/core';
 import { ITransactionDisplay } from '../../utils/transactionToDisplay';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { NavbarContaComponent } from '../../shared/navbar-conta/navbar-conta.component';
 
 @Component({
   selector: 'app-transaction-history-page',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, NavbarContaComponent, RouterLink],
   templateUrl: './transaction-history-page.component.html',
   styleUrl: './transaction-history-page.component.css',
 })
