@@ -84,7 +84,7 @@ export class PasswordFormComponent {
       this.formService.getFormData().subscribe(formValues => {
         var Logged = { nome: this.localStorageService.getNome(formValues.cpf), cpf: formValues.cpf };
         this.localStorageService.saveLoggedUserLocalStorage(Logged);
-        this.router.navigate(['/auth/minha-conta']);
+        this.router.navigate(['/minha-conta']);
       });
     } else {
       this.erroMessage = 'Senha incorreta!';

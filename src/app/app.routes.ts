@@ -7,7 +7,7 @@ import { AuthGuard } from './Guards/auth.guard';
 
 
 export const routes: Routes = [
- 
+
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: 'home',
@@ -24,15 +24,9 @@ export const routes: Routes = [
         (m) => m.RegisterPageComponent
       ),
   },
+
   {
-    path: 'not-found',
-    loadComponent: () =>
-      import('./components/not-found/not-found.component').then(
-        (m) => m.NotFoundComponent
-      ),
-  },
-  {
-    path: 'auth',
+    path: '',
     canActivate: [AuthGuard],
     children: [
       {
@@ -44,6 +38,13 @@ export const routes: Routes = [
         component: TransactionHistoryPageComponent,
       },
     ],
+  },
+  {
+    path: 'not-found',
+    loadComponent: () =>
+      import('./components/not-found/not-found.component').then(
+        (m) => m.NotFoundComponent
+      ),
   },
   {
     path: '**',
