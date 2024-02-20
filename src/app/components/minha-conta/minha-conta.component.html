@@ -9,7 +9,7 @@
                 </button>
                 <button routerLink="/transactions" class="d-flex flex-column align-items-center">
                     <i class="bi bi-bar-chart-line"></i>
-                    Extrato
+                    Extrato.
                 </button>
                 <button class="d-flex flex-column align-items-center">
                     <i class="bi bi-arrow-left-right"></i>
@@ -23,10 +23,11 @@
         </div>
 
         <div class="transacoes col-md-6 d-flex flex-column align-items-center">
-            <div class="transacoes-view d-flex align-items-center justify-content-between w-75" routerLink="/transactions">
+
+            <a routerLink="/transactions" class="text-decoration-none transacoes-view d-flex align-items-center justify-content-between w-75">
                 <h2>Últimas Transações</h2>
-                <i class="bi bi-chevron-right" ></i>
-            </div>
+                <i class="bi bi-chevron-right"></i>
+            </a>
             <table>
                 <tr *ngFor="let transactions of lastTransactions">
                     <td><i class="bi bi-arrow-bar-{{transactions.direction === '-' ? 'down' : 'up'}}"></i></td>
