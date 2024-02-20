@@ -1,0 +1,79 @@
+*{
+  font-family: 'Poppins';
+  color: white;
+}
+
+.header {
+  text-align: start;
+  background-color: #002A84;
+  font-size: 14px;
+  border-radius: 0px 0px 40px 40px;
+  padding: 10px 60px;
+  gap: 10%;
+  height: 150px;
+}
+
+.saldo{
+  padding-left: 10%;
+}
+
+.reset-btn {
+  background: none;
+}
+
+.header .saldo h2{
+  font-size: 20px;
+  margin: 0;
+
+}
+
+.valor{
+  font-size: 20px;
+  font-weight: 900;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  text-align: end;
+}
+.header .saldo i{
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.header-logout, .header-welcome{
+  cursor: pointer;
+  padding: 5px;
+
+  font-size: 15px;
+  border: solid 2px transparent;
+}
+
+.header-logout:hover, .header-welcome:hover{
+  border-color: transparent transparent #fff transparent;
+  transition: 0.5s;
+  scale: 1.1;
+}
+
+.info-conta .img-perfil{
+  height: 100px;
+  width: 100px;
+  border: solid 2px var(--orange);
+  border-radius: 50%;
+  position: relative;
+  top: 30px;
+  background-color: #9f9f9f;
+  left: 20px;
+}
+
+@media (max-width: 770px){
+  .info-conta .img-perfil{
+    top: 30px;
+    left: 5px;
+    height: 80px;
+    width: 80px;
+  }
+
+  .header {
+    padding: 5px 20px;
+  }
+}

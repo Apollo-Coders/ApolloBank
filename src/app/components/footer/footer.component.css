@@ -23,7 +23,9 @@ display: flex;
 align-items: center;
 text-align: center;
 
-color: #002A84;
+color: black;
+background-color: var(--laranja);
+padding: 15px;
 
 
 

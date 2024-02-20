@@ -1,8 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { FormGroup, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FormService } from '../../../services/form.service';
+import { LocalStorageService } from '../../../services/local-storage.service';
+import { Subscription } from 'rxjs';
 interface IPairPasswordNums {
   fisrtNum: number;
   secondNum: number;
@@ -10,32 +13,46 @@ interface IPairPasswordNums {
 @Component({
   selector: 'app-password-form',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, FormsModule],
+  imports: [CommonModule, RouterOutlet, FormsModule, RouterLink],
   templateUrl: './password-form.component.html',
   styleUrl: './password-form.component.css'
 })
 export class PasswordFormComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private formService: FormService, private localStorageService: LocalStorageService) { }
 
-
+  form!: FormGroup;
   title = 'testeLogin';
   //A senha correta para o login
-  correctPassword = '123456';
+  correctPassword: any
   //Os numeros sortidos para mostrar nos botões (2 numeros por indice)
   pairPasswordNums: IPairPasswordNums[] = [];
   //A senha inserida pelo usuário ao clicar nos botões
   passwordInsert: IPairPasswordNums[] = [];
   //Uma mascara só para por no input enquanto passwordInsert vai sendo preenchido
   passwordMask: string = '';
+  erroMessage: string = '';
+
+
+  private formDataSubscription: Subscription = new Subscription();
+  public formData: any;
+
+
 
   ngOnInit(): void {
     this.generateButtons();
+    this.formDataSubscription = this.formService.getFormData().subscribe(data => {
+      this.formData = data;
+      this.correctPassword = this.localStorageService.getPassword(this.formData.cpf);
+
+    })
   }
 
   //recebe o valor do botao e adiciona em passwordInsert
   addToPassword(pair: IPairPasswordNums) {
-    this.passwordInsert.push(pair);
-    this.passwordMask += '*';
+    if (this.passwordInsert.length < 6) { // Verifica se já foram inseridos menos de 6 caracteres
+      this.passwordInsert.push(pair);
+      this.passwordMask += '*';
+    }
   }
 
   //funcionalidade do botao de apagar
@@ -43,12 +60,16 @@ export class PasswordFormComponent {
     this.passwordInsert.pop();
     this.passwordMask = this.passwordMask.slice(0, -1);
   }
+  deleteEntirePassword() {
+    this.passwordInsert = [];
+    this.passwordMask = '';
+  }
 
   //verifica se a senha está correta
   isPasswordCorrect() {
     let isCorrect = true;
 
-   
+
 
     for (let i = 0; i < 6; i++) {
       const pair = this.passwordInsert[i];
@@ -60,9 +81,14 @@ export class PasswordFormComponent {
     }
 
     if (isCorrect) {
-      this.router.navigate(['/home']);
+      this.formService.getFormData().subscribe(formValues => {
+        var Logged = { nome: this.localStorageService.getNome(formValues.cpf), cpf: formValues.cpf };
+        this.localStorageService.saveLoggedUserLocalStorage(Logged);
+        this.router.navigate(['/minha-conta']);
+      });
     } else {
-      alert('Senha incorreta!');
+      this.erroMessage = 'Senha incorreta!';
+      this.deleteEntirePassword();
     }
   }
 
@@ -91,23 +117,4 @@ export class PasswordFormComponent {
   }
 
 
-  // @Output() passwordMaskChanged: EventEmitter<string> = new EventEmitter<string>();
-
-  // private _passwordMask: string = '';
-
-  // get passwordMask(): string {
-  //   return this._passwordMask;
-  // }
-
-  // set passwordMask(value: string) {
-  //   this._passwordMask = value;
-  //   this.passwordMaskChanged.emit(value);
-  //}
-
-  @Output() formCompleted = new EventEmitter<void>();
-
-
-    onSubmit() {
-      this.formCompleted.emit();
-  }
 }

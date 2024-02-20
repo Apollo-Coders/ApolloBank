@@ -1,0 +1,88 @@
+<app-navbar-conta></app-navbar-conta>
+<main>
+  <section class="container">
+    <h2>Histórico de lançamentos</h2>
+
+    <div class="boxes">
+      <div class="row">
+        <div class="col-md-3 col-6"><button type="button" class="box">Último mês</button></div>
+        <div class="col-md-3 col-6"><button type="button" class="box">Últimos 6 meses</button></div>
+        <div class="col-md-3 col-6"><button type="button" class="box selected">Todos</button></div>
+        <div class="col-md-3 col-6"><button type="button" class="box">Selecionar período</button></div>
+      </div>
+    </div>
+
+
+    <div class="transactions-content">
+
+      <div class="barra-filter">
+        <form class="filter">
+          <input [(ngModel)]="searchFilter" (ngModelChange)="handleSearchFilterChange()" type="text" name="pesquisa" class="form-control" placeholder="Buscar atividade"/>
+          <button class="btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+            </svg>
+          </button>
+        </form>
+
+        <button (click)="toggleFilter()" class="lineBoxes">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </button>
+
+      </div>
+
+      <div class="row">
+        <div *ngIf="filterOpen" class="col-lg-3 col-md-4 order-md-2">
+          <div class="sidebar">
+            <div class="filter-box">
+              <div>
+                <p>Método</p>
+                <div class="radio-box">
+                  <input id="pix" (change)="toggleFitlerByPix()" [(ngModel)]="filterByPix" type="checkbox" />
+                  <label for="pix" >PIX</label>
+                </div>
+                <div class="radio-box">
+                  <input id="transfer" (change)="toggleFitlerByTrans()" [(ngModel)]="filterByTrans" type="checkbox" />
+                  <label for="transfer" >Transferência</label>
+                </div>
+                <div>
+                  <button (click)="resetFilters()" class="limpar-filtro-button">Resetar Filtros</button>
+                </div>
+              </div>
+            </div>
+          </div><!-- sidebar -->
+        </div><!-- col -->
+
+        <div [ngClass]="{'col-lg-12': !filterOpen}" class="col-lg-9 col-md-8 order-md-1">
+          <div *ngFor="let transactionsFromDate of transactionsDisplay$ | async" class="first-content">
+            <p>{{ transactionsFromDate.dataLabel }}</p>
+            <div *ngFor="let transaction of transactionsFromDate.transactions" class="detail-box">
+              <div class="detail-box-left-side">
+                <div class="circle">
+                  <svg *ngIf="transaction.transactionType === 'Pix'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-diamond-fill" viewBox="0 0 16 16">
+                    <path d="M9.05.435c-.58-.58-1.52-.58-2.1 0L4.047 3.339 8 7.293l3.954-3.954L9.049.435zm3.61 3.611L8.708 8l3.954 3.954 2.904-2.905c.58-.58.58-1.519 0-2.098l-2.904-2.905zm-.706 8.614L8 8.708l-3.954 3.954 2.905 2.904c.58.58 1.519.58 2.098 0l2.905-2.904zm-8.614-.706L7.292 8 3.339 4.046.435 6.951c-.58.58-.58 1.519 0 2.098z"/>
+                  </svg>
+                </div>
+                <div class="two-texts">
+                  <p>{{ transaction.description }}</p>
+                  <p id="for">{{ transaction.from || transaction.to }}</p>
+                </div>
+              </div>
+              <div class="day-pay">
+                <p> {{transaction.direction}} {{ transaction.amount.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) }}</p>
+                <p id="hour">
+                  {{transaction.date.getHours().toString().padStart(2, '0')}}
+                  :
+                  {{transaction.date.getMinutes().toString().padStart(2, '0')}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div><!--col-->
+
+      </div><!-- row -->
+    </div>
+  </section>
+</main>

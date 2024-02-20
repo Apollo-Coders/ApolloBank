@@ -3,17 +3,18 @@
     color: #fff;
     border: none;
     font-weight: bold;
-    width: 25%;
-    height: 50px;
-    border-radius: 25px;   
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    min-width: 300px;
-    transition: background-color 0.3s;
+    border-radius: 10px;
+}
+
+.custom-btn:hover{
+    background-color: rgb(240, 127, 62);
 }
 
 p {
     font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
 }
 h3{
     font-family: 'Nasalization', sans-serif;
+    font-size: 2.0rem;
 }

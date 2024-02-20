@@ -1,0 +1,22 @@
+<div class="header d-flex flex-column  justify-content-between ">
+    <div class="d-flex justify-content-between">
+        <a routerLink="/minha-conta" class="header-welcome">Olá, {{user.nome}}
+            <i class="bi bi-chevron-right"></i>
+        </a>
+        <button (click)="logout()" class="reset-btn header-logout">
+            <i class="bi bi-box-arrow-right"></i>
+            Sair
+        </button>
+    </div>
+    <div class="info-conta d-flex">
+        <img src="../../assets/perfil.png" class="img-perfil" alt="">
+        <div class="saldo d-flex flex-column justify-content-center">
+            <h2>Saldo:</h2>
+            <div class="d-flex text-align-center">
+                <h2 class="d-flex align-items-center">R$</h2>
+                <input type="number" class="valor" [style.width.px]="getInputWidth(saldo)" value="{{saldo.toFixed(2)}}" disabled>
+                <i class="bi bi-eye-slash p-1" (click)="changeViewSaldo()"></i>
+            </div>
+        </div>
+    </div>
+</div>

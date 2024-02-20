@@ -1,10 +1,11 @@
 export enum TransactionType {
-  /* DEPOSIT = 'Deposito',
-  WITHDRAW = 'Saque', */
-  TRANSFER = 'Transfência',
+  PIX = 'Pix',
+  CREDIT = 'Crédito',
+  TRANSFER = 'Transferência',
 }
 
-export class TransactionResponse {
+export class Transaction {
+  id: string | null;
   amount: number;
   to: string | null;
   from: string | null;
@@ -14,6 +15,7 @@ export class TransactionResponse {
   direction: '+' | '-';
 
   constructor(
+    id: string | null,
     amount: number,
     direction: '+' | '-',
     to: string | null,
@@ -22,6 +24,7 @@ export class TransactionResponse {
     description: string,
     transactionType: TransactionType
   ) {
+    this.id = id;
     this.amount = amount;
     this.direction = direction;
     this.to = to;

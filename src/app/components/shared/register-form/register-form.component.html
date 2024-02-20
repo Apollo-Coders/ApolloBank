@@ -1,13 +1,14 @@
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
+    <h2 class="text-center">Comece sua jornada aqui</h2>
     <section class="row">
         <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <div class="form-group mb-3">
-                        <label for="name" class="form-label">Nome Completo</label>
+                        <label for="name" class="form-label">Nome completo</label>
                         <input type="text" class="form-control" formControlName="name" id="name"
-                            placeholder="Digite aqui seu nome."
+                            placeholder="Digite seu nome"
                             [class.is-invalid]="form.get('name')?.invalid && (form.get('name')?.dirty || form.get('name')?.touched)"
                             required>
                         <div *ngIf="form.get('name')?.invalid && (form.get('name')?.dirty || form.get('name')?.touched)"
@@ -44,9 +45,9 @@
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <label for="phone" class="form-label">Telefone (Apenas números)</label>
+                    <label for="phone" class="form-label">Telefone (apenas números)</label>
                     <input type="text" class="form-control" id="phone" formControlName="phone"
-                        placeholder="Digite aqui seu telefone."
+                        placeholder="Digite seu telefone"
                         [class.is-invalid]="form.get('phone')?.invalid && (form.get('phone')?.dirty || form.get('phone')?.touched)"
                         required>
                     <div *ngIf="form.get('phone')?.invalid && (form.get('phone')?.dirty || form.get('phone')?.touched)"
@@ -60,7 +61,7 @@
                 <div class="col-md-8 mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" id="email" formControlName="email" class="form-control"
-                        placeholder="Digite aqui seu email."
+                        placeholder="Digite seu email"
                         [class.is-invalid]="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched) ||form.errors?.['userEmailExists']"
                         required>
                     <span *ngIf="form.errors?.['userEmailExists']" class="text-danger">Email já cadastrado.</span>
@@ -78,9 +79,9 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8 mb-3">
-                    <label for="cpf" class="form-label">CPF (Apenas números)</label>
+                    <label for="cpf" class="form-label">CPF (apenas números)</label>
                     <input type="text" class="form-control" id="cpf" formControlName="cpf" aria-describedby="cpf"
-                        placeholder="Digite aqui seu CPF."
+                        placeholder="Digite seu CPF"
                         [class.is-invalid]="form.get('cpf')?.invalid && (form.get('cpf')?.dirty || form.get('cpf')?.touched) ||form.errors?.['userCPFExists']"
                         required>
                     <span *ngIf="form.errors?.['userCPFExists']" class="text-danger">CPF já cadastrado.</span>
@@ -98,7 +99,7 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8 mb-3">
-                    <label for="birthday" class="form-label">Data de Nascimento</label>
+                    <label for="birthday" class="form-label">Data de nascimento</label>
                     <input type="date" class="form-control" formControlName="birthday" id="birthday"
                         [class.is-invalid]="form.get('birthday')?.invalid && (form.get('birthday')?.dirty || form.get('birthday')?.touched)"
                         required>
@@ -115,10 +116,10 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8 mb-3">
-                    <label for="password" class="form-label">Senha (Apenas números)</label>
+                    <label for="password" class="form-label">Senha (apenas números)</label>
                     <div class="input-group">
                         <input [type]="showPassword ? 'text' : 'password'" class="form-control"
-                            formControlName="password" id="password" placeholder="Crie uma senha de 6 números."
+                            formControlName="password" id="password" placeholder="Crie uma senha de 6 números"
                             [class.is-invalid]="form.errors?.['passwordEqualsBirthday'] || (form.get('password')?.invalid && (form.get('password')?.dirty || form.get('password')?.touched))"
                             required>
                         <span class="input-group-text">
@@ -142,10 +143,10 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8 mb-3">
-                    <label for="confirm-password" class="form-label">Confirme sua senha (Apenas números)</label>
+                    <label for="confirm-password" class="form-label">Confirme sua senha (apenas números)</label>
                     <div class="input-group">
                         <input [type]="showPasswordConfirmation ? 'text' : 'password'" class="form-control" formControlName="confirmPassword"
-                            id="confirmPassword" placeholder="Confirme sua uma senha."
+                            id="confirmPassword" placeholder="Confirme sua senha"
                             [class.is-invalid]="form.errors?.['passwordMismatch'] && (form.get('confirmPassword')?.dirty || form.get('confirmPassword')?.touched)"
                             required>
                         <span class="input-group-text">
@@ -164,7 +165,7 @@
                 <div class="col-md-8 mb-3">
                     <div class="d-grid gap-2">
 
-                        <button type="submit" class="btn custom-btn" [disabled]="form.invalid">Continuar</button>
+                        <button type="submit" class="btn custom-btn mt-3" [disabled]="form.invalid">Continuar</button>
 
                     </div>
                 </div>
