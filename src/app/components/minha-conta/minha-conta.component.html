@@ -23,9 +23,9 @@
         </div>
 
         <div class="transacoes col-md-6 d-flex flex-column align-items-center">
-            <div class="transacoes-view d-flex align-items-center justify-content-between w-75">
+            <div class="transacoes-view d-flex align-items-center justify-content-between w-75" routerLink="/auth/transactions">
                 <h2>Últimas Transações</h2>
-                <i class="bi bi-chevron-right" routerLink="/auth/transactions"></i>
+                <i class="bi bi-chevron-right" ></i>
             </div>
             <table>
                 <tr *ngFor="let transactions of lastTransactions">
