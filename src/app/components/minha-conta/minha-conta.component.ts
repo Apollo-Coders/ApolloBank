@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { NavbarContaComponent } from '../../shared/navbar-conta/navbar-conta.component';
 import { RouterLink } from '@angular/router';
 import {
   ILoggedUser,
@@ -7,14 +8,14 @@ import {
 } from '../../services/local-storage.service';
 
 @Component({
-  selector: 'app-navbar-conta',
+  selector: 'app-minha-conta',
   standalone: true,
-  imports: [CommonModule, RouterLink],
-  templateUrl: './navbar-conta.component.html',
-  styleUrl: './navbar-conta.component.css',
+  imports: [CommonModule, NavbarContaComponent, RouterLink],
+  templateUrl: './minha-conta.component.html',
+  styleUrl: './minha-conta.component.css',
 })
-export class NavbarContaComponent implements OnInit {
-  saldo: number = 100;
+export class MinhaContaComponent {
+  route = '/minha-conta';
   user!: ILoggedUser;
 
   constructor(private localstorageService: LocalStorageService) {}
@@ -22,6 +23,27 @@ export class NavbarContaComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.localstorageService.getLoggedUser();
   }
+
+  saldo: number = 100;
+  fatura: number = 500;
+  limite: number = 2000;
+  transacoes = [
+    {
+      tipo: 'down',
+      nome: 'Compra no mercado',
+      valor: '50.00',
+    },
+    {
+      tipo: 'down',
+      nome: 'Transferência para João',
+      valor: '200.00',
+    },
+    {
+      tipo: 'up',
+      nome: 'Depósito em dinheiro',
+      valor: '100.00',
+    },
+  ];
 
   changeViewSaldo() {
     var saldo = document.querySelectorAll('.valor');
