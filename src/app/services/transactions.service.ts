@@ -140,7 +140,7 @@ const transacionsJSON = [
     to: 'Ruan',
     from: null,
     date: '2024-02-14T10:34:52.329Z',
-    description: 'Para Ruan',
+    description: 'Transfência Para Ruan',
     transactionType: 'Transfência',
   },
   {
@@ -149,7 +149,7 @@ const transacionsJSON = [
     to: 'Felipe',
     from: null,
     date: '2024-02-13T10:34:52.329Z',
-    description: 'Para Felipe',
+    description: 'Transfência De Felipe',
     transactionType: 'Transfência',
   },
   {
@@ -158,7 +158,7 @@ const transacionsJSON = [
     to: 'Jack',
     from: null,
     date: '2024-02-12T10:34:52.329Z',
-    description: 'Para Jack',
+    description: 'Transfência Para Jack ',
     transactionType: 'Transfência',
   },
   {

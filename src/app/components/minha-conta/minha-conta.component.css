@@ -64,7 +64,7 @@
 .transacoes .transacoes-view:hover i {
     scale: 1.5;
     transition: 0.3s;
-    
+
 }
 
 .transacoes-view:hover h2{
@@ -77,7 +77,7 @@
     margin: 0;
     margin-left: 8px;
     border-bottom: solid 2px transparent;
-    
+
 }
 
 .transacoes table {
@@ -151,7 +151,7 @@
 }
 .opcoes-box{
     background-color: #b4b4b428;
-    
+
 }
 .opcoes h2{
     font-size: 20px;
@@ -179,7 +179,6 @@
 .opcoes button span{
     color: #002A84;
 }
-
 
 @media (max-width: 770px){
     .header{

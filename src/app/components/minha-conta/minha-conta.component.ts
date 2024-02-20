@@ -1,3 +1,4 @@
+import { TransactionsService } from './../../services/transactions.service';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { NavbarContaComponent } from '../shared/navbar-conta/navbar-conta.component';
@@ -6,6 +7,7 @@ import {
   ILoggedUser,
   LocalStorageService,
 } from '../../services/local-storage.service';
+import { Transaction } from '../../models/Transaction';
 
 @Component({
   selector: 'app-minha-conta',
@@ -18,32 +20,24 @@ export class MinhaContaComponent {
   route = '/minha-conta';
   user!: ILoggedUser;
 
-  constructor(private localstorageService: LocalStorageService) {}
+  lastTransactions: Transaction[] = [];
+
+  constructor(
+    private localstorageService: LocalStorageService,
+    private transactionsService: TransactionsService
+  ) {}
 
   ngOnInit(): void {
     this.user = this.localstorageService.getLoggedUser();
+    this.transactionsService.setMockTransactions();
+    this.transactionsService.transactions$.subscribe((tr) => {
+      this.lastTransactions = tr.slice(0, 3);
+    });
   }
 
   saldo: number = 100;
   fatura: number = 500;
   limite: number = 2000;
-  transacoes = [
-    {
-      tipo: 'down',
-      nome: 'Compra no mercado',
-      valor: '50.00',
-    },
-    {
-      tipo: 'down',
-      nome: 'Transferência para João',
-      valor: '200.00',
-    },
-    {
-      tipo: 'up',
-      nome: 'Depósito em dinheiro',
-      valor: '100.00',
-    },
-  ];
 
   changeViewSaldo() {
     var saldo = document.querySelectorAll('.valor');
