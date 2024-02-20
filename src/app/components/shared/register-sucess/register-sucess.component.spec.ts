@@ -13,7 +13,6 @@ describe('RegisterSucessComponent', () => {
         get: () => '/login',
       },
     },
-   
   };
 
   beforeEach(async () => {
@@ -35,9 +34,12 @@ describe('RegisterSucessComponent', () => {
     expect(component).toBeTruthy();
   });
   it(`should have the 'login' title`, () => {
-    expect(component.title).toEqual('Cadastro realizado com sucesso!');
+    expect(component.title).toEqual('Cadastro criado!');
+  });
+  it(`should have the 'button' text`, () => {
+    expect(component.buttonText).toEqual('Acesse sua conta');
   });
   it(`should have the 'login' paragraph`, () => {
-    expect(component.paragraph).toEqual('Agora você já pode acessar sua conta!');
+    expect(component.paragraph).toEqual('Faça login na sua conta e desfrute de todos os benefícios e liberdade que o banco Apollo pode te fornecer!');
   });
 });

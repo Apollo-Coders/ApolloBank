@@ -144,10 +144,8 @@ export class SubsequentFormComponent {
   @ViewChild('RejectPoliciesModal') rejectPoliciesModal!: ElementRef;
 
   openPoliciesModal() {
-    if (this.form.get('policies')?.value !== false) {
       const Policiesmodal = new bootstrap.Modal(this.policiesModal.nativeElement);
       Policiesmodal.show();
-    }
   }
   declinePoliciesModal() {
     const RejectModal = new bootstrap.Modal(this.rejectPoliciesModal.nativeElement);
