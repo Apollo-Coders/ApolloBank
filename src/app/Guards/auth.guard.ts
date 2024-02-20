@@ -1,8 +1,8 @@
 import { inject } from '@angular/core';
-import { LocalStorageService } from './../services/local-storage.service';
+import { LocalStorageService } from '../services/local-storage.service';
 import { CanActivateFn, Router } from '@angular/router';
 
-export const authGuard: CanActivateFn = (route, state) => {
+export const AuthGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   const localStorageService: LocalStorageService = inject(LocalStorageService);
   const loggedUser = localStorageService.getLoggedUser();
