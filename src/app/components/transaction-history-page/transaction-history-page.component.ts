@@ -31,7 +31,7 @@ export class TransactionHistoryPageComponent implements OnInit {
     this.transactionsService.filterByPix = this.filterByPix;
     this.transactionsService.filterByTrans = this.filterByTrans;
     this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
-    /* this.transactionsDisplay$.subscribe((d) => console.log(d)); */
+    
   }
 
   toggleFilter() {
@@ -39,13 +39,13 @@ export class TransactionHistoryPageComponent implements OnInit {
   }
 
   toggleFitlerByPix() {
-    /* o NgModel já atualiza sozinha o valor da variável */
+    
     this.transactionsService.filterByPix = this.filterByPix;
     this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
   }
 
   toggleFitlerByTrans() {
-    /* o NgModel já atualiza sozinha o valor da variável */
+   
     this.transactionsService.filterByTrans = this.filterByTrans;
     this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
   }
