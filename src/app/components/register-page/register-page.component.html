@@ -1,0 +1,11 @@
+<div class="row container-fluid">
+    <img src="assets/images/img_cadastro.jpg" alt="woman holding a phone" class="col-md-6">
+    <div class="col-md-6">
+        <app-navbar [navbarButton]="navbarButton" [navButtonRoute]="route"></app-navbar>
+        <app-register-form *ngIf="currentForm === 'register'"
+            (formCompleted)="switchToSubsequentForm()"></app-register-form>
+        <app-subsequent-form *ngIf="currentForm === 'subsequent'" (formCompleted)="switchToSuccess()" (goBack)="
+            switchToFirst()"></app-subsequent-form>
+        <app-register-sucess *ngIf="currentForm === 'success'"></app-register-sucess>
+    </div>
+</div>

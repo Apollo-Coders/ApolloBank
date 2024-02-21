@@ -1,0 +1,171 @@
+<app-navbar-conta></app-navbar-conta>
+<main>
+  <section class="container">
+    <h2>Histórico de lançamentos</h2>
+
+    <div class="boxes">
+      <div class="row">
+        <div class="col-md-3 col-6">
+          <button
+            type="button"
+            class="box"
+            (click)="handleDateFilter(DateFilterTypes.LASTMONTH)"
+            [ngClass]="{ selected: dateFilter === DateFilterTypes.LASTMONTH }"
+          >
+            Último mês
+          </button>
+        </div>
+        <div class="col-md-3 col-6">
+          <button
+            type="button"
+            class="box"
+            (click)="handleDateFilter(DateFilterTypes.SIXMONTHS)"
+            [ngClass]="{ selected: dateFilter === DateFilterTypes.SIXMONTHS }"
+          >
+            Últimos 6 meses
+          </button>
+        </div>
+        <div class="col-md-3 col-6">
+          <button
+            type="button"
+            class="box"
+            (click)="handleDateFilter(DateFilterTypes.ALLTIME)"
+            [ngClass]="{ selected: dateFilter === DateFilterTypes.ALLTIME }"
+          >
+            Todos
+          </button>
+        </div>
+        <div class="col-md-3 col-6">
+          <button type="button" disabled class="disabled box">
+            Selecionar período
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="transactions-content">
+      <div class="barra-filter">
+        <form class="filter">
+          <input
+            [(ngModel)]="searchFilter"
+            (ngModelChange)="handleSearchFilterChange()"
+            type="text"
+            name="pesquisa"
+            class="form-control"
+            placeholder="Buscar atividade"
+          />
+          <button class="btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-search"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+              />
+            </svg>
+          </button>
+        </form>
+
+        <button (click)="toggleFilter()" class="lineBoxes">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </button>
+      </div>
+
+      <div class="row">
+        <div *ngIf="filterOpen" class="col-lg-3 col-md-4 order-md-2">
+          <div class="sidebar">
+            <div class="filter-box">
+              <div>
+                <p>Método</p>
+                <div class="radio-box">
+                  <input
+                    id="pix"
+                    (change)="toggleFitlerByPix()"
+                    [(ngModel)]="filterByPix"
+                    type="checkbox"
+                  />
+                  <label for="pix">PIX</label>
+                </div>
+                <div class="radio-box">
+                  <input
+                    id="transfer"
+                    (change)="toggleFitlerByTrans()"
+                    [(ngModel)]="filterByTrans"
+                    type="checkbox"
+                  />
+                  <label for="transfer">Transferência</label>
+                </div>
+                <div>
+                  <button (click)="resetFilters()" class="limpar-filtro-button">
+                    Resetar Filtros
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- sidebar -->
+        </div>
+        <!-- col -->
+
+        <div
+          [ngClass]="{ 'col-lg-12': !filterOpen }"
+          class="col-lg-9 col-md-8 order-md-1"
+        >
+          <div
+            *ngFor="let transactionsFromDate of transactionsDisplay$ | async"
+            class="first-content"
+          >
+            <p>{{ transactionsFromDate.dataLabel }}</p>
+            <div
+              *ngFor="let transaction of transactionsFromDate.transactions"
+              class="detail-box"
+            >
+              <div class="detail-box-left-side">
+                <div class="circle">
+                  <i
+                    *ngIf="transaction.transactionType === 'Pix'"
+                    class="bi bi-x-diamond-fill"
+                  ></i>
+                  <i
+                    *ngIf="transaction.transactionType === 'Transferência'"
+                    class="bi bi-arrow-left-right"
+                  ></i>
+                </div>
+                <div class="two-texts">
+                  <p>{{ transaction.description }}</p>
+                  <p id="for">{{ transaction.from || transaction.to }}</p>
+                </div>
+              </div>
+              <div class="day-pay">
+                <p>
+                  {{ transaction.direction }}
+                  {{
+                    transaction.amount.toLocaleString("pt-br", {
+                      style: "currency",
+                      currency: "BRL"
+                    })
+                  }}
+                </p>
+                <p id="hour">
+                  {{ transaction.date.getHours().toString().padStart(2, "0") }}
+                  :
+                  {{
+                    transaction.date.getMinutes().toString().padStart(2, "0")
+                  }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--col-->
+      </div>
+      <!-- row -->
+    </div>
+  </section>
+</main>

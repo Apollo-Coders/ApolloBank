@@ -1,0 +1,38 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+
+}
+.footer{
+  /* © 2024 Apollo Coders */
+
+
+width: 100%;;
+height: 21px;
+left: 532px;
+top: 747px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: black;
+background-color: var(--laranja);
+padding: 15px;
+
+
+
+}
+
+
+footer p a {
+ text-decoration: none;
+ color: black;
+}

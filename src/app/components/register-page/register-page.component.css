@@ -1,0 +1,14 @@
+img {
+    padding: 0;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+
+    img {
+        display: none;
+    }
+}

@@ -1,0 +1,16 @@
+<div class="row container-fluid">
+    <div class="img col-md-6 div-left">
+    </div>
+    <div class="col-md-6 vp-right ">
+        <div class="with-background"></div>
+    <div class="form-end">
+        <app-navbar [navbarButton]="navbarButton" [navButtonRoute]="route"></app-navbar>
+       <div class="mt-3  d-flex justify-content-center">
+        <div class="form-right mt-5 ">
+            <app-login-form  *ngIf="FormLogin"  (formCompleted)="switchToSubsequentForm()"></app-login-form>
+            <app-password-form *ngIf="FormPassword"></app-password-form>
+        </div>
+       </div>
+    </div>
+    </div>
+</div>
