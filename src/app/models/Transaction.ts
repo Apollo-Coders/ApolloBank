@@ -1,8 +1,4 @@
-export enum TransactionType {
-  PIX = 'Pix',
-  CREDIT = 'Crédito',
-  TRANSFER = 'Transferência',
-}
+import { TransactionType } from '../enums/transactions';
 
 export class Transaction {
   id: string | null;
