@@ -4,6 +4,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { MinhaContaComponent } from './components/minha-conta/minha-conta.component';
 import { TransactionHistoryPageComponent } from './components/transaction-history-page/transaction-history-page.component';
 import { AuthGuard } from './Guards/auth.guard';
+import { SupportComponent } from './components/support/support.component';
 
 
 export const routes: Routes = [
@@ -16,6 +17,10 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginUserComponent,
+  },
+  {
+    path: 'support',
+    component: SupportComponent,
   },
   {
     path: 'register',
