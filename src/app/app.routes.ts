@@ -4,12 +4,35 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { MinhaContaComponent } from './components/minha-conta/minha-conta.component';
 import { TransactionHistoryPageComponent } from './components/transaction-history-page/transaction-history-page.component';
 import { AuthGuard } from './Guards/auth.guard';
+import { SupportComponent } from './components/support/support.component';
+
 
 export const routes: Routes = [
+
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
+    path: 'home',
+    component: HomePageComponent,
+  },
+  {
+    path: 'login',
+    component: LoginUserComponent,
+  },
+  {
+    path: 'support',
+    component: SupportComponent,
+  },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./components/register-page/register-page.component').then(
+        (m) => m.RegisterPageComponent
+      ),
+  },
+
+  {
     path: '',
-    canActivate: [AuthGuard], //Apenas essas rotas tem Guard
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'minha-conta',
@@ -20,21 +43,6 @@ export const routes: Routes = [
         component: TransactionHistoryPageComponent,
       },
     ],
-  },
-  {
-    path: 'home',
-    component: HomePageComponent,
-  },
-  {
-    path: 'login',
-    component: LoginUserComponent,
-  },
-  {
-    path: 'register',
-    loadComponent: () =>
-      import('./components/register-page/register-page.component').then(
-        (m) => m.RegisterPageComponent
-      ),
   },
   {
     path: 'not-found',

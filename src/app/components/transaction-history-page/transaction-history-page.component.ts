@@ -6,6 +6,7 @@ import { ITransactionDisplay } from '../../utils/transactionToDisplay';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { NavbarContaComponent } from '../shared/navbar-conta/navbar-conta.component';
+import { DateFilterTypes } from '../../enums/transactions';
 
 @Component({
   selector: 'app-transaction-history-page',
@@ -15,14 +16,16 @@ import { NavbarContaComponent } from '../shared/navbar-conta/navbar-conta.compon
   styleUrl: './transaction-history-page.component.css',
 })
 export class TransactionHistoryPageComponent implements OnInit {
+  DateFilterTypes = DateFilterTypes;
   filterOpen = true;
   paymentMethods = ['PIX', 'Transferência', 'Crédito'];
   transactionsDisplay$: Observable<ITransactionDisplay[]> = new Observable<
     ITransactionDisplay[]
   >();
-  filterByPix = false;
+  filterByPix = true;
   filterByTrans = true;
   searchFilter = '';
+  dateFilter = DateFilterTypes.ALLTIME;
 
   constructor(private transactionsService: TransactionsService) {}
 
@@ -31,7 +34,6 @@ export class TransactionHistoryPageComponent implements OnInit {
     this.transactionsService.filterByPix = this.filterByPix;
     this.transactionsService.filterByTrans = this.filterByTrans;
     this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
-    /* this.transactionsDisplay$.subscribe((d) => console.log(d)); */
   }
 
   toggleFilter() {
@@ -39,20 +41,39 @@ export class TransactionHistoryPageComponent implements OnInit {
   }
 
   toggleFitlerByPix() {
-    /* o NgModel já atualiza sozinha o valor da variável */
     this.transactionsService.filterByPix = this.filterByPix;
     this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
   }
 
   toggleFitlerByTrans() {
-    /* o NgModel já atualiza sozinha o valor da variável */
     this.transactionsService.filterByTrans = this.filterByTrans;
     this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
   }
 
   handleSearchFilterChange() {
-    console.log(this.searchFilter);
     this.transactionsService.searchFilterText = this.searchFilter;
+    this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
+  }
+
+  handleDateFilter(filter: DateFilterTypes) {
+    this.dateFilter = filter;
+    this.transactionsService.dateFilter = this.dateFilter;
+    this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
+  }
+
+  lastMonthFilter() {
+    this.dateFilter = DateFilterTypes.LASTMONTH;
+    this.transactionsService.dateFilter = this.dateFilter;
+    this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
+  }
+  sixMonthFilter() {
+    this.dateFilter = DateFilterTypes.LASTMONTH;
+    this.transactionsService.dateFilter = this.dateFilter;
+    this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
+  }
+  allTimeFilter() {
+    this.dateFilter = DateFilterTypes.LASTMONTH;
+    this.transactionsService.dateFilter = this.dateFilter;
     this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
   }
 

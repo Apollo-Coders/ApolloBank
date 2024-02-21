@@ -1,11 +1,14 @@
+import { DateFilterTypes } from './../enums/transactions';
 import { Injectable } from '@angular/core';
-import { Transaction, TransactionType } from '../models/Transaction';
+import { Transaction } from '../models/Transaction';
 import { BehaviorSubject, Observable } from 'rxjs';
 import {
   ITransactionDisplay,
   sortTransactionsByDate,
   transactionToDisplay,
 } from '../utils/transactionToDisplay';
+import { TransactionType } from '../enums/transactions';
+import { transacionsJSON } from '../utils/transactionsmock';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +21,7 @@ export class TransactionsService {
   private _filterByTrans: boolean = false;
   private _filterByPix: boolean = true;
   private _searchFilterText: string = '';
+  private _dateFilter: DateFilterTypes = DateFilterTypes.ALLTIME;
 
   public transactions$: Observable<Transaction[]> =
     this.transactionsSubject.asObservable();
@@ -33,6 +37,9 @@ export class TransactionsService {
 
   updateTransactionsToDisplay(transactions: Transaction[]): void {
     let filteredTransactions = transactions;
+
+    filteredTransactions = this.filterTransactionsByDate(filteredTransactions);
+
     if (!this._filterByTrans) {
       filteredTransactions = filteredTransactions.filter(
         (transaction) =>
@@ -79,6 +86,14 @@ export class TransactionsService {
   }
   public get filterByPix() {
     return this._filterByPix;
+  }
+
+  public set dateFilter(filter: DateFilterTypes) {
+    this._dateFilter = filter;
+    this.updateTransactionsToDisplay(this.transactionsSubject.getValue());
+  }
+  public get dateFilter() {
+    return this._dateFilter;
   }
 
   public set searchFilterText(value: string) {
@@ -131,160 +146,27 @@ export class TransactionsService {
       transactionTypeString as keyof typeof TransactionType
     ]; */
   }
-}
 
-const transacionsJSON = [
-  {
-    amount: 312.34,
-    direction: '-',
-    to: 'Ruan',
-    from: null,
-    date: '2024-02-14T10:34:52.329Z',
-    description: 'Transfência Para Ruan',
-    transactionType: 'Transfência',
-  },
-  {
-    amount: 121.24,
-    direction: '+',
-    to: 'Felipe',
-    from: null,
-    date: '2024-02-13T10:34:52.329Z',
-    description: 'Transfência De Felipe',
-    transactionType: 'Transfência',
-  },
-  {
-    amount: 823.874,
-    direction: '-',
-    to: 'Jack',
-    from: null,
-    date: '2024-02-12T10:34:52.329Z',
-    description: 'Transfência Para Jack ',
-    transactionType: 'Transfência',
-  },
-  {
-    amount: 95.228,
-    direction: '+',
-    to: null,
-    from: 'David',
-    date: '2024-01-22T13:47:39.821Z',
-    description: 'Enviado por David',
-    transactionType: 'Transfência',
-  },
-  {
-    amount: 387.157,
-    direction: '-',
-    to: 'Mia',
-    from: null,
-    date: '2024-01-01T06:17:29.516Z',
-    description: 'Pix para Mia',
-    transactionType: 'Pix',
-  },
-  {
-    amount: 211.337,
-    direction: '+',
-    to: null,
-    from: 'Mia',
-    date: '2023-01-25T03:07:02.181Z',
-    description: 'Enviado por Mia',
-    transactionType: 'Transfência',
-  },
-  {
-    amount: 28.507,
-    direction: '-',
-    to: 'Charlie',
-    from: null,
-    date: '2023-01-20T14:58:06.108Z',
-    description: 'Para Charlie',
-    transactionType: 'Transfência',
-  },
-  {
-    amount: 544.081,
-    direction: '+',
-    to: null,
-    from: 'Frank',
-    date: '2024-02-12T17:10:28.982Z',
-    description: 'Enviado por Frank',
-    transactionType: 'Transfência',
-  },
-  {
-    amount: 806.558,
-    direction: '+',
-    to: null,
-    from: 'Jack',
-    date: '2023-01-31T12:25:34.428Z',
-    description: 'Enviado por Jack',
-    transactionType: 'Transfência',
-  },
-  {
-    amount: 557.889,
-    direction: '-',
-    to: 'Olivia',
-    from: null,
-    date: '2023-01-21T16:05:52.072Z',
-    description: 'Pix para Olivia',
-    transactionType: 'Pix',
-  },
-  {
-    amount: 934.883,
-    direction: '+',
-    to: null,
-    from: 'Olivia',
-    date: '2023-01-15T21:52:07.398Z',
-    description: 'Enviado por Olivia',
-    transactionType: 'Transfência',
-  },
-  {
-    amount: 688.687,
-    direction: '-',
-    to: 'David',
-    from: null,
-    date: '2024-02-05T09:33:12.472Z',
-    description: 'Para David',
-    transactionType: 'Transfência',
-  },
-  {
-    amount: 353.428,
-    direction: '-',
-    to: 'Emma',
-    from: null,
-    date: '2023-02-09T06:51:24.625Z',
-    description: 'Para Emma',
-    transactionType: 'Transfência',
-  },
-  {
-    amount: 992.396,
-    direction: '-',
-    to: 'Katie',
-    from: null,
-    date: '2024-01-18T19:47:08.332Z',
-    description: 'Para Katie',
-    transactionType: 'Transfência',
-  },
-  {
-    amount: 438.533,
-    direction: '+',
-    to: null,
-    from: 'Liam',
-    date: '2024-01-28T09:28:17.127Z',
-    description: 'Enviado por Liam',
-    transactionType: 'Transfência',
-  },
-  {
-    amount: 778.448,
-    direction: '-',
-    to: 'Henry',
-    from: null,
-    date: '2023-01-28T21:43:02.953Z',
-    description: 'Para Henry',
-    transactionType: 'Transfência',
-  },
-  {
-    amount: 379.166,
-    direction: '+',
-    to: null,
-    from: 'Katie',
-    date: '2023-01-30T15:01:23.394Z',
-    description: 'Enviado por Katie',
-    transactionType: 'Transfência',
-  },
-];
+  private filterTransactionsByDate(transactions: Transaction[]): Transaction[] {
+    switch (this._dateFilter) {
+      case DateFilterTypes.LASTMONTH:
+        return transactions.filter(
+          (transaction) =>
+            new Date().getMonth() === transaction.date.getMonth() &&
+            new Date().getFullYear() === transaction.date.getFullYear()
+        );
+      case DateFilterTypes.SIXMONTHS:
+        return transactions.filter(
+          (transaction) =>
+            Math.abs(
+              new Date().getMonth() -
+                transaction.date.getMonth() +
+                12 * (new Date().getFullYear() - transaction.date.getFullYear())
+            ) < 6
+        );
+      case DateFilterTypes.ALLTIME:
+      default:
+        return transactions;
+    }
+  }
+}

@@ -2,20 +2,20 @@
 * {
     font-size: 1rem;
     font-family: "Nasalization";
-    color: var(--azul-escuro); 
+    color: var(--azul-escuro);
     text-decoration: none;
-    list-style: none;   
+    list-style: none;
 }
 
 a {
-    white-space: nowrap; 
-} 
+    white-space: nowrap;
+}
 
 
 .header-nav {
     padding: 0px 15px;
     color: var(--azul-escuro);
-    
+
 }
 
 .header-nav .logo {
@@ -41,7 +41,7 @@ a {
 
 .header-nav nav li a {
     font-weight: 500;
-    padding: 10px 20px;
+    padding: 10px 12px;
     transition: 0.2s;
     border-radius: 50px;
     letter-spacing: 1px;
@@ -71,7 +71,7 @@ a {
     background-color: var(--azul-escuro);
     width: 30px;
     height: 2px;
-    top: 29px;
+    top: 15px;
     left: 15px;
     transition: 0.5s ease-in-out;
 }
@@ -133,7 +133,7 @@ a {
 
     .header-nav nav {
         position: absolute;
-        top: 30px;
+        top: 20px;
         right: 20px;
         z-index: 1;
     }

@@ -42,6 +42,11 @@ export function transactionToDisplay(
         month: 'long',
       });
       dateLabel = formattedDate;
+
+      // Adiciona o ano ao dateLabel se a transação não for do ano atual
+      if (transactionYear !== today.getFullYear()) {
+        dateLabel += ` ${transactionYear}`;
+      }
     }
 
     if (!groupedTransactions[dateLabel]) {

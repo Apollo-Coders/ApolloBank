@@ -15,6 +15,7 @@ import { RegisterSucessComponent } from "../shared/register-sucess/register-suce
     imports: [RegisterFormComponent, NavbarComponent, SubsequentFormComponent, CommonModule, RegisterSucessComponent]
 })
 export class RegisterPageComponent {
+ 
   navbarButton = 'Acesse sua conta';
   route = "/login"
   currentForm = 'register';

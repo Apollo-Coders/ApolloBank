@@ -1,0 +1,66 @@
+<app-navbar [navbarButton]="navbarButton" [navButtonRoute]="route"></app-navbar>
+
+<main>
+    <section class="bluebox">
+      <h1>Dúvidas? Conte conosco!</h1>
+    </section>
+  
+    <div class="accordion" id="accordionExample">
+        <h1 class="know-more">Saiba mais</h1>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" (click)="toggleCollapse('collapseOne')" [attr.aria-expanded]="isExpanded('collapseOne')" aria-controls="collapseOne">
+            <p>Quem somos nós?</p>
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" [ngClass]="{'show': isExpanded('collapseOne')}" aria-labelledby="headingOne">
+          <div class="accordion-body">
+            <p class="fluid-text">{{fluidTexts[0]}}</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button" type="button" (click)="toggleCollapse('collapseTwo')" [attr.aria-expanded]="isExpanded('collapseTwo')" aria-controls="collapseTwo">
+            <p class="fluid-text">O que é o banco Apollo?</p>
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" [ngClass]="{'show': isExpanded('collapseTwo')}" aria-labelledby="headingTwo">
+          <div class="accordion-body">
+            <p class="fluid-text">{{fluidTexts[1]}}</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button" type="button" (click)="toggleCollapse('collapseThree')" [attr.aria-expanded]="isExpanded('collapseThree')" aria-controls="collapseThree">
+            <p>Quem pode ter a conta Apollo?</p>
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" [ngClass]="{'show': isExpanded('collapseThree')}" aria-labelledby="headingThree">
+          <div class="accordion-body">
+            <p class="fluid-text">{{fluidTexts[2]}}</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button" type="button" (click)="toggleCollapse('collapseFour')" [attr.aria-expanded]="isExpanded('collapseFour')" aria-controls="collapseFour">
+            <p>Central de contatos</p>
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" [ngClass]="{'show': isExpanded('collapseFour')}" aria-labelledby="headingFour">
+          <div class="accordion-body">
+            <p class="fluid-text">Entre em contato e conheça nossa rede:</p> 
+            <p> <i class="bi bi-envelope-at-fill"></i> <a href="mailto: apollocodersdev@gmail.com">Fale conosco</a></p>
+            <p>  <i class="bi bi-github"></i><a href="https://github.com/Apollo-Coders">Acesse nosso GitHub</a></p>
+            <p><i class="bi bi-globe"></i><a href="https://landing-page-three-flax.vercel.app/home">Acesse nossa página</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+<app-footer></app-footer>
