@@ -41,7 +41,7 @@ a {
 
 .header-nav nav li a {
     font-weight: 500;
-    padding: 10px 20px;
+    padding: 10px 12px;
     transition: 0.2s;
     border-radius: 50px;
     letter-spacing: 1px;
@@ -71,7 +71,7 @@ a {
     background-color: var(--azul-escuro);
     width: 30px;
     height: 2px;
-    top: 10px;
+    top: 29px;
     left: 15px;
     transition: 0.5s ease-in-out;
 }
@@ -133,7 +133,7 @@ a {
 
     .header-nav nav {
         position: absolute;
-        top: 30px;
+        top: 20px;
         right: 20px;
         z-index: 1;
     }
