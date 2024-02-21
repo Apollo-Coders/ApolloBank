@@ -1,0 +1,36 @@
+* {
+    font-family: 'Poppins';
+}
+
+
+.custom-btn {
+    background-color: var(--laranja) !important;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border: none;
+    border-radius: 30px;
+    padding: 7px;
+    margin-right: 20px;
+    margin-top: 10px;
+    color: white;
+    font-weight: 550;
+}
+
+
+
+form{
+    margin-top: 5px;
+    padding-left: 40px;
+    padding-right: 20px;
+}
+
+input{
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.row{
+    padding-top: 10px;
+}
+
+.form-check-label{
+    color: var(--laranja);
+}

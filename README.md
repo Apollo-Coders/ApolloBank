@@ -1,27 +1,64 @@
-# ApolloBank
+<h1 align="center">  Apollo Bank :bank:  </h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+## :memo: Projeto
+Aplicação de projeto de Banco/Fintech.
 
-## Development server
+##  Descrição 
+Projeto para o programa SharpCoders, da Imã Tech, em um trabalho em equipe do Hackadev. 
+Este trabalho foi submetido como parte do programa Sharp Coders da Ímã Tech, como um desafio proposto pelo Hackadev. Ele se trata de uma aplicação web de um Banco Digital que inclui funcionalidades como armazenamento dos dados dos usuários (por enquanto com sem uma base de dados), histórico de transações e tela do usuário. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🕐 Status da aplicação
+Tecnologias de Front-End finalizadas. Tecnologias de Back-End em construção para as próximas etapas. 
 
-## Code scaffolding
+##  Sumário 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🖥️ Features 
 
-## Build
+## :wrench: Tecnologias Utilizadas
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Autores
 
-## Running unit tests
+Criado com empenho por um grupo talentoso e dedicado: ApolloCoders! 💙
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<div align="center">Inserir foto</div>
+<div align="center"><a href="https://github.com/buen0-o5">Brenda Bueno</a></div>
+</br></br>
 
-## Running end-to-end tests
+<div align="center">Inserir foto</div>
+<div align="center"><a href="https://github.com/caiohxp">Caio Cesar</a></div>
+</br></br>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+<div align="center">Inserir foto</div>
+<div align="center"><a href="https://github.com/CarlaDudaMorais">Carla Morais</a></div>
+</br></br>
 
-## Further help
+<div align="center">Inserir foto</div>
+<div align="center"><a href="https://github.com/Daaaiii">Daiane Bolzan</a></div>
+</br></br>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<div align="center">Inserir foto</div>
+<div align="center"><a href="https://github.com/GuiDuarte07">Guilherme Duarte</a></div>
+</br></br>
+
+<div align="center">Inserir foto</div>
+<div align="center"><a href="https://github.com/LucasViniciuus">Lucas Vinícius</a></div>
+</br></br>
+
+<div align="center">Inserir foto</div>
+<div align="center"><a href="https://github.com/luizcarneiro90">Luiz Carneiro</a></div>
+</br></br>
+
+<div align="center">Inserir foto</div>
+<div align="center"><a href="https://github.com/luizaferreirafonseca">Luiza Ferreira</a></div>
+</br></br>
+
+<div align="center">Inserir foto</div>
+<div align="center"><a href="https://github.com/vitorpatrickmoraes">Vítor Moraes</a></div>
+</br></br>
+
+<div align="center">Inserir foto</div>
+<div align="center"><a href="https://github.com/YasminGomes97">Yasmin Gomes</a></div>
+
+
+
+

@@ -1,0 +1,87 @@
+<div class="section">
+    <app-navbar-conta></app-navbar-conta>
+    <div class="row m-0 mt-4">
+        <div class="col-md-6 d-flex justify-content-center align-items-center mt-5">
+            <div class="action d-flex align-items-center flex-wrap justify-content-center">
+                <button class="d-flex flex-column align-items-center">
+                    <i class="bi bi-x-diamond-fill"></i>
+                    Pix
+                </button>
+                <button routerLink="/transactions" class="d-flex flex-column align-items-center">
+                    <i class="bi bi-bar-chart-line"></i>
+                    Extrato.
+                </button>
+                <button class="d-flex flex-column align-items-center">
+                    <i class="bi bi-arrow-left-right"></i>
+                    Transferência
+                </button>
+                <button class="d-flex flex-column align-items-center">
+                    <i class="bi bi-credit-card"></i>
+                    <span>Crédito</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="transacoes col-md-6 d-flex flex-column align-items-center">
+
+            <a routerLink="/transactions" class="text-decoration-none transacoes-view d-flex align-items-center justify-content-between w-75">
+                <h2>Últimas Transações</h2>
+                <i class="bi bi-chevron-right"></i>
+            </a>
+            <table>
+                <tr *ngFor="let transactions of lastTransactions">
+                    <td><i class="bi bi-arrow-bar-{{transactions.direction === '-' ? 'down' : 'up'}}"></i></td>
+                    <td class="">{{transactions.description}}</td>
+                    <td
+                    [ngClass]="{
+                      'text-danger': transactions.direction === '-',
+                      'text-success': transactions.direction === '+'}"
+                    >
+                      R$ {{transactions.amount}}
+                    </td>
+                    <td>{{transactions.date | date: 'dd/MM'}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
+            <div class="cartao row w-75 mb-4">
+                <h2 class="col-md-12">Cartão de Crédito</h2>
+                <p>{{user.nome}}</p>
+                <p>**** **** **** **** 3215</p>
+                <div class="fatura col-md-6 text-center">
+                    <span>Fatura Atual<br></span>
+                    <span>R$</span>
+                    <input disabled type="number" [style.width.px]="getInputWidth(fatura)" class="valor"
+                        value="{{fatura.toFixed(2)}}" id="">
+                </div>
+                <div class="limite col-md-6 text-center">
+                    <span>Limite Disponível<br></span>
+                    <span>R$</span>
+                    <input disabled type="number" [style.width.px]="getInputWidth(limite)" class="valor"
+                        value="{{limite.toFixed(2)}}" id="">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 opcoes d-flex flex-column align-items-center mb-4">
+            <div class="options d-flex align-items-center justify-content-between w-75">
+                <h2>Acesse as opções</h2>
+                <i class="bi bi-chevron-right"></i>
+            </div>
+            <div class="opcoes-box d-flex flex-column align-items-center justify-content-center p-3 w-75">
+                <button class="m-2 w-75">
+                    <span>Programa de Pontos</span>
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+                <button class="m-2 w-75">
+                    <span>Crédito Pessoal</span>
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+                <button class="m-2 w-75">
+                    <span>Documentos</span>
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>

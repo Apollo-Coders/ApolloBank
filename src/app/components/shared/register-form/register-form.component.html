@@ -1,0 +1,175 @@
+<div class="container mt-5 mb-5">
+    <h2 class="text-center">Comece sua jornada aqui</h2>
+    <section class="row">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="form-group mb-3">
+                        <label for="name" class="form-label">Nome completo</label>
+                        <input type="text" class="form-control" formControlName="name" id="name"
+                            placeholder="Digite seu nome"
+                            [class.is-invalid]="form.get('name')?.invalid && (form.get('name')?.dirty || form.get('name')?.touched)"
+                            required>
+                        <div *ngIf="form.get('name')?.invalid && (form.get('name')?.dirty || form.get('name')?.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="form.get('name')?.errors?.['nameInvalid']">
+                                <div *ngIf="form.get('name')?.errors?.['reason'] === 'Not enough words'">Por favor,
+                                    informe
+                                    seu nome e sobrenome.</div>
+                                <div *ngIf="form.get('name')?.errors?.['reason'] === 'Word too short'">Cada
+                                    nome/sobrenome
+                                    deve ter pelo menos 3 letras.</div>
+                                <div *ngIf="form.get('name')?.errors?.['reason'] === 'Invalid characters'"> O nome não
+                                    pode
+                                    conter símbolos e números.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-2"></div>
+                <div class="col-md-2 mb-3">
+                    <label for="DDD" class="form-label">DDD</label>
+                    <select class="form-select" size="1" formControlName="ddd" id="DDD"
+                        [class.is-invalid]="form.get('ddd')?.invalid && (form.get('ddd')?.dirty || form.get('ddd')?.touched)"
+                        required>
+                        <option value="" selected>Selecione</option>
+                        <option *ngFor="let ddd of ddds" [value]="ddd">{{ddd}}</option>
+                    </select>
+                    <div *ngIf="form.get('ddd')?.invalid && (form.get('ddd')?.dirty || form.get('ddd')?.touched)"
+                        class="invalid-feedback">
+                        Por favor, selecione um DDD.
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="phone" class="form-label">Telefone (apenas números)</label>
+                    <input type="text" class="form-control" id="phone" formControlName="phone"
+                        placeholder="Digite seu telefone"
+                        [class.is-invalid]="form.get('phone')?.invalid && (form.get('phone')?.dirty || form.get('phone')?.touched)"
+                        required>
+                    <div *ngIf="form.get('phone')?.invalid && (form.get('phone')?.dirty || form.get('phone')?.touched)"
+                        class="invalid-feedback">
+                        <div *ngIf="form.get('phone')?.errors?.['phoneInvalid']">Número de telefone inválido.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" formControlName="email" class="form-control"
+                        placeholder="Digite seu email"
+                        [class.is-invalid]="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched) ||form.errors?.['userEmailExists']"
+                        required>
+                    <span *ngIf="form.errors?.['userEmailExists']" class="text-danger">Email já cadastrado.</span>
+                    <div *ngIf="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched) ||form.errors?.['emailExists']"
+                        class="invalid-feedback">
+                        <div *ngIf="form.get('email')?.errors?.['required']">
+                            Informe seu email.
+                        </div>
+                        <div *ngIf="form.get('email')?.errors?.['email']">
+                            Informe um endereço de email válido.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 mb-3">
+                    <label for="cpf" class="form-label">CPF (apenas números)</label>
+                    <input type="text" class="form-control" id="cpf" formControlName="cpf" aria-describedby="cpf"
+                        placeholder="Digite seu CPF"
+                        [class.is-invalid]="form.get('cpf')?.invalid && (form.get('cpf')?.dirty || form.get('cpf')?.touched) ||form.errors?.['userCPFExists']"
+                        required>
+                    <span *ngIf="form.errors?.['userCPFExists']" class="text-danger">CPF já cadastrado.</span>
+
+                    <div *ngIf="form.get('cpf')?.invalid && (form.get('cpf')?.dirty || form.get('cpf')?.touched)"
+                        class="invalid-feedback">
+                        <span *ngIf="form.get('cpf')?.errors?.['cpfInvalid'] === 'allDigitsEqual'">Todos os dígitos do
+                            CPF não podem ser iguais.</span>
+                        <span *ngIf="form.get('cpf')?.errors?.['cpfInvalid'] === 'invalidLength'">O CPF deve conter
+                            exatamente 11 dígitos.</span>
+                        <span *ngIf="form.get('cpf')?.errors?.['cpfInvalid'] === true">CPF inválido.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 mb-3">
+                    <label for="birthday" class="form-label">Data de nascimento</label>
+                    <input type="date" class="form-control" formControlName="birthday" id="birthday"
+                        [class.is-invalid]="form.get('birthday')?.invalid && (form.get('birthday')?.dirty || form.get('birthday')?.touched)"
+                        required>
+                    <div *ngIf="form.get('birthday')?.invalid && (form.get('birthday')?.dirty || form.get('birthday')?.touched)"
+                        class="invalid-feedback">
+                        <div *ngIf="form.get('birthday')?.errors?.['dateOfBirthInvalid']">A data de nascimento deve ser
+                            anterior ao dia atual.</div>
+                        <div *ngIf="form.get('birthday')?.errors?.['wrongYear']">Verifique o ano de nascimento.</div>
+                        <div *ngIf="form.get('birthday')?.errors?.['futureYear']">Ano de nascimento não pode ser no
+                            futuro.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 mb-3">
+                    <label for="password" class="form-label">Senha (apenas números)</label>
+                    <div class="input-group">
+                        <input [type]="showPassword ? 'text' : 'password'" class="form-control"
+                            formControlName="password" id="password" placeholder="Crie uma senha de 6 números"
+                            [class.is-invalid]="form.errors?.['passwordEqualsBirthday'] || (form.get('password')?.invalid && (form.get('password')?.dirty || form.get('password')?.touched))"
+                            required>
+                        <span class="input-group-text">
+                            <i class="bi" [class.bi-eye-fill]="!showPassword" [class.bi-eye-slash-fill]="showPassword"
+                                (click)="showPassword = !showPassword"></i>
+                        </span>
+                    </div>
+                    <span *ngIf="form.errors?.['passwordEqualsBirthday'] ||form.errors?.['passwordEqualsCPF']"
+                        class="invalid-feedback">
+                        Senha não pode ser igual ao CPF, data de aniversário, ou conter sequências do CPF.
+                    </span>
+                    <div *ngIf="form.get('password')?.errors && (form.get('password')?.dirty || form.get('password')?.touched)"
+                        class="invalid-feedback">
+                        <span *ngIf="form.get('password')?.errors?.['passwordInvalid']">
+                            A senha deve ter 6 números.
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 mb-3">
+                    <label for="confirm-password" class="form-label">Confirme sua senha (apenas números)</label>
+                    <div class="input-group">
+                        <input [type]="showPasswordConfirmation ? 'text' : 'password'" class="form-control" formControlName="confirmPassword"
+                            id="confirmPassword" placeholder="Confirme sua senha"
+                            [class.is-invalid]="form.errors?.['passwordMismatch'] && (form.get('confirmPassword')?.dirty || form.get('confirmPassword')?.touched)"
+                            required>
+                        <span class="input-group-text">
+                            <i class="bi" [class.bi-eye-fill]="!showPasswordConfirmation" [class.bi-eye-slash-fill]="showPasswordConfirmation"
+                                (click)="showPasswordConfirmation = !showPasswordConfirmation"></i>
+                        </span>
+                    </div>
+                    <div *ngIf="form.errors?.['passwordMismatch'] && (form.get('confirmPassword')?.dirty || form.get('confirmPassword')?.touched)"
+                        class="invalid-feedback">
+                        As senhas não coincidem.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 mb-3">
+                    <div class="d-grid gap-2">
+
+                        <button type="submit" class="btn custom-btn mt-3 w-100" [disabled]="form.invalid">Continuar</button>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</div>
