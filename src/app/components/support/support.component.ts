@@ -12,7 +12,8 @@ import { RouterLink } from '@angular/router';
   styleUrl: './support.component.css'
 })
 export class SupportComponent {
-
+  navbarButton = 'Acesse sua conta';
+  route = "/login"
 
   fluidTexts: string[] = [
     "Somos o Grupo Apollo, inspirados pela saga épica das missões espaciais Apollo, buscamos constantemente superar fronteiras e alcançar o extraordinário. Com uma equipe diversificada de especialistas em tecnologia, ciência e inovação, estamos impulsionando os limites do conhecimento humano e desbravando novos caminhos em direção ao futuro. Junte-se a nós nesta jornada cósmica, onde cada desafio nos aproxima um passo mais perto das estrelas.",
