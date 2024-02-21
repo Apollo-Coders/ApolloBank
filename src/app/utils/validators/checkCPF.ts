@@ -9,6 +9,9 @@ export function cpfValidator(): ValidatorFn {
         if (!cpf || cpf.length !== 11) {
             return { cpfInvalid: 'invalidLength' };
         }
+        if (!/^\d{11}$/.test(cpf)) {
+            return { cpfInvalid: 'invalidFormat' };
+        }
 
         const cpfNumbers = cpf.match(/\d/g);
         if (cpfNumbers && cpfNumbers.length === 11) {
