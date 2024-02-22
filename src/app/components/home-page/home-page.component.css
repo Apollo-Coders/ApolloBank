@@ -237,11 +237,13 @@ color: #002A84;
 
 }
 
-@media (min-width: 350px) and (max-width: 521px){
+@media (max-width: 521px){
 
   .main-container h2{
     font-size: 0.9rem;
   }
+
+
 
   .main-container p{
     font-size: 0.5rem;
@@ -269,8 +271,9 @@ color: #002A84;
   }
 
   .photocard{
-    width: 200px;
+    width: 80%;
     height: 150px;
+    object-fit: cover;
   }
 
   .container-texts{
@@ -290,7 +293,9 @@ color: #002A84;
     text-align: center;
   }
 
-
+ .text-center{
+  width: 350px;
+ }
 
 
 
