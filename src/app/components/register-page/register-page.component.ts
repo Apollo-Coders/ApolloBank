@@ -18,7 +18,7 @@ export class RegisterPageComponent {
  
   navbarButton = 'Acesse sua conta';
   route = "/login"
-  currentForm = 'register';
+  currentForm = 'success';
   switchToSubsequentForm() {
     this.currentForm = 'subsequent';
   }
