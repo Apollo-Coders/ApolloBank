@@ -90,6 +90,7 @@
                         class="invalid-feedback">
                         <span *ngIf="form.get('cpf')?.errors?.['cpfInvalid'] === 'allDigitsEqual'">Todos os dígitos do
                             CPF não podem ser iguais.</span>
+                        <span *ngIf="form.get('cpf')?.errors?.['cpfInvalid'] === 'invalidFormat'">O CPF deve conter apenas números.</span>
                         <span *ngIf="form.get('cpf')?.errors?.['cpfInvalid'] === 'invalidLength'">O CPF deve conter
                             exatamente 11 dígitos.</span>
                             <span *ngIf="form.get('cpf')?.errors?.['cpfInvalid'] === 'notNumber'">O CPF só pode conter números</span>

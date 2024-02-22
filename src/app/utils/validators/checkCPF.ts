@@ -3,16 +3,16 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 export function cpfValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const cpf = control.value;
+    
     if (!cpf) {
       return null;
     }
+    
     if (!cpf || cpf.length !== 11) {
       return { cpfInvalid: 'invalidLength' };
     }
 
     const justNumberRegex = /^\d+$/;
-    console.log(cpf);
-    console.log(justNumberRegex.test(cpf));
     if (!justNumberRegex.test(cpf)) {
       return { cpfInvalid: 'notNumber' };
     }
@@ -31,7 +31,7 @@ export function cpfValidator(): ValidatorFn {
     }
 
     return null;
-  };
+  }
 }
 
 function isAllDigitsEqual(cpf: string): boolean {

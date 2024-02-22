@@ -39,6 +39,11 @@ a {
     text-decoration: none;
 }
 
+
+.header-nav nav li {
+    padding: 3px;
+}
+
 .header-nav nav li a {
     font-weight: 500;
     padding: 10px 12px;

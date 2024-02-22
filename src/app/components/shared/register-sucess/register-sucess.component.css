@@ -4,8 +4,9 @@
     border: none;
     border-radius: 30px;
     padding: 4px;
-    margin-right: 20px;
+    margin-left: 15px;
     margin-top: 10px;
+    color: white;
 }
 
 .custom-btn:hover{
