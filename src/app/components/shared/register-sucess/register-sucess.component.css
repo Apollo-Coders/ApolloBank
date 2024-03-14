@@ -1,13 +1,23 @@
 .custom-btn {
-    background-color: var(--laranja);
-    color: #fff;
+    background-color: var(--laranja) !important;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     border: none;
-    font-weight: bold;
+    border-radius: 30px;
+    padding: 4px;
+    margin-left: 15px;
+    margin-top: 10px;
+    color: white;
+}
+
+.custom-btn:hover{
+    background-color: rgb(240, 127, 62);
 }
 
 p {
     font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
 }
 h3{
     font-family: 'Nasalization', sans-serif;
+    font-size: 2.0rem;
 }

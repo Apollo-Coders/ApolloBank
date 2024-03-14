@@ -1,0 +1,94 @@
+.accordion{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+
+
+.accordion-button{
+   background-color: white;
+   
+}
+
+
+.accordion-item {
+    border-bottom: none;
+    background-color: white;
+    margin-top: 3%;
+    margin-left: 10%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    width: 80%;
+    padding:20px;
+    border-radius: 0px;
+    
+    
+}
+
+.accordion-button p{
+    font-size: 1.4rem;
+    font-weight: 550;
+    letter-spacing: 1;
+}
+
+.accordion-button p:hover{
+    color: var(--laranja);
+}
+
+
+.bluebox{
+    background-color: rgb(14, 14, 119);
+    height: 20vW;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    
+}
+
+.bluebox h1{
+    color: white;
+    font-size: 1.9rem;
+    letter-spacing: 1px;
+    padding-left: 10%;
+    
+}
+
+.know-more{
+font-size: 1.5rem;
+padding-left: 10%;
+color: var(--laranja);
+padding-bottom: 20px;
+
+
+}
+
+.fluid-text{
+    padding-top: 10px;
+    line-height: 2;
+    font-size: 1.1rem;
+}
+
+.accordion-body p i{
+    padding-right: 10px;
+}
+
+.accordion-body a {
+   color: var(--laranja);
+}
+
+@media(max-width: 464px){
+
+    .accordion-item{
+        width: 80%;
+        margin: 10%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+
+}
+
+@media(max-width: 454px){
+    .bluebox{
+        height: 40vW;
+    }
+}

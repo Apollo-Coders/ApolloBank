@@ -15,6 +15,9 @@ background-position: center;
 
 }
 
+
+
+
 h3{
   font-family: 'Nasalization';
 }
@@ -25,7 +28,7 @@ font-style: normal;
 font-weight:400%;
 font-size: 0.1rem;
 line-height: 100%;
-display: flex; 
+display: flex;
 align-items: center;
 text-align: center;
 color: #000000;
@@ -49,7 +52,7 @@ transition: background-color 0.3s;
 }
 
 .button-open:hover {
-  background-color: #f58147; 
+  background-color: #f58147;
 }
 
 .button-open button {
@@ -66,6 +69,7 @@ transition: background-color 0.3s;
 
 .button-open button:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .btn-default{
@@ -79,7 +83,7 @@ border:none;
 min-width: 300px;
 }
 
-/* sections */ 
+/* sections */
 
 .section-one{
   background-color: #F7F4F4;
@@ -87,10 +91,10 @@ min-width: 300px;
   height: 35vW;
 }
 
-.photocard{  
+.photocard{
   width: 480px;
   height: 380px;
-  
+
 }
 .h2{
 color: #002A84;
@@ -110,7 +114,7 @@ color: #002A84;
 .traveling{
  margin-top: 14%;
  padding-right: 50%;
- 
+
 }
 
 .main-container{
@@ -126,7 +130,7 @@ color: #002A84;
   font-size: 1.1rem;
   color: white;
   font-weight: bold;
- 
+
 }
 
 
@@ -137,7 +141,7 @@ color: #002A84;
   .main-container h2{
     font-size: 1.8rem;
   }
-  
+
   .main-container p{
     font-size: 1.0rem;
   }
@@ -152,7 +156,7 @@ color: #002A84;
 
 
 
- 
+
 
 
 
@@ -234,11 +238,13 @@ color: #002A84;
 
 }
 
-@media (min-width: 350px) and (max-width: 521px){
-  
+@media (max-width: 521px){
+
   .main-container h2{
     font-size: 0.9rem;
   }
+
+
 
   .main-container p{
     font-size: 0.5rem;
@@ -247,7 +253,7 @@ color: #002A84;
   .main-container{
     margin-right: 20%;
   }
-  
+
   .traveling{
     padding: 0;
   }
@@ -256,7 +262,7 @@ color: #002A84;
   .main-container{
     display: flex;
     flex-direction: column;
-   
+
   }
 
   .section-one{
@@ -266,8 +272,9 @@ color: #002A84;
   }
 
   .photocard{
-    width: 200px;
+    width: 80%;
     height: 150px;
+    object-fit: cover;
   }
 
   .container-texts{
@@ -287,7 +294,9 @@ color: #002A84;
     text-align: center;
   }
 
-  
+ .text-center{
+  width: 350px;
+ }
 
 
 

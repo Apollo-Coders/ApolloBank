@@ -18,52 +18,56 @@ body {
     font-family: 'Nasalization';
     src: url('assets/fonts/nasalization-rg.otf') format('truetype');
   }
-  
-  @font-face {
-    font-family: 'Poppins';
-    src: url('assets/fonts/Poppins-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Poppins';
-    src: url('assets/fonts/Poppins-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Poppins';
-    src: url('assets/fonts/Poppins-ExtraLight.ttf') format('truetype');
-    font-weight: 200;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Poppins';
-    src: url('assets/fonts/Poppins-Italic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-  }
-  
-  :root{
-    --laranja: #F86B02;
-    --azul-escuro: #002A84;
-    --cinza: #E6E6E6; 
-    
-    html, body {
-      min-height: 100vh;
-      width: 100%;
-    }
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
-  }
-  
 
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/Poppins-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/Poppins-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/Poppins-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+:root{
+  --laranja: #F86B02;
+  --azul-escuro: #002A84;
+  --cinza: #E6E6E6;
+}
+
+html, body {
+  min-height: 100vh;
+  width: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Poppins';
+}
+
+html, body {
+  min-height: 100vh;
+  width: 100%;
+}

@@ -30,3 +30,9 @@ padding: 15px;
 
 
 }
+
+
+footer p a {
+ text-decoration: none;
+ color: black;
+}

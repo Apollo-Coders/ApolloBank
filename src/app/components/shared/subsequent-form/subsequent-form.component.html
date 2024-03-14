@@ -97,49 +97,12 @@
                     placeholder="Digite aqui o complemento do endereço.">
 
             </div>
-            <div class="modal fade" #RejectPoliciesModal data-bs-backdrop="static" data-bs-keyboard="false"
-                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" #policiesModal tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Comunicado Apollo Coders <i
-                                    class="bi bi-exclamation-octagon"></i></h1>
-                        </div>
-                        <div class="modal-body">
-                            Compreendemos e respeitamos sua decisão de não concordar com as diretrizes da nossa
-                            empresa, o ApolloBank. Valorizamos a diversidade de opiniões e perspectivas,
-                            reconhecendo que cada indivíduo tem suas próprias crenças e princípios.
-
-                            Embora lamentemos que nossas diretrizes não estejam alinhadas com suas expectativas,
-                            queremos assegurar-lhe que respeitamos sua liberdade de escolha. Acreditamos que o
-                            diálogo aberto e respeitoso é fundamental para o desenvolvimento de uma comunidade
-                            sólida.
-
-                            Caso tenha sugestões construtivas ou preocupações específicas que gostaria de
-                            compartilhar, estamos abertos a ouvir e entender melhor suas perspectivas. Nosso
-                            objetivo é cultivar um ambiente inclusivo e colaborativo, e suas contribuições são
-                            valiosas para o aprimoramento contínuo da nossa empresa.
-
-                            Agradecemos por considerar expressar sua opinião e esperamos que, mesmo discordando das
-                            diretrizes atuais, você encontre um ambiente onde suas preocupações e valores sejam
-                            respeitados.
-
-                            Atenciosamente,
-
-                            Equipe ApolloBank
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" #policiesModal data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Termos e diretrizes</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Termos e diretrizes</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             Ao criar uma conta no ApolloBank, você expressa seu compromisso em seguir nossos termos
@@ -148,14 +111,8 @@
                             financeira sólida e responsável. Junte-se a nós nessa jornada para estabelecer uma base
                             confiável e ética no âmbito financeiro.
                         </div>
-                        <div class="modal-footer bg-light clearfix">
-                            <button type="button" class="btn custom-btn me-auto" data-bs-dismiss="modal">
-                                Eu concordo com as diretrizes.
-                            </button>
-                            <button type="button" class="btn btn-danger ms-auto" data-bs-dismiss="modal"
-                                (click)="declinePoliciesModal()">
-                                Não concordo.
-                            </button>
+                        <div class="modal-footer">
+                            <button type="button" class="custom-btn" data-bs-dismiss="modal">Fechar</button>
                         </div>
                     </div>
                 </div>
@@ -163,9 +120,9 @@
             <div class="form-check mb-3">
                 <input class="form-check-input" type="checkbox" value="" id="validCheck" formControlName="policies"
                     [class.is-invalid]="form.get('policies')?.invalid && (form.get('policies')?.dirty || form.get('policies')?.touched)"
-                    (change)="openPoliciesModal()" required>
-                <label class="form-check-label" for="validCheck">
-                    Visualizar as diretrizes obrigatórias.
+                    required>
+                <label class="form-check-label">
+                    <a class="policies-color-link" (click)="openPoliciesModal()">Concordo com as diretrizes</a>
                 </label>
                 <div *ngIf="form.get('policies')?.invalid && (form.get('policies')?.dirty || form.get('policies')?.touched)"
                     class="invalid-feedback">
@@ -175,11 +132,15 @@
 
             <br />
             <div class="d-grid gap-2">
-                <button type="submit" class="btn custom-btn" [disabled]="form.invalid">Seja Apollo</button>
-                <button class="btn custom-btn" (click)="goBackClicked()">
-                    <i class="bi bi-arrow-bar-left"></i>
-                    Voltar
-                </button>
+                <div class="align-btns col-md-12 mb-2 mx-auto">
+                    <button class="col-md-6 btn custom-btn mb-2" (click)="goBackClicked()">
+                        <i class="bi bi-arrow-bar-left"></i>
+                        Voltar
+                    </button>
+                    <button type="submit" class=" col-md-6 btn custom-btn mb-2 mr-2" [disabled]="form.invalid">Seja
+                        Apollo</button>
+                </div>
+
             </div>
 
 
