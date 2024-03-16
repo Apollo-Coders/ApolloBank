@@ -26,4 +26,8 @@ export class ModalsTransferComponent {
     this.current = 'success';
   }
 
+  switchToFirst(){
+    this.current = 'transfer';
+  }
+
 }

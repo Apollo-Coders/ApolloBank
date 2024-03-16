@@ -17,4 +17,11 @@ export class SecondConfirmComponent {
     this.nextStep.emit();
   }
 
+  @Output() goBack = new EventEmitter<void>();
+  
+  goBackClicked() {
+    this.goBack.emit();
+  }
+
+
 }
