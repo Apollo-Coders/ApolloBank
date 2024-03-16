@@ -5,10 +5,9 @@ import { MinhaContaComponent } from './components/minha-conta/minha-conta.compon
 import { TransactionHistoryPageComponent } from './components/transaction-history-page/transaction-history-page.component';
 import { AuthGuard } from './Guards/auth.guard';
 import { SupportComponent } from './components/support/support.component';
-
+import { CreditCardsComponent } from './components/credit-cards/credit-cards.component';
 
 export const routes: Routes = [
-
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: 'home',
@@ -41,6 +40,10 @@ export const routes: Routes = [
       {
         path: 'transactions',
         component: TransactionHistoryPageComponent,
+      },
+      {
+        path: 'credit-cards',
+        component: CreditCardsComponent,
       },
     ],
   },

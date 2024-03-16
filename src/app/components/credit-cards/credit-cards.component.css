@@ -1,0 +1,14 @@
+:host {
+
+}
+
+.credit-card {
+  background-color: var(--orange-light);
+  max-width: 300px;
+}
+
+.btn {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--orange-light);
+}
