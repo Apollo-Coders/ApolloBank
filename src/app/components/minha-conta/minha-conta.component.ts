@@ -20,7 +20,7 @@ import { ModalsWithdrawComponent } from './modals-withdraw/modals-withdraw.compo
 @Component({
   selector: 'app-minha-conta',
   standalone: true,
-  imports: [CommonModule, NavbarContaComponent, RouterLink, ModalsTransferComponent, ModalsWithdrawComponent, ModalsDepositComponent],
+  imports: [CommonModule, NavbarContaComponent, RouterLink, ThirdSuccessComponent, ModalsTransferComponent, ModalsWithdrawComponent, ModalsDepositComponent],
   templateUrl: './minha-conta.component.html',
   styleUrl: './minha-conta.component.css',
 })
