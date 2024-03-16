@@ -1,4 +1,4 @@
-<form [formGroup]="depositForm" (ngSubmit)="onSubmit()">
+<!-- <form [formGroup]="depositForm" (ngSubmit)="onSubmit()">
     <label>Insira um valor para depósito</label>
     <input type="text" placeholder="insira o valor" formControlName="valor"> 
 
@@ -6,5 +6,34 @@
     <input type="text"> 
 
     <button type="submit">Continuar</button>
-</form>
+</form> -->
 
+
+<div class="total-box d-flex flex-column pt-4">
+    <form class="d-flex flex-column" [formGroup]="depositForm" (ngSubmit)="onSubmit()">
+       
+
+        <div class="one">
+            <div class="input-information d-flex flex-column pt-2">
+                <label>Informe um valor para depositar</label>
+                <input type="text" placeholder="digite o valor" formControlName="saque" class="w-25">
+            </div>
+        </div>
+
+       
+
+        <div class="two">
+        
+            <div class="input-information d-flex flex-column pt-2">
+                <label>Confirme o valor</label>
+                <input type="text" placeholder="confirme" formControlName="confirm" class="w-25">
+            </div>
+        </div>
+
+        <div class="button">
+            <button  type="submit" [disabled]="depositForm.invalid">Continuar</button>
+        </div>
+
+    </form>
+
+</div>

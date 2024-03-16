@@ -1,12 +1,12 @@
 
-<div class="total-box">
-    <form [formGroup]="withdrawForm" (ngSubmit)="onSubmit()">
+<div class="total-box d-flex flex-column pt-4">
+    <form class="d-flex flex-column" [formGroup]="withdrawForm" (ngSubmit)="onSubmit()">
        
 
         <div class="one">
-            <!-- <div class="input-information d-flex flex-column w-25 pt-2"> -->
+            <div class="input-information d-flex flex-column pt-2">
                 <label>Insira um valor para sacar</label>
-                <input type="text" placeholder="digite o valor" formControlName="saque">
+                <input type="text" placeholder="digite o valor" formControlName="saque" class="w-25">
             </div>
         </div>
 
@@ -14,12 +14,16 @@
 
         <div class="two">
         
-            <!-- <div class="input-information d-flex flex-column w-25 pt-2"> -->
+            <div class="input-information d-flex flex-column pt-2">
                 <label>Confirme o valor</label>
-                <input type="text" placeholder="confirme" formControlName="confirm">
+                <input type="text" placeholder="confirme" formControlName="confirm" class="w-25">
             </div>
         </div>
 
-        <button type="submit" [disabled]="withdrawForm.invalid">Continuar</button>
+        <div class="button">
+            <button  type="submit" [disabled]="withdrawForm.invalid">Continuar</button>
+        </div>
+
     </form>
+
 </div>
