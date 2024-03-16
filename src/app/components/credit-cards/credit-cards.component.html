@@ -4,9 +4,9 @@
   <h2 class="h2 fw-bold">Meus Cartões</h2>
 
   <!-- for - cartaojustify-content-around -->
-  <div class="my-4 d-flex w-100 align-items-center">
+  <div class="my-4 d-flex w-100 align-items-center flex-column flex-md-row">
     <!-- Desenho cartão -->
-    <div class="pl-0 col-3">
+    <div class="pl-0 col-md-4 justify-content-center d-flex">
       <div class="credit-card card text-white p-2">
         <p class="w-100">José G D Abrantes</p>
         <div class="w-100">3281 3218 4209 0948</div>
@@ -24,23 +24,24 @@
     </div>
 
     <!-- Fatura Atual -->
-    <div class="col-3">
+    <div class="col-md-3 d-flex align-items-center flex-column">
       <p class="">Fatura Atual</p>
       <span class="fw-bold fs-2">R$ 313,39</span>
     </div>
 
     <!-- Limite Disponível -->
-    <div class="col-3">
+    <div class="col-md-3 d-flex align-items-center flex-column">
       <p class="">Limite Disponível</p>
       <span class="fw-bold fs-2">R$ 313,39</span>
     </div>
 
-    <button class="col-2 btn fw-bold text-white">PAGAR CARTÃO</button>
+    <button class="col-md-2 btn fw-bold text-white">PAGAR CARTÃO</button>
   </div>
 
-  <div class="my-4 d-flex w-100 align-items-center">
+  <!-- for - cartaojustify-content-around -->
+  <div class="my-4 d-flex w-100 align-items-center flex-column flex-md-row">
     <!-- Desenho cartão -->
-    <div class="col-3 pl-0">
+    <div class="pl-0 col-md-4 justify-content-center d-flex">
       <div class="credit-card card text-white p-2">
         <p class="w-100">José G D Abrantes</p>
         <div class="w-100">3281 3218 4209 0948</div>
@@ -58,43 +59,41 @@
     </div>
 
     <!-- Fatura Atual -->
-    <div class="col-3 pl-0">
+    <div class="col-md-3 d-flex align-items-center flex-column">
       <p class="">Fatura Atual</p>
       <span class="fw-bold fs-2">R$ 313,39</span>
     </div>
 
     <!-- Limite Disponível -->
-    <div class="col-3">
+    <div class="col-md-3 d-flex align-items-center flex-column">
       <p class="">Limite Disponível</p>
       <span class="fw-bold fs-2">R$ 313,39</span>
     </div>
 
-    <button class="col-2 btn fw-bold text-white">PAGAR CARTÃO</button>
+    <button class="col-md-2 btn fw-bold text-white">PAGAR CARTÃO</button>
   </div>
 
-  <button class="col-3 btn fw-bold text-white mb-5">NOVO CARTÃO</button>
+  <div class="w-100 d-flex justify-content-center ">
+    <button class="col-md-3 btn fw-bold text-white mb-5">NOVO CARTÃO</button>
+  </div>
 
   <section class="">
     <div class="">
       <h2 class="h2 fw-bold mb-4">FATURA TOTAL</h2>
 
-      <div class="d-flex gap-5">
-        <div class="pl-0 col-3">
+      <div class="d-flex gap-5 flex-column flex-md-row">
+        <div class="pl-0 col-md-3 d-flex align-items-center flex-column">
           <p class="">Fatura Atual</p>
           <span class="fw-bold fs-2">R$ 313,39</span>
         </div>
 
-        <div class="col-3">
+        <div class="col-md-3 d-flex align-items-center flex-column">
           <p class="">Limite Disponível</p>
           <span class="fw-bold fs-2">R$ 313,39</span>
         </div>
-        <button class="col-3 btn fw-bold text-white">PAGAR TUDO</button>
+        <button class="col-md-3 btn fw-bold text-white">PAGAR TUDO</button>
       </div>
-
     </div>
     <p class="mt-1">Fecha em <span class="my-2 fw-bold">30 de março</span></p>
-
   </section>
-
-
 </main>

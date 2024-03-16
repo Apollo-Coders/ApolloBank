@@ -5,6 +5,7 @@
 .credit-card {
   background-color: var(--orange-light);
   max-width: 300px;
+  width: 100%;
 }
 
 .btn {
@@ -12,3 +13,7 @@
   border-radius: 8px;
   background-color: var(--orange-light);
 }
+
+/* @media 768 {
+
+} */
