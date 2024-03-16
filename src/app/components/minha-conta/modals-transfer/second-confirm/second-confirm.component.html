@@ -1,21 +1,48 @@
 <div class="total-content">
-    <h1>Confirme as informações</h1>
+    <h3>Confirme as informações <i class="bi bi-arrow-left-right pl-2"></i></h3>
 
     <div class="total-box">
-        <h1>Transferência entre contas</h1>
+        
 
-        <h3>conta de origem</h3>
-        <p>conta</p>
-        <p>2253</p>
+        <form class="d-flex flex-column">
+            <div class="one">
+                <h2>conta de origem</h2>
+                <div class="input-information d-flex flex-column w-25 pt-2">
+                    <label>conta</label>
+                    <p>22587</p>
+                </div>
+            </div>
+    
+            <div class="two">
+                <h2>conta de destino</h2>
+                <div class="input-information d-flex flex-column w-25 pt-2">
+                    <label>conta</label>
+                    <input type="text"  formControlName="valor">
+                </div>
+            </div>
 
-        <h3>conta de destino</h3>
-        <p>conta</p>
-        <p>2253</p>
-
-        <h3>descrição</h3>
-        <p>-------</p>
+            <div class="three">
+                <div class="input-information d-flex flex-column w-25">
+                    <label>valor</label>
+                    <input type="text"  formControlName="descricao">
+                </div>
+            </div>
+    
+    
+            <div class="four">
+                <div class="input-information d-flex flex-column w-25">
+                    <label>descrição</label>
+                    <input type="text" placeholder="insira uma descrição" formControlName="descricao">
+                </div>
+            </div>
+    
+            <div class="buton pt-1">
+            <button type="submit">Confirmar</button>
+            </div>
+            
+        </form>
 
     </div>
 
-    <button (click)="goToNextStep()">Confirmar</button>
+
 </div>

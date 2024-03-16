@@ -22,7 +22,7 @@ export class ModalsTransferComponent {
   
   }
 
-  swtichToSuccess(){
+  switchToSuccess(){
     this.current = 'success';
   }
 

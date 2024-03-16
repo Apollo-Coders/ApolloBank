@@ -1,0 +1,33 @@
+label {
+    font-size: 1.3rem;
+    color: var(--blue);
+    font-weight: 550;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+input {
+    border: none;
+    border-bottom: 1px solid black; /* Adiciona uma linha na parte inferior */
+    outline: none; /* Remove a borda de foco */
+}
+
+/* Estilo para o placeholder */
+input::placeholder {
+    color: gray;
+}
+
+/* Estilo para o hover */
+input:hover {
+    border-bottom: 1px solid blue; /* Mudança de cor da linha ao passar o mouse */
+}
+
+/* Estilo para o foco */
+input:focus {
+    border-bottom: 1px solid red; /* Mudança de cor da linha ao focar */
+}

@@ -1,24 +1,40 @@
-<div class="total-content">
+<div class="total-content d-flex flex-column">
     <div class="origin-account">
-        <h1>conta de origem</h1>
-        <p>conta</p>
-        <p>2287</p>
+        <h2>conta de origem</h2>
+        <div class="account-number d-flex flex-column pt-2">
+            <p>conta</p>
+            <p>2287</p>
+        </div>
     </div>
 
-    <form [formGroup]="transferForm" (ngSubmit)="onSubmit()">
-        <h2>conta de destino</h2>
-        <label>conta</label>
-        <input type="text" placeholder="digite a conta" formControlName="conta">
+    <form [formGroup]="transferForm" (ngSubmit)="onSubmit()" class="d-flex flex-column">
+        <div class="one">
+            <h2>conta de destino</h2>
+            <div class="input-information d-flex flex-column w-25 pt-2">
+                <label>conta</label>
+                <input type="text" placeholder="digite a conta" formControlName="conta">
+            </div>
+        </div>
 
-        <h2>quanto quer transferir?</h2>
-        <label>insira um valor</label>
-        <input type="text" placeholder="digite um valor" formControlName="valor">
+        <div class="two">
+            <h2>quanto quer transferir?</h2>
+            <div class="input-information d-flex flex-column w-25 pt-2">
+                <label>insira um valor</label>
+                <input type="text" placeholder="digite um valor" formControlName="valor">
+            </div>
+        </div>
 
-         
-        <label>descrição</label>
-        <input type="text" placeholder="insira uma descrição" formControlName="descricao">
 
+        <div class="three">
+            <div class="input-information d-flex flex-column w-25">
+                <label>descrição</label>
+                <input type="text" placeholder="insira uma descrição" formControlName="descricao">
+            </div>
+        </div>
+
+        <div class="buton">
         <button type="submit" [disabled]="transferForm.invalid">Continuar</button>
+        </div>
         
     </form>
 </div>
