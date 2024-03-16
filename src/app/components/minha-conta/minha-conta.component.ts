@@ -1,6 +1,7 @@
 import { TransactionsService } from './../../services/transactions.service';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import * as bootstrap from 'bootstrap';
 import { NavbarContaComponent } from '../shared/navbar-conta/navbar-conta.component';
 import { RouterLink } from '@angular/router';
 import {
@@ -8,11 +9,18 @@ import {
   LocalStorageService,
 } from '../../services/local-storage.service';
 import { Transaction } from '../../models/Transaction';
+import { FirstTransferComponent } from './modals-transfer/first-transfer/first-transfer.component';
+import { SecondConfirmComponent } from './modals-transfer/second-confirm/second-confirm.component';
+import { ThirdSuccessComponent } from './modals-transfer/third-success/third-success.component';
+import { ModalsTransferComponent } from './modals-transfer/modals-transfer.component';
+import { FirstWithdrawComponent } from './modals-withdraw/first-withdraw/first-withdraw.component';
+import { ModalsDepositComponent } from './modals-deposit/modals-deposit.component';
+import { ModalsWithdrawComponent } from './modals-withdraw/modals-withdraw.component';
 
 @Component({
   selector: 'app-minha-conta',
   standalone: true,
-  imports: [CommonModule, NavbarContaComponent, RouterLink],
+  imports: [CommonModule, NavbarContaComponent, RouterLink, ModalsTransferComponent, ModalsWithdrawComponent, ModalsDepositComponent],
   templateUrl: './minha-conta.component.html',
   styleUrl: './minha-conta.component.css',
 })
@@ -61,4 +69,33 @@ export class MinhaContaComponent {
     // Aumentar o tamanho do campo de entrada com base no número de casas decimais
     return baseWidth * decimalCount + 60;
   }
+
+
+
+  @ViewChild('transferModel') transferModal!: ElementRef;
+  
+
+  openTransferModal() {
+      const transferModal = new bootstrap.Modal(this.transferModal.nativeElement);
+      transferModal.show();
+  }
+ 
+  @ViewChild('withdrawModel') withdrawModal!: ElementRef; 
+
+  openWithDrawModal(){
+    const withdrawModal = new bootstrap.Modal(this.withdrawModal.nativeElement);
+    withdrawModal.show();
+  }
+
+
+
+  @ViewChild('depositModel') depositModal!: ElementRef; 
+
+  openDepositModal(){
+    const depositModal = new bootstrap.Modal(this.depositModal.nativeElement);
+    depositModal.show();
+  }
+
+
+
 }

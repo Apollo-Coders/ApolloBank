@@ -3,24 +3,84 @@
     <div class="row m-0 mt-4">
         <div class="col-md-6 d-flex justify-content-center align-items-center mt-5">
             <div class="action d-flex align-items-center flex-wrap justify-content-center">
-                <button class="d-flex flex-column align-items-center">
+                <button class="d-flex flex-column align-items-center" (click)="openWithDrawModal()">
                     <i class="bi bi-x-diamond-fill"></i>
-                    Pix
+                    Saque
                 </button>
                 <button routerLink="/transactions" class="d-flex flex-column align-items-center">
                     <i class="bi bi-bar-chart-line"></i>
                     Extrato.
                 </button>
-                <button class="d-flex flex-column align-items-center">
+                <button (click)="openTransferModal()" class="d-flex flex-column align-items-center">
                     <i class="bi bi-arrow-left-right"></i>
                     Transferência
                 </button>
-                <button class="d-flex flex-column align-items-center">
+                <button   class="d-flex flex-column align-items-center">
                     <i class="bi bi-credit-card"></i>
                     <span>Crédito</span>
                 </button>
+                <button   class="d-flex flex-column align-items-center" (click)="openDepositModal()">
+                    <i class="bi bi-credit-card"></i>
+                    <span>Depósito</span>
+                </button>
             </div>
         </div>
+
+        <div class="modal fade" #transferModel tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width: 70%; max-width: 1000px; height: 1000vh;">
+                <div class="modal-content" style="height: 60vh">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Transferência</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;"> 
+                        <app-modals-transfer></app-modals-transfer>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="custom-btn" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" #withdrawModel tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width: 70%; max-width: 1000px; height: 1000vh;">
+                <div class="modal-content" style="height: 60vh">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Saque</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;"> 
+                       <app-modals-withdraw></app-modals-withdraw>
+                       
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="custom-btn" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" #depositModel tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width: 70%; max-width: 1000px; height: 1000vh;">
+                <div class="modal-content" style="height: 60vh">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Depósito</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;"> 
+                        <app-modals-deposit></app-modals-deposit>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="custom-btn" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
 
         <div class="transacoes col-md-6 d-flex flex-column align-items-center">
 

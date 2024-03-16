@@ -1,0 +1,24 @@
+<div class="total-content">
+    <div class="origin-account">
+        <h1>conta de origem</h1>
+        <p>conta</p>
+        <p>2287</p>
+    </div>
+
+    <form [formGroup]="transferForm" (ngSubmit)="onSubmit()">
+        <h2>conta de destino</h2>
+        <label>conta</label>
+        <input type="text" placeholder="digite a conta" formControlName="conta">
+
+        <h2>quanto quer transferir?</h2>
+        <label>insira um valor</label>
+        <input type="text" placeholder="digite um valor" formControlName="valor">
+
+         
+        <label>descrição</label>
+        <input type="text" placeholder="insira uma descrição" formControlName="descricao">
+
+        <button type="submit" [disabled]="transferForm.invalid">Continuar</button>
+        
+    </form>
+</div>

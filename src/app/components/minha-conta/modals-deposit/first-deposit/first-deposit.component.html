@@ -1,0 +1,10 @@
+<form [formGroup]="depositForm" (ngSubmit)="onSubmit()">
+    <label>Insira um valor para depósito</label>
+    <input type="text" placeholder="insira o valor" formControlName="valor"> 
+
+    <label>Confirme o valor</label>
+    <input type="text"> 
+
+    <button type="submit">Continuar</button>
+</form>
+

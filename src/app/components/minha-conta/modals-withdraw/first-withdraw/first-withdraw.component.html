@@ -1,0 +1,9 @@
+<form [formGroup]="withdrawForm" (ngSubmit)="onSubmit()">
+    <label>Insira um valor para saque</label>
+    <input type="text" placeholder="insira o valor" formControlName="valor"> 
+
+    <label>Confirme o valor</label>
+    <input type="text"> 
+
+    <button type="submit" [disabled]="withdrawForm.invalid">Continuar</button>
+</form>
