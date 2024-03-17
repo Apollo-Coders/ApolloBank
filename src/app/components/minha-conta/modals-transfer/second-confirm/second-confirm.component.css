@@ -73,4 +73,9 @@ button{
 .total-content i{
     color: var(--laranja);
     
+    
+}
+
+.buton{
+    gap: 8px;
 }

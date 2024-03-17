@@ -14,6 +14,7 @@ import { ThirdSuccessComponent } from './third-success/third-success.component';
 export class ModalsTransferComponent {
 
   @Output() nextStep: EventEmitter<void> = new EventEmitter<void>();
+ 
 
   current = 'transfer'; 
 
@@ -28,6 +29,7 @@ export class ModalsTransferComponent {
 
   switchToFirst(){
     this.current = 'transfer';
+    
   }
 
 }

@@ -16,11 +16,12 @@ import { ModalsTransferComponent } from './modals-transfer/modals-transfer.compo
 import { FirstWithdrawComponent } from './modals-withdraw/first-withdraw/first-withdraw.component';
 import { ModalsDepositComponent } from './modals-deposit/modals-deposit.component';
 import { ModalsWithdrawComponent } from './modals-withdraw/modals-withdraw.component';
+import { MainPixComponent } from './modals-pix/main-pix/main-pix.component';
 
 @Component({
   selector: 'app-minha-conta',
   standalone: true,
-  imports: [CommonModule, NavbarContaComponent, RouterLink, ThirdSuccessComponent, ModalsTransferComponent, ModalsWithdrawComponent, ModalsDepositComponent],
+  imports: [CommonModule, NavbarContaComponent, RouterLink, ModalsTransferComponent, ModalsWithdrawComponent, ModalsDepositComponent, MainPixComponent],
   templateUrl: './minha-conta.component.html',
   styleUrl: './minha-conta.component.css',
 })
@@ -71,15 +72,24 @@ export class MinhaContaComponent {
   }
 
 
+ 
+
+
 
   @ViewChild('transferModel') transferModal!: ElementRef;
   
+
+
 
   openTransferModal() {
       const transferModal = new bootstrap.Modal(this.transferModal.nativeElement);
       transferModal.show();
   }
  
+
+
+
+
   @ViewChild('withdrawModel') withdrawModal!: ElementRef; 
 
   openWithDrawModal(){
@@ -89,12 +99,22 @@ export class MinhaContaComponent {
 
 
 
+
   @ViewChild('depositModel') depositModal!: ElementRef; 
 
   openDepositModal(){
     const depositModal = new bootstrap.Modal(this.depositModal.nativeElement);
     depositModal.show();
   }
+
+
+  @ViewChild('pixModel') pixModal!: ElementRef;
+
+  openPixModal(){
+    const pixModal = new bootstrap.Modal(this.pixModal.nativeElement);
+    pixModal.show();
+  }
+
 
 
 

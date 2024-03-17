@@ -1,0 +1,29 @@
+.two-icons{
+    gap: 40px;
+}
+
+.total-content i{
+    color: var(--laranja);
+    font-size: 3.7rem;
+    cursor: pointer;
+}
+
+.total-content h3{
+    font-size: 1.3rem;
+    
+}
+
+.icons{
+    padding: 40px;
+    gap: 20px;
+    background-color: rgb(225, 225, 225);
+    border-radius: 200px;
+    width: 30%;
+}
+
+.total-content{
+
+    gap: 50px;
+    
+
+}
