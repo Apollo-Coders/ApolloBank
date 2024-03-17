@@ -19,7 +19,8 @@ export class FirstWithdrawComponent {
 
   ngOnInit(){
     this.withdrawForm = new FormGroup({
-      valor: new FormControl('')
+      valor: new FormControl(''),
+      valor2: new FormControl('')
       
 
     })
