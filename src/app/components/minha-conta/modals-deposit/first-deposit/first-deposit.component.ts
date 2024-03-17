@@ -19,7 +19,8 @@ export class FirstDepositComponent {
 
   ngOnInit(){
     this.depositForm = new FormGroup({
-      valor: new FormControl('')
+      valor: new FormControl(''),
+      valor2: new FormControl('')
       
 
     })
