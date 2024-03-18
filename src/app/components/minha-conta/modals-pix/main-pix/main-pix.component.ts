@@ -11,10 +11,21 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class MainPixComponent {
 
 
-  @Output() handleTransfer: EventEmitter<any> = new EventEmitter();
+@Output() goToTransfer = new EventEmitter<void>(); 
+@Output() goToDeposit = new EventEmitter<void>(); 
+@Output() goToScheduling = new EventEmitter<void>();
 
+onTransfer(){
+  this.goToTransfer.emit();
+}
 
+onDeposit(){
+  this.goToDeposit.emit();
+}
 
+onScheduling(){
+  this.goToScheduling.emit();
+}
 
   
 

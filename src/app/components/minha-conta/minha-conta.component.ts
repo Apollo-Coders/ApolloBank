@@ -17,11 +17,15 @@ import { FirstWithdrawComponent } from './modals-withdraw/first-withdraw/first-w
 import { ModalsDepositComponent } from './modals-deposit/modals-deposit.component';
 import { ModalsWithdrawComponent } from './modals-withdraw/modals-withdraw.component';
 import { MainPixComponent } from './modals-pix/main-pix/main-pix.component';
+import { ModalsPixComponent } from './modals-pix/modals-pix.component';
+import { FirstScheduleComponent } from './modals-scheduling/first-schedule/first-schedule.component';
+import { ConfirmSchedulingComponent } from './modals-scheduling/confirm-scheduling/confirm-scheduling.component';
+import { SchedulingSuccessComponent } from './modals-scheduling/scheduling-success/scheduling-success.component';
 
 @Component({
   selector: 'app-minha-conta',
   standalone: true,
-  imports: [CommonModule, NavbarContaComponent, RouterLink, ModalsTransferComponent, ModalsWithdrawComponent, ModalsDepositComponent, MainPixComponent],
+  imports: [CommonModule, NavbarContaComponent, RouterLink, ModalsTransferComponent, ModalsWithdrawComponent, ModalsDepositComponent, ModalsPixComponent],
   templateUrl: './minha-conta.component.html',
   styleUrl: './minha-conta.component.css',
 })

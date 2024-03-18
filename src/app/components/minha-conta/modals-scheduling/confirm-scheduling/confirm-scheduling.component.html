@@ -1,0 +1,51 @@
+<div class="total-content">
+    <h3>Confirme as informações de agendamento <i class="bi bi-calendar2-week pl-2"></i></h3>
+
+    <div class="total-box">
+        
+
+        <form class="d-flex flex-column">
+            <div class="one">
+                <h2>conta de origem</h2>
+                <div class="input-information d-flex flex-column w-25 pt-2">
+                    <label>conta</label>
+                    <p>22587</p>
+                </div>
+            </div>
+    
+            <div class="two">
+                <h2>conta de destino</h2>
+                <div class="input-information d-flex flex-column w-25 pt-2">
+                    <label>conta</label>
+                    <input type="text"  formControlName="valor">
+                </div>
+            </div>
+
+            <div class="three">
+                <div class="input-information d-flex flex-column w-25">
+                    <h2>valor</h2>
+                    <label>valor</label>
+                    <input type="text"  formControlName="descricao">
+                </div>
+            </div>
+    
+    
+            <div class="four">
+                <h2>data de agendamento</h2>
+                <div class="input-information d-flex flex-column w-25">
+                    <label>data agendada</label>
+                    <input type="text" placeholder="insira uma descrição" formControlName="descricao">
+                </div>
+            </div>
+    
+            <div class="buton pt-1 d-flex">
+            <button type="submit" (click)="goToSuccessStep()">Confirmar</button>
+            <button (click)="goBack()">Voltar</button>
+            </div>
+            
+        </form>
+
+    </div>
+
+
+</div>
