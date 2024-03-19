@@ -11,7 +11,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class SecondConfirmComponent {
 
 
-  @Output() nextStep: EventEmitter<void> = new EventEmitter<void>();
+  @Output() nextStep = new EventEmitter<void>();
 
   goToNextStep() {
     this.nextStep.emit();

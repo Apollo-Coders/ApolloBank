@@ -4,44 +4,44 @@
     <div class="total-box">
         
 
-        <form class="d-flex flex-column">
+        <div class="account-details d-flex flex-column">
             <div class="one">
                 <h2>conta de origem</h2>
-                <div class="input-information d-flex flex-column w-25 pt-2">
-                    <label>conta</label>
-                    <p>22587</p>
+                <div class="main d-flex flex-column w-25 pt-2">
+                    <p>conta</p>
+                    <p class="information">22587</p>
                 </div>
             </div>
     
             <div class="two">
                 <h2>conta de destino</h2>
-                <div class="input-information d-flex flex-column w-25 pt-2">
-                    <label>conta</label>
-                    <input type="text"  formControlName="valor">
+                <div class="main account d-flex flex-column w-25 pt-2">
+                    <p>conta</p>
+                    <p class="information">145145</p>
                 </div>
             </div>
 
             <div class="three">
-                <div class="input-information d-flex flex-column w-25">
-                    <label>valor</label>
-                    <input type="text"  formControlName="descricao">
+                <div class="main d-flex flex-column w-25">
+                    <p>valor</p>
+                    <p class="information">R$4.00</p>
                 </div>
             </div>
     
     
             <div class="four">
-                <div class="input-information d-flex flex-column w-25">
-                    <label>descrição</label>
-                    <input type="text" placeholder="insira uma descrição" formControlName="descricao">
+                <div class="main d-flex flex-column w-25">
+                    <p>descrição</p>
+                    <p class="information">jdadjaslkdjalksjdalsd</p>
                 </div>
             </div>
     
             <div class="buton pt-1 d-flex">
-            <button  (click)="goToNextStep()" type="submit">Confirmar</button>
-            <button (click)="goBackClicked()">Voltar</button>
+                <button  (click)="goToNextStep()">Confirmar</button>
+                <button (click)="goBackClicked()">Voltar</button>
             </div>
             
-        </form>
+        </div>
 
     </div>
 

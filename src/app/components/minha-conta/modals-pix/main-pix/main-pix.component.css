@@ -4,8 +4,14 @@
 
 .total-content i{
     color: var(--laranja);
-    font-size: 3.7rem;
+    font-size: 3.5rem;
     cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+
+.total-content i:hover {
+    transform: scale(1.3); 
 }
 
 .total-content h3{
@@ -27,3 +33,4 @@
     
 
 }
+
