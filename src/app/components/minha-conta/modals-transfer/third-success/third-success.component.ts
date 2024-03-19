@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-third-success',
@@ -8,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrl: './third-success.component.css'
 })
 export class ThirdSuccessComponent {
+
+  @Output() repeatTransaction = new EventEmitter<void>();
+
+
+  addTransaction(){
+    this.repeatTransaction.emit();
+  }
 
 }

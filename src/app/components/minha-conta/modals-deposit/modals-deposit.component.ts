@@ -18,4 +18,8 @@ export class ModalsDepositComponent {
     this.current = 'success'
   }
 
+  switchToDeposit(){
+    this.current = 'deposit'
+  }
+
 }

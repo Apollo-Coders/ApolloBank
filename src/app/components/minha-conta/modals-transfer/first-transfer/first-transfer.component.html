@@ -10,15 +10,15 @@
     <form [formGroup]="transferForm" (ngSubmit)="onSubmit()" class="d-flex flex-column">
         <div class="one">
             <h2>conta de destino</h2>
-            <div class="input-information d-flex flex-column w-25 pt-2">
+            <div class="input-information d-flex flex-column  pt-2">
                 <label>conta</label>
-                <input type="text" placeholder="digite a conta" formControlName="conta">
+                <input type="text" placeholder="digite a conta" formControlName="conta" >
             </div>
         </div>
 
         <div class="two">
             <h2>quanto quer transferir?</h2>
-            <div class="input-information d-flex flex-column w-25 pt-2">
+            <div class="input-information d-flex flex-column  pt-2">
                 <label>insira um valor</label>
                 <input type="text" placeholder="digite um valor" formControlName="valor">
             </div>
@@ -26,7 +26,7 @@
 
 
         <div class="three">
-            <div class="input-information d-flex flex-column w-25">
+            <div class="input-information d-flex flex-column">
                 <label>descrição</label>
                 <input type="text" placeholder="insira uma descrição" formControlName="descricao">
             </div>

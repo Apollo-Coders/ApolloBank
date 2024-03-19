@@ -4,7 +4,9 @@
 }
 
 .total-content{
-    padding-top: 115px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    gap: 5px;
 }
 
 .total-content h3{
@@ -12,7 +14,17 @@
 }
 
 
-.total-content p {
-    font-size: 1.3rem;
-    color: var(--laranja);
+button{
+   
+    background-color: var(--laranja);
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 25px;   
+    font-size: 0.9rem;
+    min-width: 150px;
+   
+
 }

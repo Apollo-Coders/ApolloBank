@@ -8,6 +8,7 @@ input {
     border: none;
     border-bottom: 1px solid black; /* Adiciona uma linha na parte inferior */
     outline: none; /* Remove a borda de foco */
+    width: 50%;
 }
 
 /* Estilo para o placeholder */
@@ -70,4 +71,13 @@ button{
 
 .total-content{
     padding-left: 10px;
+}
+
+
+
+
+@media (max-width: 435px){
+    input{
+        width: 80%;
+    }
 }

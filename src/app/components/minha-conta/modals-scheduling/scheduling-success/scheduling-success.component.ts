@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-scheduling-success',
@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './scheduling-success.component.css'
 })
 export class SchedulingSuccessComponent {
+
+@Output() backToMain = new EventEmitter<void>();
+
+goBack(){
+  this.backToMain.emit();
+}
 
 }

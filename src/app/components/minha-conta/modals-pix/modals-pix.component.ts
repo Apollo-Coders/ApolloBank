@@ -22,6 +22,10 @@ export class ModalsPixComponent {
   current = 'main'
 
 
+  switchToMain(){
+    this.current = 'main'
+  }
+
   switchToTransferPage(){
     this.current = 'firstTransfer'
   }
