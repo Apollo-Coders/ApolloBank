@@ -90,7 +90,7 @@ Criado com empenho por um grupo talentoso e dedicado: ApolloCoders! 💙
 </br></br>
 
 <div align="center"><img src="https://github.com/clebervalerio.png" width="100px;"/></div>
-<div align="center"><a href="https://github.com/clebervalerio">Brenda Bueno</a></div>
+<div align="center"><a href="https://github.com/clebervalerio">Cleber Valerio</a></div>
 </br></br>
 
 <div align="center"><img src="https://github.com/Daaaiii.png" width="100px;"/></div>
