@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-first-deposit',
@@ -19,8 +19,8 @@ export class FirstDepositComponent {
 
   ngOnInit(){
     this.depositForm = new FormGroup({
-      valor: new FormControl(''),
-      valor2: new FormControl('')
+      value: new FormControl('', [Validators.required]),
+      valueConfirm: new FormControl('', [Validators.required])
       
 
     })

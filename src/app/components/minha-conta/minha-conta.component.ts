@@ -83,15 +83,11 @@ export class MinhaContaComponent {
   @ViewChild('transferModel') transferModal!: ElementRef;
   
 
-
-
   openTransferModal() {
       const transferModal = new bootstrap.Modal(this.transferModal.nativeElement);
       transferModal.show();
   }
  
-
-
 
 
   @ViewChild('withdrawModel') withdrawModal!: ElementRef; 
@@ -100,8 +96,6 @@ export class MinhaContaComponent {
     const withdrawModal = new bootstrap.Modal(this.withdrawModal.nativeElement);
     withdrawModal.show();
   }
-
-
 
 
   @ViewChild('depositModel') depositModal!: ElementRef; 
