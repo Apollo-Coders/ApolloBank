@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { SuccessDepositComponent } from './success-deposit/success-deposit.component';
 import { FirstDepositComponent } from './first-deposit/first-deposit.component';
 
@@ -11,6 +11,8 @@ import { FirstDepositComponent } from './first-deposit/first-deposit.component';
   styleUrl: './modals-deposit.component.css'
 })
 export class ModalsDepositComponent {
+
+  
 
   current = 'deposit'
 

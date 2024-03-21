@@ -7,20 +7,20 @@
                     <i class="bi bi-bar-chart-line"></i>
                     Extrato.
                 </button>
-                <button class="d-flex flex-column align-items-center" (click)="openWithDrawModal()">
+                <button class="d-flex flex-column align-items-center" (click)="openModal('saque')">
                     <i class="bi bi-cash-coin"></i>
                     Saque
                 </button>
-                <button class="d-flex flex-column align-items-center" (click)="openPixModal()">
+                <button class="d-flex flex-column align-items-center" (click)="openModal('pix')">
                     <i class="bi bi-x-diamond-fill"></i>
                     Pix
                 </button>
-                <button (click)="openTransferModal()" class="d-flex flex-column align-items-center">
+                <button (click)="openModal('transferencia')" class="d-flex flex-column align-items-center">
                     <i class="bi bi-arrow-left-right"></i>
                     Transferência
                 </button>
-                
-                <button   class="d-flex flex-column align-items-center" (click)="openDepositModal()">
+  
+                <button   class="d-flex flex-column align-items-center" (click)="openModal('deposito')">
                     <i class="bi bi-arrow-down-right-square"></i>
                     <span>Depósito</span>
                 </button>
@@ -30,52 +30,9 @@
                 </button>
             </div>
         </div>
-
-
-
-
-        
-        <div class="modal fade" #transferModel tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-3" id="exampleModalLabel">Transferência</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body"> 
-                        <app-modals-transfer></app-modals-transfer> 
-                        
-                    </div>
-                    <div class="modal-footer">
-                        <button class="back" type="button" class="custom-btn" data-bs-dismiss="modal">Fechar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        
-
   
-
-        <div class="modal fade" #withdrawModel tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog custom-modal-dialog">
-                <div class="modal-content" >
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-3" id="exampleModalLabel">Saque</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body"> 
-                       <app-modals-withdraw></app-modals-withdraw>
-                       
-                    </div>
-                    <div class="modal-footer">
-                        <button class="back" type="button" class="custom-btn" data-bs-dismiss="modal">Fechar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        
+  
+  
         <div class="modal fade" #depositModel tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -83,8 +40,8 @@
                         <h1 class="modal-title fs-3" id="exampleModalLabel">Depósito</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body"> 
-                        <app-modals-deposit></app-modals-deposit>
+                    <div class="modal-body">
+  
                     </div>
                     <div class="modal-footer">
                         <button  type="button" class="custom-btn" data-bs-dismiss="modal">Fechar</button>
@@ -92,30 +49,26 @@
                 </div>
             </div>
         </div>
-
-
-        <div class="modal fade" #pixModel tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content" >
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-3" id="exampleModalLabel">Área Pix</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" > 
-                        <app-modals-pix></app-modals-pix> 
-                    </div>
-                    <div class="modal-footer">
-                        <button class="back" type="button" class="custom-btn" data-bs-dismiss="modal">Fechar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
+  
+        <app-modals [modalTitle]="'Transferência'" [isOpen]="isOpen === 'transferencia'"  (closed)="closeModal()" *ngIf="isOpen === 'transferencia'" >
+          <app-modals-transfer></app-modals-transfer>
+        </app-modals>
+  
+        <app-modals [modalTitle]="'Saque'" [isOpen]="isOpen === 'saque'"  (closed)="closeModal()" *ngIf="isOpen === 'saque'" >
+          <app-modals-withdraw></app-modals-withdraw>
+        </app-modals>
+  
+        <app-modals [modalTitle]="'Depósito'" [isOpen]="isOpen === 'deposito'"  (closed)="closeModal()" *ngIf="isOpen === 'deposito'" >
+          <app-modals-deposit></app-modals-deposit>
+        </app-modals>
+  
+        <app-modals [modalTitle]="'Pix'" [isOpen]="isOpen === 'pix'"  (closed)="closeModal()" *ngIf="isOpen === 'pix'" >
+          <app-modals-pix></app-modals-pix>
+        </app-modals>
+  
+  
         <div class="transacoes col-md-6 d-flex flex-column align-items-center">
-
+  
             <a routerLink="/transactions" class="text-decoration-none transacoes-view d-flex align-items-center justify-content-between w-75">
                 <h2>Últimas Transações</h2>
                 <i class="bi bi-chevron-right"></i>
@@ -139,7 +92,7 @@
             <div class="cartao row w-75 mb-4">
                 <h2 class="col-md-12">Cartão de Crédito</h2>
                 <p>{{user.nome}}</p>
-                <p>**** **** **** **** 3215</p>
+                <p>* * * * 3215</p>
                 <div class="fatura col-md-6 text-center">
                     <span>Fatura Atual<br></span>
                     <span>R$</span>
@@ -175,5 +128,5 @@
             </div>
         </div>
     </div>
-
-</div>
+  
+  </div>

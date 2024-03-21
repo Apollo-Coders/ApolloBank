@@ -21,17 +21,19 @@ import { ModalsPixComponent } from './modals-pix/modals-pix.component';
 import { FirstScheduleComponent } from './modals-scheduling/first-schedule/first-schedule.component';
 import { ConfirmSchedulingComponent } from './modals-scheduling/confirm-scheduling/confirm-scheduling.component';
 import { SchedulingSuccessComponent } from './modals-scheduling/scheduling-success/scheduling-success.component';
+import { ModalsComponent } from './modals/modals.component';
 
 @Component({
   selector: 'app-minha-conta',
   standalone: true,
-  imports: [CommonModule, NavbarContaComponent, RouterLink, ModalsTransferComponent, ModalsWithdrawComponent, ModalsDepositComponent, ModalsPixComponent],
+  imports: [CommonModule, NavbarContaComponent, RouterLink, ModalsComponent, ModalsTransferComponent, ModalsWithdrawComponent, ModalsDepositComponent, ModalsPixComponent],
   templateUrl: './minha-conta.component.html',
   styleUrl: './minha-conta.component.css',
 })
 export class MinhaContaComponent {
   route = '/minha-conta';
   user!: ILoggedUser;
+  isOpen = 'nothing';
 
   lastTransactions: Transaction[] = [];
 
@@ -77,41 +79,14 @@ export class MinhaContaComponent {
 
 
  
-
-
-
-  @ViewChild('transferModel') transferModal!: ElementRef;
-  
-
-  openTransferModal() {
-      const transferModal = new bootstrap.Modal(this.transferModal.nativeElement);
-      transferModal.show();
-  }
- 
-
-
-  @ViewChild('withdrawModel') withdrawModal!: ElementRef; 
-
-  openWithDrawModal(){
-    const withdrawModal = new bootstrap.Modal(this.withdrawModal.nativeElement);
-    withdrawModal.show();
+  openModal(value: string){
+    this.isOpen = value
   }
 
+closeModal() {
+  this.isOpen = 'nothing'
+}
 
-  @ViewChild('depositModel') depositModal!: ElementRef; 
-
-  openDepositModal(){
-    const depositModal = new bootstrap.Modal(this.depositModal.nativeElement);
-    depositModal.show();
-  }
-
-
-  @ViewChild('pixModel') pixModal!: ElementRef;
-
-  openPixModal(){
-    const pixModal = new bootstrap.Modal(this.pixModal.nativeElement);
-    pixModal.show();
-  }
 
 
 
