@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, distinctUntilChanged, take } from 'rxjs';
+import { CreateUser } from '../models/CreateUser';
 
 
 @Injectable({ providedIn: 'root' })
@@ -11,6 +12,8 @@ export class FormService {
   setFormData(data: any) {
     this.formData.pipe(take(1)).subscribe(currentData => {
       const combinedData = { ...currentData, ...data };
+      
+    
       this.formData.next(combinedData);
     });
   }

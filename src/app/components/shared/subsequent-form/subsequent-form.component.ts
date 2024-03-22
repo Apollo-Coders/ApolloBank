@@ -7,9 +7,11 @@ import { searchCepService } from '../../../services/search-cep.service';
 import { LocalStorageService } from '../../../services/local-storage.service';
 import * as bootstrap from 'bootstrap';
 import { Router } from '@angular/router';
-import { Subscription, take } from 'rxjs';
+import { Subscription, catchError, take, throwError } from 'rxjs';
 import { FormService } from '../../../services/form.service';
 import { data } from 'autoprefixer';
+import { UserServiceService } from '../../../services/user-service.service';
+import { CreateUser } from '../../../models/CreateUser';
 @Component({
   selector: 'app-subsequent-form',
   standalone: true,
@@ -21,7 +23,7 @@ export class SubsequentFormComponent {
   formSubscription: Subscription | undefined;
 
 
-  constructor(private formBuilder: FormBuilder, private cepService: searchCepService, private cdr: ChangeDetectorRef, private localStorageService: LocalStorageService, private router: Router, private formService: FormService) {
+  constructor(private formBuilder: FormBuilder, private cepService: searchCepService, private cdr: ChangeDetectorRef, private localStorageService: LocalStorageService, private router: Router, private formService: FormService, private Userservice: UserServiceService) {
 
   }
 
@@ -32,6 +34,7 @@ export class SubsequentFormComponent {
 
   form!: FormGroup;
   errorMessage: string | null = '';
+  formSubmittedError: string =  '';
   searchAttempted: boolean = false;
   @Output() formCompleted = new EventEmitter<void>();
   @Output() goBack = new EventEmitter<void>();
@@ -61,23 +64,58 @@ export class SubsequentFormComponent {
       const cleanValues = this.trimFormValues(formValues);
 
       this.formService.getFormData().pipe(take(1)).subscribe(data => {
-
+        console.log(data)
         const completeUser = { ...data, ...cleanValues };
+        console.log(completeUser)
 
-        const userExists = this.localStorageService.checkUserEmailExists(completeUser.email) || this.localStorageService.checkUserCPFExists(completeUser.cpf);
-        if (!userExists) {
-          this.localStorageService.saveUserLocalStorage(completeUser);
-          this.formCompleted.emit();
-          this.form.reset();
-        } else {
-
-          console.error('Usuário já existe.');
+        const formattUser:CreateUser = {
+          fullName: completeUser.name,
+          email: completeUser.email, 
+          ddd: completeUser.ddd, 
+          phoneNumber: completeUser.phone,
+          birthDay: completeUser.birthday, 
+          cpf: completeUser.cpf,
+          password: completeUser.password,
+          cep: completeUser.cep, 
+          number: completeUser.number,
+          neighborhood: completeUser.bairro,
+          state: completeUser.uf,
+          city: completeUser.cidade, 
+          active: completeUser.policies,
+          street: completeUser.logradouro
+  
         }
+        this.Userservice.registerUser(formattUser)
+        .pipe(
+          catchError((response) => {
+            
+            
+            this.formSubmittedError = response.error.message;
+            const Errormodal = new bootstrap.Modal(this.errorModal.nativeElement);
+            Errormodal.show();
+           return throwError(() => new Error('test')); 
+          })
+        )
+        .subscribe(data =>
+          {
+            if(this.formSubmittedError.length === 0){
+              this.formCompleted.emit();
+           this.form.reset();
+           this.formService.clearFormData();
+            }
+          }
+          )
+          console.log(this.formSubmittedError)
+        
+
       });
-      this.formService.clearFormData();
+     // this.formService.clearFormData();
 
     }
   }
+
+
+  
 
 
 
@@ -140,6 +178,14 @@ export class SubsequentFormComponent {
     }
   }
 
+
+  @ViewChild('errorModal') errorModal!: ElementRef;
+
+  
+
+
+
+
   @ViewChild('policiesModal') policiesModal!: ElementRef;
   @ViewChild('RejectPoliciesModal') rejectPoliciesModal!: ElementRef;
 
@@ -152,6 +198,11 @@ export class SubsequentFormComponent {
     RejectModal.show();
     this.form.get('policies')?.setValue(false);
   }
+
+
+
+ 
+
 
 }
 

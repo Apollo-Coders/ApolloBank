@@ -1,7 +1,8 @@
 export class UserCreateRequest {
   id: string | null;
-  name: string;
-  phone: string;
+  fullName: string;
+  ddd: number;
+  phone: number;
   email: string;
   cpf: string;
   birthDay: Date;
@@ -10,15 +11,17 @@ export class UserCreateRequest {
     street: string;
     complement: string;
     neighborhood: string;
-    uf: string;
-    number: number;
+    state: string;
+    city: string;
+    number: string;
   };
   password: string;
 
   constructor(
     id: string | null,
-    name: string,
-    phone: string,
+    fullName: string,
+    ddd: number,
+    phone: number,
     email: string,
     cpf: string,
     birthDay: Date,
@@ -27,13 +30,15 @@ export class UserCreateRequest {
       street: string;
       complement: string;
       neighborhood: string;
-      uf: string;
-      number: number;
+      state: string;
+      number: string;
+      city: string;
     },
     password: string
   ) {
     this.id = id;
-    this.name = name;
+    this.fullName = fullName;
+    this.ddd = ddd;
     this.phone = phone;
     this.email = email;
     this.cpf = cpf;

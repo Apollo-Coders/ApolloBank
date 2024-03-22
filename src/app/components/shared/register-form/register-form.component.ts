@@ -51,7 +51,7 @@ export class RegisterFormComponent implements OnInit {
       birthday: new FormControl('', [Validators.required, birthValidator()]),
       password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6), passwordValidator()]),
       confirmPassword: new FormControl('', [Validators.required]),
-    }, { validators: [confirmPasswordValidator(), passwordRulesValidator(), userExistsValidator(this.localStorageService)] });
+    }, { validators: [confirmPasswordValidator(), passwordRulesValidator()] });
 
     this.formSubscription = this.form.valueChanges.subscribe(values => {
       this.formService.setFormData(values);
