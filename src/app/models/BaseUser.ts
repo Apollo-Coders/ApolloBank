@@ -6,6 +6,7 @@ export interface BaseUser {
     birthDay: Date;
     cpf: string;
     active: boolean;
+    cep: string;
     street: string;
     number: string;
     complement?: string;
