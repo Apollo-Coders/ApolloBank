@@ -6,6 +6,8 @@ import {
   LocalStorageService,
 } from '../../../services/local-storage.service';
 import { UserLogged } from '../../../models/UserLogged';
+import { Account } from '../../../models/Account';
+import { UserServiceService } from '../../../services/user-service.service';
 
 @Component({
   selector: 'app-navbar-conta',
@@ -17,14 +19,22 @@ import { UserLogged } from '../../../models/UserLogged';
 export class NavbarContaComponent implements OnInit {
   saldo: number = 100;
   user!: UserLogged;
+  account!:Account; 
+
+
 
   constructor(
     private localstorageService: LocalStorageService,
-    private route: Router
+    private route: Router,
+    private userService: UserServiceService
   ) {}
 
   ngOnInit(): void {
-    this.user = this.localstorageService.getLoggedUser();
+    const logged_user = this.localstorageService.getLoggedUser();
+    this.user = logged_user; 
+    this.userService.getAccount(logged_user.accountNumber).subscribe(data => {
+      this.account = data; 
+    })
   }
 
   logout(): void {
