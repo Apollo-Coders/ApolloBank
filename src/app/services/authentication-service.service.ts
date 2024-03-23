@@ -11,16 +11,13 @@ import { UserLogged } from '../models/UserLogged';
 export class AuthenticationServiceService {
 
 
-
-
-
 private readonly baseUrl:string = 'https://localhost:7171/api/'
 
 
   constructor(private http: HttpClient, private router: Router) { }
 
    login(data: Login): Observable<UserLogged>{
-     return this.http.post<UserLogged>(`${this.baseUrl}/auth/login`, data)
+     return this.http.post<UserLogged>(`${this.baseUrl}Auth/Authenticate`, data)
    }
 
 

@@ -40,24 +40,10 @@ export class LoginFormComponent {
   }
 
 
-  checkUserCPFExistsValidator(): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      const cpf = control.value;
-      const cpfAsNumber = Number(cpf);
-      if (!cpf) {
-        return null;
-    }
-      const userDoesNotExist = cpf ? !this.localStorageService.checkUserCPFExists(cpf) : true;
-      if (userDoesNotExist) {
-        return {cpfInvalid: 'DoesNotExist' };
-      }
-      return null;
-    };
-  }
 
   ngOnInit() {
     this.form = this.fb.group({
-      cpf: new FormControl('', [Validators.required, Validators.minLength(11), Validators.maxLength(11), this.checkUserCPFExistsValidator(),
+      cpf: new FormControl('', [Validators.required, Validators.minLength(11), Validators.maxLength(11),
          cpfValidator()
       ]),
     });
