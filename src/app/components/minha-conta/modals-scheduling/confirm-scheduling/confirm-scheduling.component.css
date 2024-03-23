@@ -1,0 +1,59 @@
+.account-details {
+    gap: 20px;
+}
+
+
+
+h2 {
+    font-size: 1.3rem;
+    color: var(--blue);
+    font-weight: 550;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h3{
+    font-size: 1.4rem;
+}
+
+
+.total-box{
+    padding-top: 30px;
+}
+
+button{
+   
+    background-color: var(--laranja);
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 25px;   
+    font-size: 0.9rem;
+    min-width: 150px;
+   
+
+}
+
+.total-content{
+    padding-left: 10px;
+}
+
+.total-content i{
+    color: var(--laranja);
+    
+    
+}
+
+.buton{
+    gap: 8px;
+}
+
+
+.information{
+    color:rgb(94, 94, 94);
+}

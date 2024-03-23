@@ -1,0 +1,1 @@
+@Output() formSubmitted = new EventEmitter<void>();

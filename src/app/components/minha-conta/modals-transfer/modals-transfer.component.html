@@ -1,0 +1,4 @@
+<app-first-transfer *ngIf="current === 'transfer'"
+(formSubmitted)="switchToConfirmationPage()"></app-first-transfer>
+<app-second-confirm *ngIf="current === 'subsequent'" (nextStep)="switchToSuccess()" (goBack)="switchToFirst()" ></app-second-confirm>
+<app-third-success *ngIf="current === 'success'" (repeatTransaction)="switchToFirst()"></app-third-success>

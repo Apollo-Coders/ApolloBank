@@ -1,0 +1,2 @@
+<app-first-deposit *ngIf="current === 'deposit'" (formSubmittedThree)="switchToConfirmationPage()"></app-first-deposit>
+<app-success-deposit *ngIf="current === 'success'" (goingBack)="switchToDeposit()"></app-success-deposit>

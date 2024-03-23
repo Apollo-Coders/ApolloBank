@@ -1,6 +1,7 @@
 import { TransactionsService } from './../../services/transactions.service';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import * as bootstrap from 'bootstrap';
 import { NavbarContaComponent } from '../shared/navbar-conta/navbar-conta.component';
 import { RouterLink } from '@angular/router';
 import {
@@ -8,17 +9,31 @@ import {
   LocalStorageService,
 } from '../../services/local-storage.service';
 import { Transaction } from '../../models/Transaction';
+import { FirstTransferComponent } from './modals-transfer/first-transfer/first-transfer.component';
+import { SecondConfirmComponent } from './modals-transfer/second-confirm/second-confirm.component';
+import { ThirdSuccessComponent } from './modals-transfer/third-success/third-success.component';
+import { ModalsTransferComponent } from './modals-transfer/modals-transfer.component';
+import { FirstWithdrawComponent } from './modals-withdraw/first-withdraw/first-withdraw.component';
+import { ModalsDepositComponent } from './modals-deposit/modals-deposit.component';
+import { ModalsWithdrawComponent } from './modals-withdraw/modals-withdraw.component';
+import { MainPixComponent } from './modals-pix/main-pix/main-pix.component';
+import { ModalsPixComponent } from './modals-pix/modals-pix.component';
+import { FirstScheduleComponent } from './modals-scheduling/first-schedule/first-schedule.component';
+import { ConfirmSchedulingComponent } from './modals-scheduling/confirm-scheduling/confirm-scheduling.component';
+import { SchedulingSuccessComponent } from './modals-scheduling/scheduling-success/scheduling-success.component';
+import { ModalsComponent } from './modals/modals.component';
 
 @Component({
   selector: 'app-minha-conta',
   standalone: true,
-  imports: [CommonModule, NavbarContaComponent, RouterLink],
+  imports: [CommonModule, NavbarContaComponent, RouterLink, ModalsComponent, ModalsTransferComponent, ModalsWithdrawComponent, ModalsDepositComponent, ModalsPixComponent],
   templateUrl: './minha-conta.component.html',
   styleUrl: './minha-conta.component.css',
 })
 export class MinhaContaComponent {
   route = '/minha-conta';
   user!: ILoggedUser;
+  isOpen = 'nothing';
 
   lastTransactions: Transaction[] = [];
 
@@ -61,4 +76,19 @@ export class MinhaContaComponent {
     // Aumentar o tamanho do campo de entrada com base no número de casas decimais
     return baseWidth * decimalCount + 60;
   }
+
+
+ 
+  openModal(value: string){
+    this.isOpen = value
+  }
+
+closeModal() {
+  this.isOpen = 'nothing'
+}
+
+
+
+
+
 }
