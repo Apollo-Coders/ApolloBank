@@ -27,7 +27,7 @@ export class LocalStorageService {
     return user.password;
   }
 
-  getLoggedUser(): ILoggedUser {
+  getLoggedUser(): UserLogged {
     const user = JSON.parse(localStorage.getItem('LoggedUser') || 'null');
     return user;
   }

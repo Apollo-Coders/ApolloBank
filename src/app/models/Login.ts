@@ -1,9 +1,5 @@
 export interface Login {
     cpf: string; 
-    password: PasswordComboDTO[];  
+    password: string;
 }
 
-export interface PasswordComboDTO {
-    firstNum: number;
-    secondNum: number;
-}

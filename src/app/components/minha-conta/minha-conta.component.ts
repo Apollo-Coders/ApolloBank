@@ -22,6 +22,7 @@ import { FirstScheduleComponent } from './modals-scheduling/first-schedule/first
 import { ConfirmSchedulingComponent } from './modals-scheduling/confirm-scheduling/confirm-scheduling.component';
 import { SchedulingSuccessComponent } from './modals-scheduling/scheduling-success/scheduling-success.component';
 import { ModalsComponent } from './modals/modals.component';
+import { UserLogged } from '../../models/UserLogged';
 
 @Component({
   selector: 'app-minha-conta',
@@ -32,7 +33,7 @@ import { ModalsComponent } from './modals/modals.component';
 })
 export class MinhaContaComponent {
   route = '/minha-conta';
-  user!: ILoggedUser;
+  user!: UserLogged;
   isOpen = 'nothing';
 
   lastTransactions: Transaction[] = [];

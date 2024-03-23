@@ -5,6 +5,7 @@ import {
   ILoggedUser,
   LocalStorageService,
 } from '../../../services/local-storage.service';
+import { UserLogged } from '../../../models/UserLogged';
 
 @Component({
   selector: 'app-navbar-conta',
@@ -15,7 +16,7 @@ import {
 })
 export class NavbarContaComponent implements OnInit {
   saldo: number = 100;
-  user!: ILoggedUser;
+  user!: UserLogged;
 
   constructor(
     private localstorageService: LocalStorageService,
