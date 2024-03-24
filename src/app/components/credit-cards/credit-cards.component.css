@@ -8,7 +8,7 @@
   width: 100%;
 }
 
-.btn {
+.btn-settle {
   padding: 1rem;
   border-radius: 8px;
   background-color: var(--orange-light);
