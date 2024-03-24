@@ -6,7 +6,9 @@ import { ITransactionDisplay } from '../../utils/transactionToDisplay';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { NavbarContaComponent } from '../shared/navbar-conta/navbar-conta.component';
-import { DateFilterTypes } from '../../enums/transactions';
+import { DateFilterTypes, TransactionType } from '../../enums/transactions';
+import { Transaction } from '../../models/Transaction';
+import { LocalStorageService } from '../../services/local-storage.service';
 
 @Component({
   selector: 'app-transaction-history-page',
@@ -27,10 +29,12 @@ export class TransactionHistoryPageComponent implements OnInit {
   searchFilter = '';
   dateFilter = DateFilterTypes.ALLTIME;
 
-  constructor(private transactionsService: TransactionsService) {}
+  constructor(
+    private transactionsService: TransactionsService,
+    private localStorageService: LocalStorageService
+  ) {}
 
   async ngOnInit() {
-    this.transactionsService.setMockTransactions();
     this.transactionsService.filterByPix = this.filterByPix;
     this.transactionsService.filterByTrans = this.filterByTrans;
     this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
@@ -40,14 +44,34 @@ export class TransactionHistoryPageComponent implements OnInit {
     this.filterOpen = !this.filterOpen;
   }
 
+  comprar() {
+    console.log(this.localStorageService.getLoggedUser());
+    let accountId = this.localStorageService.getLoggedUser().accountId;
+    console.log(accountId);
+    let transaction = new Transaction(
+      null,
+      200,
+      'O',
+      '114946',
+      '711716',
+      new Date(),
+      'Pix para fulano',
+      TransactionType.PIX,
+      accountId,
+      null,
+      null
+    );
+    this.transactionsService.AddTransaction(transaction);
+  }
+
   toggleFitlerByPix() {
     this.transactionsService.filterByPix = this.filterByPix;
     this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
   }
 
   toggleFitlerByTrans() {
+    console.log(this.filterByTrans);
     this.transactionsService.filterByTrans = this.filterByTrans;
-    this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
   }
 
   handleSearchFilterChange() {
@@ -83,5 +107,9 @@ export class TransactionHistoryPageComponent implements OnInit {
     this.transactionsService.filterByTrans = this.filterByTrans;
     this.transactionsService.filterByPix = this.filterByPix;
     this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
+  }
+
+  dateStringToDate(datestring: string | Date) {
+    return new Date(datestring);
   }
 }

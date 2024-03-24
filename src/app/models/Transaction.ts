@@ -8,17 +8,23 @@ export class Transaction {
   date: Date;
   description: string;
   transactionType: TransactionType;
-  direction: '+' | '-';
+  direction: 'I' | 'O';
+  accountId: number;
+  scheduledDate: Date | null;
+  transactionStatusChecker: Date | null;
 
   constructor(
     id: string | null,
     amount: number,
-    direction: '+' | '-',
+    direction: 'I' | 'O',
     to: string | null,
     from: string | null,
     date: Date,
     description: string,
-    transactionType: TransactionType
+    transactionType: TransactionType,
+    accountId: number,
+    scheduledDate: Date | null,
+    transactionStatusChecker: Date | null
   ) {
     this.id = id;
     this.amount = amount;
@@ -28,5 +34,8 @@ export class Transaction {
     this.date = date;
     this.description = description;
     this.transactionType = transactionType;
+    this.accountId = accountId;
+    this.scheduledDate = scheduledDate;
+    this.transactionStatusChecker = transactionStatusChecker;
   }
 }

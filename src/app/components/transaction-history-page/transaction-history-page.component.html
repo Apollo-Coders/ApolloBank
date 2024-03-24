@@ -36,7 +36,7 @@
           </button>
         </div>
         <div class="col-md-3 col-6">
-          <button type="button" disabled class="disabled box">
+          <button type="button"  class="disabled box" (click)="comprar()">
             Selecionar período
           </button>
         </div>
@@ -129,11 +129,11 @@
               <div class="detail-box-left-side">
                 <div class="circle">
                   <i
-                    *ngIf="transaction.transactionType === 'Pix'"
+                    *ngIf="transaction.transactionType === 1"
                     class="bi bi-x-diamond-fill"
                   ></i>
                   <i
-                    *ngIf="transaction.transactionType === 'Transferência'"
+                    *ngIf="transaction.transactionType === 2"
                     class="bi bi-arrow-left-right"
                   ></i>
                 </div>
@@ -153,10 +153,10 @@
                   }}
                 </p>
                 <p id="hour">
-                  {{ transaction.date.getHours().toString().padStart(2, "0") }}
+                  {{ dateStringToDate(transaction.date).getHours().toString().padStart(2, "0") }}
                   :
                   {{
-                    transaction.date.getMinutes().toString().padStart(2, "0")
+                    dateStringToDate(transaction.date).getMinutes().toString().padStart(2, "0")
                   }}
                 </p>
               </div>

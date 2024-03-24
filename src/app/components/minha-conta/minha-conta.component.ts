@@ -27,7 +27,16 @@ import { UserLogged } from '../../models/UserLogged';
 @Component({
   selector: 'app-minha-conta',
   standalone: true,
-  imports: [CommonModule, NavbarContaComponent, RouterLink, ModalsComponent, ModalsTransferComponent, ModalsWithdrawComponent, ModalsDepositComponent, ModalsPixComponent],
+  imports: [
+    CommonModule,
+    NavbarContaComponent,
+    RouterLink,
+    ModalsComponent,
+    ModalsTransferComponent,
+    ModalsWithdrawComponent,
+    ModalsDepositComponent,
+    ModalsPixComponent,
+  ],
   templateUrl: './minha-conta.component.html',
   styleUrl: './minha-conta.component.css',
 })
@@ -45,7 +54,6 @@ export class MinhaContaComponent {
 
   ngOnInit(): void {
     this.user = this.localstorageService.getLoggedUser();
-    this.transactionsService.setMockTransactions();
     this.transactionsService.transactions$.subscribe((tr) => {
       this.lastTransactions = tr.slice(0, 3);
     });
@@ -78,18 +86,11 @@ export class MinhaContaComponent {
     return baseWidth * decimalCount + 60;
   }
 
-
- 
-  openModal(value: string){
-    this.isOpen = value
+  openModal(value: string) {
+    this.isOpen = value;
   }
 
-closeModal() {
-  this.isOpen = 'nothing'
-}
-
-
-
-
-
+  closeModal() {
+    this.isOpen = 'nothing';
+  }
 }

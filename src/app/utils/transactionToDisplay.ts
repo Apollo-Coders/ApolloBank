@@ -13,10 +13,10 @@ export function transactionToDisplay(
   yesterday.setDate(today.getDate() - 1);
 
   const groupedTransactions: { [key: string]: Transaction[] } = {};
-
+  console.log(transactions);
   // Agrupa as transações por data
   transactions.forEach((transaction) => {
-    const transactionDate = transaction.date;
+    const transactionDate = new Date(transaction.date);
     const transactionDay = transactionDate.getDate();
     const transactionMonth = transactionDate.getMonth();
     const transactionYear = transactionDate.getFullYear();
@@ -69,7 +69,9 @@ export function transactionToDisplay(
 export function sortTransactionsByDate(
   transactions: Transaction[]
 ): Transaction[] {
-  return transactions
-    .slice()
-    .sort((a, b) => b.date.getTime() - a.date.getTime());
+  return transactions.length
+    ? transactions
+        .slice()
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    : transactions;
 }

@@ -80,11 +80,11 @@
             </a>
             <table>
                 <tr *ngFor="let transactions of lastTransactions">
-                    <td><i class="bi bi-arrow-bar-{{transactions.direction === '-' ? 'down' : 'up'}}"></i></td>
+                    <td><i class="bi bi-arrow-bar-{{transactions.direction === 'O' ? 'down' : 'up'}}"></i></td>
                     <td class="">{{transactions.description}}</td>
                     <td [ngClass]="{
-                      'text-danger': transactions.direction === '-',
-                      'text-success': transactions.direction === '+'}">
+                      'text-danger': transactions.direction === 'I',
+                      'text-success': transactions.direction === 'O'}">
                         R$ {{transactions.amount}}
                     </td>
                     <td>{{transactions.date | date: 'dd/MM'}}</td>

@@ -1,7 +1,7 @@
 import { DateFilterTypes } from './../enums/transactions';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Transaction } from '../models/Transaction';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import {
   ITransactionDisplay,
   sortTransactionsByDate,
@@ -9,36 +9,119 @@ import {
 } from '../utils/transactionToDisplay';
 import { TransactionType } from '../enums/transactions';
 import { transacionsJSON } from '../utils/transactionsmock';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TransactionsService {
+  private _baseUrl = 'https://localhost:7171/api/Transactions/';
+
+  //Subjects
   private transactionsSubject: BehaviorSubject<Transaction[]> =
     new BehaviorSubject<Transaction[]>([]);
   private transactionsToDisplaySubject: BehaviorSubject<ITransactionDisplay[]> =
     new BehaviorSubject<ITransactionDisplay[]>([]);
+
+  // Filtros
   private _filterByTrans: boolean = false;
-  private _filterByPix: boolean = true;
+  private _filterByPix: boolean = false;
   private _searchFilterText: string = '';
   private _dateFilter: DateFilterTypes = DateFilterTypes.ALLTIME;
 
+  // public Observables
   public transactions$: Observable<Transaction[]> =
     this.transactionsSubject.asObservable();
   public transactionsToDisplay$: Observable<ITransactionDisplay[]> =
     this.transactionsToDisplaySubject.asObservable();
 
-  constructor() {}
-
-  updateTransactions(transactions: Transaction[]): void {
-    this.transactionsSubject.next(transactions);
-    this.updateTransactionsToDisplay(transactions);
+  constructor(private http: HttpClient) {
+    this.updateTransactions();
   }
 
-  updateTransactionsToDisplay(transactions: Transaction[]): void {
-    let filteredTransactions = transactions;
+  updateTransactions(): void {
+    let action: string = '';
+    if (this._dateFilter === DateFilterTypes.ALLTIME)
+      action = 'GetAllTransactions';
+    if (this._dateFilter === DateFilterTypes.LASTMONTH)
+      action = 'GetCurrentMonthTransactions';
+    if (this._dateFilter === DateFilterTypes.SIXMONTHS)
+      action = 'GetLastSixMonthsTransactions';
 
-    filteredTransactions = this.filterTransactionsByDate(filteredTransactions);
+    this.http
+      .get<{ $id: number; $values: Transaction[] }>(this._baseUrl + action)
+      .subscribe((responde) => {
+        this.transactionsSubject.next(responde.$values);
+        this.updateTransactionsToDisplay();
+      });
+  }
+
+  MakeWithdrawal(transaction: Transaction): void {
+    this.http
+      .post(this._baseUrl + 'MakeWithdrawal', transaction)
+      .pipe(tap(() => this.updateTransactions()))
+      .subscribe({
+        error: (err) => {
+          alert(`Falha ao realizar transação: ${err.Message}`);
+          console.error(err);
+        },
+      });
+  }
+
+  Makedeposit(transaction: Transaction): void {
+    this.http
+      .post(this._baseUrl + 'Makedeposit', transaction)
+      .pipe(tap(() => this.updateTransactions()))
+      .subscribe({
+        error: (err) => {
+          alert(`Falha ao realizar transação: ${err.Message}`);
+          console.error(err);
+        },
+      });
+  }
+
+  Scheduletransaction(transaction: Transaction): void {
+    this.http
+      .post(this._baseUrl + 'Scheduletransaction', transaction)
+      .pipe(tap(() => this.updateTransactions()))
+      .subscribe({
+        error: (err) => {
+          alert(`Falha ao realizar transação: ${err.Message}`);
+          console.error(err);
+        },
+      });
+  }
+
+  AddTransactionCredit(transaction: Transaction): void {
+    this.http
+      .post(this._baseUrl + 'AddTransactionCredit', transaction)
+      .pipe(tap(() => this.updateTransactions()))
+      .subscribe({
+        error: (err) => {
+          alert(`Falha ao realizar transação: ${err.Message}`);
+          console.error(err);
+        },
+      });
+  }
+
+  AddTransaction(transaction: Transaction): void {
+    this.http
+      .post(this._baseUrl + 'AddTransaction', transaction)
+      .pipe(tap(() => this.updateTransactions()))
+      .subscribe({
+        error: (err) => {
+          alert(`Falha ao realizar transação: ${err.Message}`);
+          console.error(err);
+        },
+      });
+  }
+
+  updateTransactionsToDisplay(): void {
+    let filteredTransactions: Transaction[] = [];
+
+    this.transactions$.subscribe((transactions) => {
+      filteredTransactions = transactions;
+    });
 
     if (!this._filterByTrans) {
       filteredTransactions = filteredTransactions.filter(
@@ -46,6 +129,7 @@ export class TransactionsService {
           transaction.transactionType !== TransactionType.TRANSFER
       );
     }
+
     if (!this._filterByPix) {
       filteredTransactions = filteredTransactions.filter(
         (transaction) => transaction.transactionType !== TransactionType.PIX
@@ -64,7 +148,7 @@ export class TransactionsService {
 
     /* Atualiza transactionsToDisplaySubject com os dados de filteredTransactions  */
     this.transactionsToDisplaySubject.next(
-      transactionToDisplay(filteredTransactions)
+      transactionToDisplay(sortTransactionsByDate(filteredTransactions))
     );
   }
 
@@ -74,7 +158,7 @@ export class TransactionsService {
 
   public set filterByTrans(value: boolean) {
     this._filterByTrans = value;
-    this.updateTransactionsToDisplay(this.transactionsSubject.getValue());
+    this.updateTransactionsToDisplay();
   }
   public get filterByTrans() {
     return this._filterByTrans;
@@ -82,7 +166,7 @@ export class TransactionsService {
 
   public set filterByPix(value: boolean) {
     this._filterByPix = value;
-    this.updateTransactionsToDisplay(this.transactionsSubject.getValue());
+    this.updateTransactionsToDisplay();
   }
   public get filterByPix() {
     return this._filterByPix;
@@ -90,7 +174,7 @@ export class TransactionsService {
 
   public set dateFilter(filter: DateFilterTypes) {
     this._dateFilter = filter;
-    this.updateTransactionsToDisplay(this.transactionsSubject.getValue());
+    this.updateTransactions();
   }
   public get dateFilter() {
     return this._dateFilter;
@@ -98,75 +182,50 @@ export class TransactionsService {
 
   public set searchFilterText(value: string) {
     this._searchFilterText = value;
-    this.updateTransactionsToDisplay(this.transactionsSubject.getValue());
+    this.updateTransactionsToDisplay();
   }
   public get searchFilterText() {
     return this._searchFilterText;
   }
-
-  setMockTransactions() {
-    const transactionProvisore: Transaction[] = [];
-    transacionsJSON.forEach((obj) => {
-      const {
-        amount,
-        direction,
-        to,
-        from,
-        date,
-        description,
-        transactionType,
-      } = obj;
-      const parsedTransactionType = this.parseTransactionType(transactionType);
-      const parsedDate = new Date(date);
-      const transaction = new Transaction(
-        null,
-        amount,
-        direction as '+' | '-',
-        to,
-        from,
-        parsedDate,
-        description,
-        parsedTransactionType
-      );
-      transactionProvisore.push(transaction);
-    });
-    this.updateTransactions(sortTransactionsByDate(transactionProvisore));
-  }
-
-  private parseTransactionType(transactionTypeString: string): TransactionType {
-    if (transactionTypeString === 'Pix') {
-      return TransactionType.PIX;
-    } else if (transactionTypeString === 'Crédito') {
-      return TransactionType.CREDIT;
-    } else {
-      //(transactionTypeString === 'Transferência')
-      return TransactionType.TRANSFER;
-    }
-    /* return TransactionType[
-      transactionTypeString as keyof typeof TransactionType
-    ]; */
-  }
-
-  private filterTransactionsByDate(transactions: Transaction[]): Transaction[] {
-    switch (this._dateFilter) {
-      case DateFilterTypes.LASTMONTH:
-        return transactions.filter(
-          (transaction) =>
-            new Date().getMonth() === transaction.date.getMonth() &&
-            new Date().getFullYear() === transaction.date.getFullYear()
-        );
-      case DateFilterTypes.SIXMONTHS:
-        return transactions.filter(
-          (transaction) =>
-            Math.abs(
-              new Date().getMonth() -
-                transaction.date.getMonth() +
-                12 * (new Date().getFullYear() - transaction.date.getFullYear())
-            ) < 6
-        );
-      case DateFilterTypes.ALLTIME:
-      default:
-        return transactions;
-    }
-  }
 }
+
+/* setMockTransactions() {
+  const transactionProvisore: Transaction[] = [];
+  transacionsJSON.forEach((obj) => {
+    const {
+      amount,
+      direction,
+      to,
+      from,
+      date,
+      description,
+      transactionType,
+    } = obj;
+    const parsedTransactionType = this.parseTransactionType(transactionType);
+    const parsedDate = new Date(date);
+    const transaction = new Transaction(
+      null,
+      amount,
+      direction as '+' | '-',
+      to,
+      from,
+      parsedDate,
+      description,
+      parsedTransactionType
+    );
+    transactionProvisore.push(transaction);
+  });
+  this.updateTransactions();
+} */
+
+/* private parseTransactionType(transactionTypeString: string): TransactionType {
+  if (transactionTypeString === 'Pix') {
+    return TransactionType.PIX;
+  } else if (transactionTypeString === 'Crédito') {
+    return TransactionType.CREDIT;
+  } else if (transactionTypeString === 'Transferência') {
+    return TransactionType.TRANSFER;
+  } else {
+    throw new Error();
+  }
+} */
