@@ -20,6 +20,7 @@ export class NavbarContaComponent implements OnInit {
   saldo: number = 100;
   user!: UserLogged;
   account!:Account; 
+  balance: string = '0'
 
 
 
@@ -34,6 +35,7 @@ export class NavbarContaComponent implements OnInit {
     this.user = logged_user; 
     this.userService.getAccount(logged_user.accountNumber).subscribe(data => {
       this.account = data; 
+      this.balance = data.balance.toFixed(2)
     })
   }
 

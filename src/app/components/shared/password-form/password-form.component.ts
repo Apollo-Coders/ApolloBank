@@ -53,6 +53,7 @@ export class PasswordFormComponent {
           this.localStorageService.saveLoggedUserLocalStorage(userLogged);
         this.router.navigate(['/minha-conta']);
         this.formService.clearFormData();
+        this.form.reset(); 
         })      
       });
     
