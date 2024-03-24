@@ -26,6 +26,9 @@ export class TransactionsService {
   // Filtros
   private _filterByTrans: boolean = false;
   private _filterByPix: boolean = false;
+  private _filterByCredit: boolean = false;
+  private _filterByDeposit: boolean = false;
+  private _filterByWithdraw: boolean = false;
   private _searchFilterText: string = '';
   private _dateFilter: DateFilterTypes = DateFilterTypes.ALLTIME;
 
@@ -135,6 +138,26 @@ export class TransactionsService {
         (transaction) => transaction.transactionType !== TransactionType.PIX
       );
     }
+
+    if (!this._filterByCredit) {
+      filteredTransactions = filteredTransactions.filter(
+        (transaction) => transaction.transactionType !== TransactionType.CREDIT
+      );
+    }
+
+    if (!this._filterByDeposit) {
+      filteredTransactions = filteredTransactions.filter(
+        (transaction) => transaction.transactionType !== TransactionType.DEPOSIT
+      );
+    }
+
+    if (!this._filterByWithdraw) {
+      filteredTransactions = filteredTransactions.filter(
+        (transaction) =>
+          transaction.transactionType !== TransactionType.WITHDRAW
+      );
+    }
+
     if (this._searchFilterText !== '') {
       const searchText = this._searchFilterText.toLowerCase();
       filteredTransactions = filteredTransactions.filter(
@@ -155,23 +178,47 @@ export class TransactionsService {
   /*
     GETTERS - SETTERS
   */
-
+  public get filterByTrans() {
+    return this._filterByTrans;
+  }
   public set filterByTrans(value: boolean) {
     this._filterByTrans = value;
     this.updateTransactionsToDisplay();
   }
-  public get filterByTrans() {
-    return this._filterByTrans;
-  }
 
+  public get filterByPix() {
+    return this._filterByPix;
+  }
   public set filterByPix(value: boolean) {
     this._filterByPix = value;
     this.updateTransactionsToDisplay();
   }
-  public get filterByPix() {
-    return this._filterByPix;
+
+  public get filterByCredit() {
+    return this._filterByCredit;
+  }
+  public set filterByCredit(value: boolean) {
+    this._filterByCredit = value;
+    this.updateTransactionsToDisplay();
   }
 
+  public get filterByDeposit() {
+    return this._filterByDeposit;
+  }
+  public set filterByDeposit(value: boolean) {
+    this._filterByDeposit = value;
+    this.updateTransactionsToDisplay();
+  }
+
+  public get filterByWithdraw() {
+    return this._filterByWithdraw;
+  }
+  public set filterByWithdraw(value: boolean) {
+    this._filterByWithdraw = value;
+    this.updateTransactionsToDisplay();
+  }
+
+  /* Date filter */
   public set dateFilter(filter: DateFilterTypes) {
     this._dateFilter = filter;
     this.updateTransactions();
