@@ -34,6 +34,7 @@ export class LocalStorageService {
 
   logout(): void {
     localStorage.removeItem('LoggedUser');
+    window.location.reload() 
   }
 
   private usersList = this.getRegisteredUsers();

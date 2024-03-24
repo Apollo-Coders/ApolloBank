@@ -50,7 +50,7 @@
             </div>
         </div>
   
-        <app-modals [modalTitle]="'Transferência'" [isOpen]="isOpen === 'transferencia'"  (closed)="closeModal()" *ngIf="isOpen === 'transferencia'" >
+        <app-modals class="modals-total" [modalTitle]="'Transferência'" [isOpen]="isOpen === 'transferencia'"  (closed)="closeModal()" *ngIf="isOpen === 'transferencia'" >
           <app-modals-transfer></app-modals-transfer>
         </app-modals>
   

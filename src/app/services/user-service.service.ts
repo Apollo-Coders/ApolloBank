@@ -23,7 +23,7 @@ export class UserServiceService {
   constructor(private http:HttpClient) { }
 
   registerUser(obj:CreateUser):Observable<UserResponse>{
-   return this.http.post<UserResponse>(this.baseUrl, obj)
+   return this.http.post<UserResponse>(`${this.baseUrl}/CreateUser`, obj)
 
   }
 

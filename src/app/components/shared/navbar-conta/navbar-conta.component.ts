@@ -40,6 +40,7 @@ export class NavbarContaComponent implements OnInit {
   logout(): void {
     this.localstorageService.logout();
     this.route.navigate(['/login']);
+   
   }
 
   changeViewSaldo() {
