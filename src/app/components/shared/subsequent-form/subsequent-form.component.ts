@@ -64,9 +64,9 @@ export class SubsequentFormComponent {
       const cleanValues = this.trimFormValues(formValues);
 
       this.formService.getFormData().pipe(take(1)).subscribe(data => {
-        console.log(data)
+        
         const completeUser = { ...data, ...cleanValues };
-        console.log(completeUser)
+        
 
         const formattUser:CreateUser = {
           fullName: completeUser.name,
@@ -105,11 +105,11 @@ export class SubsequentFormComponent {
             }
           }
           )
-          console.log(this.formSubmittedError)
+         
         
 
       });
-     // this.formService.clearFormData();
+     
 
     }
   }

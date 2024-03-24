@@ -24,7 +24,7 @@ export class PasswordFormComponent {
 
   form!: FormGroup;
   title = 'testeLogin';
-  //Uma mascara só para por no input enquanto passwordInsert vai sendo preenchido
+  //Uma mascara só para por no input enquanto password vai sendo preenchido
   passwordMask: string = '';
   erroMessage: string = '';
 
