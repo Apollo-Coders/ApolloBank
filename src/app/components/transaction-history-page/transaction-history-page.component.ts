@@ -26,6 +26,9 @@ export class TransactionHistoryPageComponent implements OnInit {
   >();
   filterByPix = true;
   filterByTrans = true;
+  filterByCredit = true;
+  filterByDeposit = true;
+  filterByWithdraw = true;
   searchFilter = '';
   dateFilter = DateFilterTypes.ALLTIME;
 
