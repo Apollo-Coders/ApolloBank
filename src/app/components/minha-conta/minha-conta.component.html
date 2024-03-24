@@ -50,7 +50,7 @@
             </div>
         </div>
   
-        <app-modals [modalTitle]="'Transferência'" [isOpen]="isOpen === 'transferencia'"  (closed)="closeModal()" *ngIf="isOpen === 'transferencia'" >
+        <app-modals class="modals-total" [modalTitle]="'Transferência'" [isOpen]="isOpen === 'transferencia'"  (closed)="closeModal()" *ngIf="isOpen === 'transferencia'" >
           <app-modals-transfer></app-modals-transfer>
         </app-modals>
   
@@ -91,7 +91,7 @@
         <div class="col-md-6 d-flex justify-content-center align-items-center">
             <div class="cartao row w-75 mb-4">
                 <h2 class="col-md-12">Cartão de Crédito</h2>
-                <p>{{user.nome}}</p>
+                <p>{{user.userName}}</p>
                 <p>* * * * 3215</p>
                 <div class="fatura col-md-6 text-center">
                     <span>Fatura Atual<br></span>
