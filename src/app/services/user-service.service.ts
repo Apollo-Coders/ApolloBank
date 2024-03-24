@@ -18,8 +18,6 @@ export class UserServiceService {
 
   private baseUrl:string = 'https://localhost:7171/api/User'; 
 
-
-
   constructor(private http:HttpClient) { }
 
   registerUser(obj:CreateUser):Observable<UserResponse>{
