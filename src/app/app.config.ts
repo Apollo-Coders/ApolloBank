@@ -2,8 +2,11 @@ import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { TokenServiceService } from './services/token-service.service';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideHttpClient(withFetch()), HttpClientModule],
+  providers: [
+    provideRouter(routes), provideHttpClient(withFetch()), HttpClientModule, { provide: HTTP_INTERCEPTORS, useClass: TokenServiceService, multi: true },
+  ],
 };
