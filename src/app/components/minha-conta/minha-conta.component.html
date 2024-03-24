@@ -54,15 +54,15 @@
           <app-modals-transfer></app-modals-transfer>
         </app-modals>
   
-        <app-modals [modalTitle]="'Saque'" [isOpen]="isOpen === 'saque'"  (closed)="closeModal()" *ngIf="isOpen === 'saque'" >
+        <app-modals class="modals-total" [modalTitle]="'Saque'" [isOpen]="isOpen === 'saque'"  (closed)="closeModal()" *ngIf="isOpen === 'saque'" >
           <app-modals-withdraw></app-modals-withdraw>
         </app-modals>
   
-        <app-modals [modalTitle]="'Depósito'" [isOpen]="isOpen === 'deposito'"  (closed)="closeModal()" *ngIf="isOpen === 'deposito'" >
+        <app-modals class="modals-total" [modalTitle]="'Depósito'" [isOpen]="isOpen === 'deposito'"  (closed)="closeModal()" *ngIf="isOpen === 'deposito'" >
           <app-modals-deposit></app-modals-deposit>
         </app-modals>
   
-        <app-modals [modalTitle]="'Pix'" [isOpen]="isOpen === 'pix'"  (closed)="closeModal()" *ngIf="isOpen === 'pix'" >
+        <app-modals class="modals-total" [modalTitle]="'Pix'" [isOpen]="isOpen === 'pix'"  (closed)="closeModal()" *ngIf="isOpen === 'pix'" >
           <app-modals-pix></app-modals-pix>
         </app-modals>
   
