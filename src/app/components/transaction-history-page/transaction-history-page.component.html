@@ -104,7 +104,7 @@
                 <div class="radio-box">
                   <input
                     id="credit"
-
+                    (change)="toggleFitlerByCredit()"
                     [(ngModel)]="filterByCredit"
                     type="checkbox"
                   />
@@ -113,7 +113,7 @@
                 <div class="radio-box">
                   <input
                     id="deposit"
-
+                    (change)="toggleFitlerByDeposit()"
                     [(ngModel)]="filterByDeposit"
                     type="checkbox"
                   />
@@ -122,7 +122,7 @@
                 <div class="radio-box">
                   <input
                     id="withdraw"
-
+                    (change)="toggleFitlerByWithdraw()"
                     [(ngModel)]="filterByWithdraw"
                     type="checkbox"
                   />
@@ -157,12 +157,12 @@
                 <div class="circle">
                   <!-- PIX -->
                   <i
-                    *ngIf="transaction.transactionType === 5"
+                    *ngIf="transaction.transactionType === 1"
                     class="bi bi-x-diamond-fill"
                   ></i>
                   <!-- TRANSFER -->
                   <i
-                    *ngIf="transaction.transactionType === 5"
+                    *ngIf="transaction.transactionType === 2"
                     class="bi bi-arrow-left-right"
                   ></i>
                   <!-- CREDIT -->
@@ -172,12 +172,12 @@
                   ></i>
                   <!-- DEPOSIT -->
                   <i
-                    *ngIf="transaction.transactionType === 1"
+                    *ngIf="transaction.transactionType === 4"
                     class="bi bi-piggy-bank"
                   ></i>
                   <!-- WITHDRAW -->
                   <i
-                    *ngIf="transaction.transactionType === 2"
+                    *ngIf="transaction.transactionType === 5"
                     class="bi bi-cash-stack"
                   ></i>
                 </div>
