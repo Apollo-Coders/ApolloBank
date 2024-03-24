@@ -9,15 +9,15 @@ import { UserResponse } from '../models/UserResponse';
   providedIn: 'root'
 })
 export class UserServiceService {
-
-  private baseUrl:string = 'https://localhost:7171/users'; 
+  
+  private baseUrl:string = 'https://localhost:7171/api/User'; 
 
 
 
   constructor(private http:HttpClient) { }
 
   registerUser(obj:CreateUser):Observable<UserResponse>{
-   return this.http.post<UserResponse>(this.baseUrl, obj)
+   return this.http.post<UserResponse>(`${this.baseUrl}/CreateUser`, obj)
 
   }
 
