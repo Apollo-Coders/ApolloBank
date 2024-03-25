@@ -36,7 +36,7 @@
           </button>
         </div>
         <div class="col-md-3 col-6">
-          <button type="button"  class="disabled box" (click)="comprar()">
+          <button type="button"  class="disabled box" disabled >
             Selecionar período
           </button>
         </div>
@@ -82,7 +82,7 @@
           <div class="sidebar">
             <div class="filter-box">
               <div>
-                <p>Método</p>
+                <p>Métodos</p>
                 <div class="radio-box">
                   <input
                     id="pix"
@@ -100,6 +100,33 @@
                     type="checkbox"
                   />
                   <label for="transfer">Transferência</label>
+                </div>
+                <div class="radio-box">
+                  <input
+                    id="credit"
+                    (change)="toggleFitlerByCredit()"
+                    [(ngModel)]="filterByCredit"
+                    type="checkbox"
+                  />
+                  <label for="credit">Crédito</label>
+                </div>
+                <div class="radio-box">
+                  <input
+                    id="deposit"
+                    (change)="toggleFitlerByDeposit()"
+                    [(ngModel)]="filterByDeposit"
+                    type="checkbox"
+                  />
+                  <label for="deposit">Depósito</label>
+                </div>
+                <div class="radio-box">
+                  <input
+                    id="withdraw"
+                    (change)="toggleFitlerByWithdraw()"
+                    [(ngModel)]="filterByWithdraw"
+                    type="checkbox"
+                  />
+                  <label for="withdraw">Saque</label>
                 </div>
                 <div>
                   <button (click)="resetFilters()" class="limpar-filtro-button">
@@ -128,13 +155,30 @@
             >
               <div class="detail-box-left-side">
                 <div class="circle">
+                  <!-- PIX -->
                   <i
                     *ngIf="transaction.transactionType === 1"
                     class="bi bi-x-diamond-fill"
                   ></i>
+                  <!-- TRANSFER -->
                   <i
                     *ngIf="transaction.transactionType === 2"
                     class="bi bi-arrow-left-right"
+                  ></i>
+                  <!-- CREDIT -->
+                  <i
+                    *ngIf="transaction.transactionType === 3"
+                    class="bi bi-arrow-left-right"
+                  ></i>
+                  <!-- DEPOSIT -->
+                  <i
+                    *ngIf="transaction.transactionType === 4"
+                    class="bi bi-piggy-bank"
+                  ></i>
+                  <!-- WITHDRAW -->
+                  <i
+                    *ngIf="transaction.transactionType === 5"
+                    class="bi bi-cash-stack"
                   ></i>
                 </div>
                 <div class="two-texts">

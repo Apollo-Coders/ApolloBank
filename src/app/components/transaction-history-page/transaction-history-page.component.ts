@@ -26,13 +26,13 @@ export class TransactionHistoryPageComponent implements OnInit {
   >();
   filterByPix = true;
   filterByTrans = true;
+  filterByCredit = true;
+  filterByDeposit = true;
+  filterByWithdraw = true;
   searchFilter = '';
   dateFilter = DateFilterTypes.ALLTIME;
 
-  constructor(
-    private transactionsService: TransactionsService,
-    private localStorageService: LocalStorageService
-  ) {}
+  constructor(private transactionsService: TransactionsService) {}
 
   async ngOnInit() {
     this.transactionsService.filterByPix = this.filterByPix;
@@ -44,69 +44,60 @@ export class TransactionHistoryPageComponent implements OnInit {
     this.filterOpen = !this.filterOpen;
   }
 
-  comprar() {
-    console.log(this.localStorageService.getLoggedUser());
-    let accountId = this.localStorageService.getLoggedUser().accountId;
-    console.log(accountId);
-    let transaction = new Transaction(
-      null,
-      200,
-      'O',
-      '114946',
-      '711716',
-      new Date(),
-      'Pix para fulano',
-      TransactionType.PIX,
-      accountId,
-      null,
-      null
-    );
-    this.transactionsService.AddTransaction(transaction);
-  }
-
   toggleFitlerByPix() {
     this.transactionsService.filterByPix = this.filterByPix;
     this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
   }
 
   toggleFitlerByTrans() {
-    console.log(this.filterByTrans);
     this.transactionsService.filterByTrans = this.filterByTrans;
+  }
+
+  toggleFitlerByCredit() {
+    this.transactionsService.filterByCredit = this.filterByCredit;
+  }
+
+  toggleFitlerByDeposit() {
+    this.transactionsService.filterByDeposit = this.filterByDeposit;
+  }
+
+  toggleFitlerByWithdraw() {
+    this.transactionsService.filterByWithdraw = this.filterByWithdraw;
   }
 
   handleSearchFilterChange() {
     this.transactionsService.searchFilterText = this.searchFilter;
-    this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
   }
 
   handleDateFilter(filter: DateFilterTypes) {
     this.dateFilter = filter;
     this.transactionsService.dateFilter = this.dateFilter;
-    this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
   }
 
   lastMonthFilter() {
     this.dateFilter = DateFilterTypes.LASTMONTH;
     this.transactionsService.dateFilter = this.dateFilter;
-    this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
   }
   sixMonthFilter() {
     this.dateFilter = DateFilterTypes.LASTMONTH;
     this.transactionsService.dateFilter = this.dateFilter;
-    this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
   }
   allTimeFilter() {
     this.dateFilter = DateFilterTypes.LASTMONTH;
     this.transactionsService.dateFilter = this.dateFilter;
-    this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
   }
 
   resetFilters() {
     this.filterByPix = true;
     this.filterByTrans = true;
+    this.filterByCredit = true;
+    this.filterByDeposit = true;
+    this.filterByWithdraw = true;
     this.transactionsService.filterByTrans = this.filterByTrans;
     this.transactionsService.filterByPix = this.filterByPix;
-    this.transactionsDisplay$ = this.transactionsService.transactionsToDisplay$;
+    this.transactionsService.filterByCredit = this.filterByCredit;
+    this.transactionsService.filterByDeposit = this.filterByDeposit;
+    this.transactionsService.filterByWithdraw = this.filterByWithdraw;
   }
 
   dateStringToDate(datestring: string | Date) {
