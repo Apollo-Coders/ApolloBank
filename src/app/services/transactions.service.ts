@@ -1,7 +1,7 @@
 import { DateFilterTypes } from './../enums/transactions';
 import { Injectable, OnInit } from '@angular/core';
 import { Transaction } from '../models/Transaction';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map, tap } from 'rxjs';
 import {
   ITransactionDisplay,
   sortTransactionsByDate,
@@ -59,29 +59,36 @@ export class TransactionsService {
       });
   }
 
-  MakeWithdrawal(transaction: Transaction): void {
-    this.http
+  MakeWithdrawal(transaction: Transaction): Observable<any> { // adding obs
+    return this.http
       .post(this._baseUrl + 'MakeWithdrawal', transaction)
-      .pipe(tap(() => this.updateTransactions()))
-      .subscribe({
-        error: (err) => {
+      .pipe(
+        tap(() => this.updateTransactions()),
+        catchError((err) => {
           alert(`Falha ao realizar transação: ${err.Message}`);
           console.error(err);
-        },
-      });
+          throw err;
+        })
+      );
   }
 
-  Makedeposit(transaction: Transaction): void {
-    this.http
+
+
+
+  Makedeposit(transaction: Transaction): Observable<any> { // adding obs
+    return this.http
       .post(this._baseUrl + 'Makedeposit', transaction)
-      .pipe(tap(() => this.updateTransactions()))
-      .subscribe({
-        error: (err) => {
+      .pipe(
+        tap(() => this.updateTransactions()),
+        catchError((err) => {
           alert(`Falha ao realizar transação: ${err.Message}`);
           console.error(err);
-        },
-      });
+          throw err;
+        })
+      );
   }
+
+
 
   Scheduletransaction(transaction: Transaction): void {
     this.http
@@ -107,17 +114,29 @@ export class TransactionsService {
       });
   }
 
-  AddTransaction(transaction: Transaction): void {
-    this.http
+
+
+  AddTransaction(transaction: Transaction): Observable<any> { // adding obs
+    return this.http
       .post(this._baseUrl + 'AddTransaction', transaction)
-      .pipe(tap(() => this.updateTransactions()))
-      .subscribe({
-        error: (err) => {
+      .pipe(
+        tap(() => this.updateTransactions()),
+        catchError((err) => {
           alert(`Falha ao realizar transação: ${err.Message}`);
           console.error(err);
-        },
-      });
+          throw err;
+        })
+      );
   }
+
+
+
+
+
+
+
+
+
 
   updateTransactionsToDisplay(): void {
     let filteredTransactions: Transaction[] = [];

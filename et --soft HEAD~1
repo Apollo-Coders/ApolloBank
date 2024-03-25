@@ -1,0 +1,510 @@
+[33mcommit 183a23cb32b64fd189cc95021d1043c60ca33a86[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdevelop[m[33m)[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sun Mar 24 18:26:08 2024 -0300
+
+    withdraw start
+
+[33mcommit 4fc5148ea1b77eaf16f426084a2a67b1c6c11589[m
+Author: Guilherme Duarte <guilhduart.abr@gmail.com>
+Date:   Sun Mar 24 16:33:53 2024 -0300
+
+    feat: transaction service integrated
+
+[33mcommit 645594515e10cc565cbd8cd22bea3e10ebaddfdd[m
+Merge: 92510bd e5aa935
+Author: Guilherme Duarte <guilhduart.abr@gmail.com>
+Date:   Sun Mar 24 11:11:16 2024 -0300
+
+    Merge branch 'feat/cartao' into develop
+
+[33mcommit e5aa93556111347f63fd45f0f398e482e9cf9a72[m[33m ([m[1;31morigin/feat/cartao[m[33m)[m
+Author: Guilherme Duarte <guilhduart.abr@gmail.com>
+Date:   Sun Mar 24 11:10:57 2024 -0300
+
+    feat: creditcard page
+
+[33mcommit 92510bdafdd3824409da64204143af65810f6b6e[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sun Mar 24 01:06:52 2024 -0300
+
+    solve unused files
+
+[33mcommit 4ba2804893778510f7f36a5bf161cdf8bbb7581b[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sun Mar 24 00:49:07 2024 -0300
+
+    adjust modals position
+
+[33mcommit 48f68e22354140fd165b1e83ba0b0ebf6b1b899d[m
+Merge: f50bf70 b992a99
+Author: Luiza Ferreira <139771003+luizaferreirafonseca@users.noreply.github.com>
+Date:   Sun Mar 24 00:40:01 2024 -0300
+
+    Merge pull request #34 from Apollo-Coders/feat/auth-Login
+    
+    Feat/auth login
+
+[33mcommit b992a9959c110cf202da25ab98169663c8d2cb46[m[33m ([m[1;31morigin/feat/auth-Login[m[33m, [m[1;32mfeat/auth-Login[m[33m)[m
+Merge: a416672 f50bf70
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sun Mar 24 00:31:56 2024 -0300
+
+    adjust conflict
+
+[33mcommit a416672460d5bef53ea25b21d7e2084c28ff90d5[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sun Mar 24 00:30:30 2024 -0300
+
+    adjust service
+
+[33mcommit 7580ad8c0796c9b775e75903556df9afbc94d4af[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sun Mar 24 00:23:25 2024 -0300
+
+    reset userlogged and format balance
+
+[33mcommit f50bf70ca7d6ccfc0e131ada84814fb918651521[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sat Mar 23 23:17:04 2024 -0300
+
+    changing endpoint name
+
+[33mcommit 43c5d791bc5055987f91068a47351b8063574c0b[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sat Mar 23 23:13:14 2024 -0300
+
+    auth service with jwt token - finished
+
+[33mcommit fc4e8dff1dee0c79adc7b0b9cb446a7c57d8323e[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sat Mar 23 22:00:10 2024 -0300
+
+    start tokenService
+
+[33mcommit 6e1f6fc53a0cfb2e3a285930316de2fa66e25cc9[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sat Mar 23 20:35:36 2024 -0300
+
+    adding endpoint getaccount
+
+[33mcommit 32ae19429f0edd3bec9be0cbb61f1da319db1092[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sat Mar 23 20:07:49 2024 -0300
+
+    login done - with no JWT
+
+[33mcommit 2be6cedfb50c88f75aa53a68c773c0f1f9332728[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sat Mar 23 19:21:34 2024 -0300
+
+    modifying login settings
+
+[33mcommit bd5d67807ea24f31396dd8e20d348cae9829477c[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sat Mar 23 16:51:57 2024 -0300
+
+    creating login_interfaces
+
+[33mcommit 3a4542f01bb72031fd417201da828f583a69fed4[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sat Mar 23 12:33:47 2024 -0300
+
+    incluing httpclient and unfinished login service
+
+[33mcommit 427efbd0f84a1032e502b41661e1401eac871c16[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sat Mar 23 12:03:38 2024 -0300
+
+    installing authentication dependency
+
+[33mcommit b61d181bc709c98819c117f849816eb22edc9e30[m
+Merge: 39596d3 254d86c
+Author: Luiza Ferreira <139771003+luizaferreirafonseca@users.noreply.github.com>
+Date:   Sat Mar 23 08:45:12 2024 -0300
+
+    Merge pull request #31 from Apollo-Coders/modals
+    
+    Modals
+
+[33mcommit 39596d3b29a91ac8a47b1bebeff4d1efb000b14d[m
+Merge: 49015d8 269aa87
+Author: Luiza Ferreira <139771003+luizaferreirafonseca@users.noreply.github.com>
+Date:   Fri Mar 22 20:15:55 2024 -0300
+
+    Merge pull request #29 from Apollo-Coders/feat/register-api
+    
+    Feat/register api
+
+[33mcommit 269aa875fdfb98115e76207a42822476f56d7fe7[m[33m ([m[1;31morigin/feat/register-api[m[33m, [m[1;32mfeat/register-api[m[33m)[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Fri Mar 22 17:00:51 2024 -0300
+
+    creating register - backend
+
+[33mcommit 254d86cbd7c4f976663c79f1a11f9dcadc601e58[m[33m ([m[1;31morigin/modals[m[33m, [m[1;32mmodals[m[33m)[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Thu Mar 21 17:37:25 2024 -0300
+
+    adjusting modals - back to initial status
+
+[33mcommit 7279671ea3b256edb659828d180dda4b6670c942[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Thu Mar 21 08:46:52 2024 -0300
+
+    adding interfaces to user
+
+[33mcommit d7cd3370a128a8b690fbb4b58a229d4ed32fb841[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Thu Mar 21 07:14:22 2024 -0300
+
+    changing userCreateRequest interface
+
+[33mcommit 4017067fa8c81057d2cb4fce6d3ad06b2ac28b6f[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Wed Mar 20 08:35:21 2024 -0300
+
+    adjusting output
+
+[33mcommit fd6be6ef0d4df14485439dc3560ab658cbc4a42f[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Tue Mar 19 13:50:58 2024 -0300
+
+    adjusting modal - responsive
+
+[33mcommit 15068e04b6da8f6b5b24f7aabc733742e6eed7b1[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Tue Mar 19 06:46:31 2024 -0300
+
+    deleting form from second-confirm/transfer
+
+[33mcommit 119966892a1d03f44d8131a68a783c4c483e523d[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Mon Mar 18 08:20:52 2024 -0300
+
+    creating scheduling modal
+
+[33mcommit 69813963fbcb15b5f3fa3e75c50e2b175484f7c6[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sun Mar 17 20:31:16 2024 -0300
+
+    adjusting formcontrol
+
+[33mcommit 04d192760c29bcb2a5fccfb450e738ebb1dc6a08[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sun Mar 17 20:29:18 2024 -0300
+
+    fromcontrol adjust
+
+[33mcommit 7cb6a1ce2a1f67fdc80c02618a95d3b744c7b896[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sun Mar 17 20:20:57 2024 -0300
+
+    pix modal
+
+[33mcommit 31e0ede6d99f4f9a036e8354d3c4228f9cb28790[m
+Author: Guilherme Duarte <guilhduart.abr@gmail.com>
+Date:   Sat Mar 16 17:00:36 2024 -0300
+
+    fix: adjusting responsive
+
+[33mcommit b1e3c39f90137ce1ca6abb7c25cc672587537b31[m
+Author: Guilherme Duarte <guilhduart.abr@gmail.com>
+Date:   Sat Mar 16 16:17:26 2024 -0300
+
+    feat: component HTML CSS start
+
+[33mcommit 27f8e138ac892d3cbf0eef4b13fb2ce757191e27[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sat Mar 16 10:18:54 2024 -0300
+
+    adding goback button
+
+[33mcommit 21262c407ebfb6357270b3f393ad11c9b0e97965[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sat Mar 16 10:00:56 2024 -0300
+
+    design web desktop finished - modals
+
+[33mcommit a2c38c78fa182ca6be9f6eba53dda231c00d089c[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sat Mar 16 09:37:40 2024 -0300
+
+    adding components to transfer-modal
+
+[33mcommit c28ecd7d9ca4e5f4994c4f86eb343e1c7b6937a9[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Sat Mar 16 00:13:24 2024 -0300
+
+    adding withdraw and deposit - not impelemented and not completede
+
+[33mcommit 4d7bc4e28427e2c159a23ff26cbbb7caa0ebde86[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Fri Mar 15 22:03:13 2024 -0300
+
+    creating modals
+
+[33mcommit 49015d812747a3ad3760bb65e68a43135dc9a9ac[m
+Author: caiohxp <caiocesar.ccomp@gmail.com>
+Date:   Thu Mar 14 00:23:05 2024 -0300
+
+    asda
+
+[33mcommit 82fe86d48ed3aba93d78510c26a0354aed6d979c[m
+Merge: cace3be 9dbe858
+Author: caiohxp <caiocesar.ccomp@gmail.com>
+Date:   Thu Mar 14 00:21:47 2024 -0300
+
+    Merge branch 'develop' of https://github.com/Apollo-Coders/ApolloBank into develop
+
+[33mcommit cace3bee904925f32652082c1b809461ec4180b7[m
+Author: caiohxp <caiocesar.ccomp@gmail.com>
+Date:   Thu Mar 14 00:19:26 2024 -0300
+
+    status
+
+[33mcommit 9dbe858d674ab6cb985ac0e7c9df6d79e3113435[m
+Merge: 6c56460 d436f83
+Author: Guilherme Duarte <78491545+GuiDuarte07@users.noreply.github.com>
+Date:   Fri Feb 23 17:21:52 2024 -0300
+
+    Merge pull request #26 from Apollo-Coders/fix/form
+    
+    Fix/form
+
+[33mcommit d436f83d590c5700a195c72767d2e98fcb7b0a49[m[33m ([m[1;31morigin/fix/form[m[33m)[m
+Author: Daiane Bolzan <dainha85@gmail.com>
+Date:   Thu Feb 22 21:42:45 2024 -0300
+
+    fix: fix form service
+
+[33mcommit 33f820e735e30ee3a21d37997a04826389e0ebad[m
+Merge: 3ef44e0 6c56460
+Author: Guilherme Duarte <78491545+GuiDuarte07@users.noreply.github.com>
+Date:   Thu Feb 22 20:00:25 2024 -0300
+
+    Merge pull request #25 from Apollo-Coders/develop
+    
+    Realease 1.0.1
+
+[33mcommit 6c5646088e0b1cfbbe409574f92a4b1dfd6fe8dd[m
+Merge: 17d3369 3ef44e0
+Author: Guilherme Duarte <78491545+GuiDuarte07@users.noreply.github.com>
+Date:   Thu Feb 22 20:00:06 2024 -0300
+
+    Merge branch 'master' into develop
+
+[33mcommit 17d3369751bdf0500eff5e77869b8b8e20556388[m
+Author: Guilherme Duarte <78491545+GuiDuarte07@users.noreply.github.com>
+Date:   Thu Feb 22 14:09:59 2024 -0300
+
+    Update README.md
+
+[33mcommit 876a0886a44e4cb220eaa88d9c99a6b7c59cba5e[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Thu Feb 22 13:42:15 2024 -0300
+
+    app ts- changes
+
+[33mcommit af1bdd0d8fbca0ac3d4cec450067b5c0ec73378b[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Thu Feb 22 13:40:40 2024 -0300
+
+    adjust - button register-page
+
+[33mcommit 7218f13b00eb97735d04df062f8806ccdfcb71eb[m
+Author: Guilherme Duarte <78491545+GuiDuarte07@users.noreply.github.com>
+Date:   Thu Feb 22 11:24:25 2024 -0300
+
+    Update README.md
+
+[33mcommit d69de22a627a74ef09775e9619ce9e02dd347ee4[m
+Merge: b303606 d5b5333
+Author: Guilherme Duarte <78491545+GuiDuarte07@users.noreply.github.com>
+Date:   Wed Feb 21 22:11:05 2024 -0300
+
+    Merge pull request #23 from Apollo-Coders/fix/favicon
+    
+    Fix/favicon
+
+[33mcommit 3ef44e0883e9d442a6e21d62e5c152e73e475daa[m
+Merge: 5adc5ae 566b248
+Author: Guilherme Duarte <78491545+GuiDuarte07@users.noreply.github.com>
+Date:   Wed Feb 21 21:57:33 2024 -0300
+
+    Merge pull request #24 from Apollo-Coders/fix/responsive
+    
+    Fix/responsive
+
+[33mcommit 566b248d78ca173f63623b77ffc3569743da6d74[m[33m ([m[1;31morigin/fix/responsive[m[33m)[m
+Merge: ea38d00 b303606
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Wed Feb 21 21:48:11 2024 -0300
+
+    align div
+
+[33mcommit b303606cd1c670c3e413851411bc54d36638b084[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Wed Feb 21 21:42:33 2024 -0300
+
+    final chang
+
+[33mcommit ea38d000a401da0c95804ca8a5c2bcf9015af862[m
+Merge: bfc0959 7b515c3
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Wed Feb 21 21:40:18 2024 -0300
+
+    Merge branch 'fix/responsive' of https://github.com/Apollo-Coders/ApolloBank into fix/responsive
+
+[33mcommit bfc0959a0fea3d9e2e2fd5498cb02a125f381e05[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Wed Feb 21 21:38:12 2024 -0300
+
+    adjusting h3 homepage
+
+[33mcommit d5b53338952a693f2dac586daba2f4372c6eeb7d[m[33m ([m[1;31morigin/fix/favicon[m[33m)[m
+Author: Daiane Bolzan <dainha85@gmail.com>
+Date:   Wed Feb 21 18:34:48 2024 -0300
+
+    fix: add validation to cpf have only numbers
+
+[33mcommit dae7fecb26a9f7ae617b01c0ca360f747c3d5050[m
+Merge: fa51520 f0ba789
+Author: Daiane Bolzan <dainha85@gmail.com>
+Date:   Wed Feb 21 18:26:02 2024 -0300
+
+    Merge branch 'develop' into fix/favicon
+
+[33mcommit fa51520b43a7f73afa8fdb7f9e28293427988325[m
+Author: Daiane Bolzan <dainha85@gmail.com>
+Date:   Wed Feb 21 18:23:04 2024 -0300
+
+    fix: adjust button
+
+[33mcommit 7947fd0f091d34fbe8022183d2a4d2a697ba9bf0[m
+Author: Daiane Bolzan <dainha85@gmail.com>
+Date:   Wed Feb 21 18:22:47 2024 -0300
+
+    fix: bring route home to top
+
+[33mcommit 947696b3bf3740a6bc73ceb883550a8a2a9e3c46[m
+Author: Daiane Bolzan <dainha85@gmail.com>
+Date:   Wed Feb 21 18:22:21 2024 -0300
+
+    feat: add favicon
+
+[33mcommit 7b515c39120846aed56791e25f6d3ed70f4427d7[m
+Author: Guilherme Duarte <guilhduart.abr@gmail.com>
+Date:   Wed Feb 21 17:03:29 2024 -0300
+
+    fix:photocard responsive
+
+[33mcommit c8c39b3bf0b36de496139f09227ea9ea96d15f39[m
+Author: Guilherme Duarte <guilhduart.abr@gmail.com>
+Date:   Wed Feb 21 16:35:00 2024 -0300
+
+    feat: cpfValidator now verify justNumbers
+
+[33mcommit 757706ffeff9dd03a96ea5c591f209f2e467a439[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Wed Feb 21 16:07:49 2024 -0300
+
+    blue box - support/page
+
+[33mcommit 5adc5ae12b28528147f64d153e0b3c5da8c8ac12[m
+Merge: 81b7f5d f0ba789
+Author: Luiza Ferreira <139771003+luizaferreirafonseca@users.noreply.github.com>
+Date:   Wed Feb 21 15:11:51 2024 -0300
+
+    Merge pull request #22 from Apollo-Coders/develop
+    
+    Ajuste na navbar
+
+[33mcommit f0ba7893adcc00eff7bbf33a120b26f672262f1c[m
+Merge: 1d69d68 7d1f75c
+Author: Guilherme Duarte <guilhduart.abr@gmail.com>
+Date:   Wed Feb 21 15:06:12 2024 -0300
+
+    Merge tag 'navbar' into develop
+    
+    Hotfix of responsive navbar
+
+[33mcommit 7d1f75cf5d62e911e3da2d53ea7d11fa21ba0539[m
+Merge: 81b7f5d 5776ca2
+Author: Guilherme Duarte <guilhduart.abr@gmail.com>
+Date:   Wed Feb 21 15:05:27 2024 -0300
+
+    Merge branch 'hotfix/navbar'
+
+[33mcommit 5776ca2e6808f7590f70ba5c64bf8cb94a7e4a45[m
+Author: Guilherme Duarte <guilhduart.abr@gmail.com>
+Date:   Wed Feb 21 15:05:12 2024 -0300
+
+    fix: navbar top px and footer
+
+[33mcommit 81b7f5dd548b37867535c2fd37ae25a850082718[m
+Merge: 1a39444 1d69d68
+Author: Luiza Ferreira <139771003+luizaferreirafonseca@users.noreply.github.com>
+Date:   Wed Feb 21 14:50:40 2024 -0300
+
+    Merge pull request #21 from Apollo-Coders/develop
+    
+    Realese ApolloBank v1.0.0
+
+[33mcommit 1d69d68a3f77f25d5353e5718be60436d652e3b1[m
+Merge: af50143 def7ec6
+Author: Guilherme Duarte <guilhduart.abr@gmail.com>
+Date:   Wed Feb 21 14:43:16 2024 -0300
+
+    Merge tag '1.0.0' into develop
+    
+    Versão 1.0.0 do ApolloBank
+
+[33mcommit def7ec63706b8ce0013fb55d435cc0dc4a9112f7[m
+Merge: 1a39444 af50143
+Author: Guilherme Duarte <guilhduart.abr@gmail.com>
+Date:   Wed Feb 21 14:42:38 2024 -0300
+
+    Merge branch 'release/1.0.0'
+
+[33mcommit af501439e6104f8794ed126b10611cb86f2023bd[m
+Merge: d548e8c e6fd769
+Author: Guilherme Duarte <guilhduart.abr@gmail.com>
+Date:   Wed Feb 21 14:39:00 2024 -0300
+
+    Merge branch 'luizaferreirafonseca-patch-1' into develop
+
+[33mcommit d548e8cdb6e3bc94fb8c5dc56c57aef155d4cb59[m[33m ([m[1;31morigin/feature/dataFilters[m[33m)[m
+Author: Guilherme Duarte <guilhduart.abr@gmail.com>
+Date:   Wed Feb 21 12:02:12 2024 -0300
+
+    feat: dateFilter created
+
+[33mcommit d0b9e37699ec44446a734a89c700c3d04a0e4d4d[m
+Author: Guilherme Duarte <guilhduart.abr@gmail.com>
+Date:   Wed Feb 21 10:04:59 2024 -0300
+
+    fix: top px adjust
+
+[33mcommit 786a3bb449dc73174e0ace158c077a02aee9493c[m
+Author: Guilherme Duarte <guilhduart.abr@gmail.com>
+Date:   Wed Feb 21 09:57:30 2024 -0300
+
+    fix: responsive adjusts
+
+[33mcommit 5b9ae216741419b7e918825bde43e8fd12e95492[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Wed Feb 21 00:15:36 2024 -0300
+
+    landing page on footer
+
+[33mcommit 4731814f50aae3c3d04f20102e39ef6b36a1692b[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Wed Feb 21 00:05:19 2024 -0300
+
+    adjusting fluid-text
+
+[33mcommit a20006e421e62e135ac506217b07f23fe679f00a[m
+Author: luizaferreirafonseca <luiza.ferreira.fonseca@gmail.com>
+Date:   Wed Feb 21 00:03:22 2024 -0300
+
+    adjusting buttons
