@@ -75,10 +75,6 @@ Criado com empenho por um grupo talentoso e dedicado: ApolloCoders! 💙
 <div align="center"><a href="https://github.com/CarlaDudaMorais">Carla Morais</a></div>
 </br></br>
 
-<div align="center"><img src="https://github.com/clebervalerio.png" width="100px;"/></div>
-<div align="center"><a href="https://github.com/clebervalerio">Brenda Bueno</a></div>
-</br></br>
-
 <div align="center"><img src="https://github.com/Daaaiii.png" width="100px;"/></div>
 <div align="center"><a href="https://github.com/Daaaiii">Daiane Bolzan</a></div>
 </br></br>
