@@ -43,6 +43,10 @@ O projeto ApolloBank faz parte de um desafio de hackadev proposto pelo programa 
 
 <a href="https://github.com/Apollo-Coders/apollobank-backend">Acesse aqui o repositório do nosso back-end com a sua documentação.</a>
 
+## Implementações futuras
+
+No backend, criamos alguns endpoints que gostariamos de integrar ainda com o front-end e que, infelizmente, ainda não tivemos tempo. Os endpoints são da nossa controller de Cartão de Crédito e Faturas, assim como nosso endpoint de transferência agendada, em nossa Controller de Transações. Futuramente iremos implementar essas novas funcionalidades pra deixar o nosso projeto ainda mais completo.
+
 ## 👨🏼‍🏫 Construção, Idealização e Gerência
 
 Criar um projeto para 12 pessoas colaborarem não é algo simples e precisa de um planejamento concreto. A divisão de responsabilidade, e ferramentas para acompanhar o desenvolvimento são cruciais. Para dividir as responsabilidades, definir prazos e detalhar o funcionamento da tela, usamos o Trello. O Trello é uma ferramenta para gerenciamento de tarefas baseado no método Kanban, de divisão de tarefas. Nele, é possível criar fluxos de progresso (a fazer, fazendo, feito) e criar Cards (tarefas) onde é possível descrever detalhadamente as tarefas e inserir os usuários responsáveis por cada card. Exemplo do Trello gerenciado no front-end:
