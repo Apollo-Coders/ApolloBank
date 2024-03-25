@@ -32,10 +32,7 @@ export class TransactionHistoryPageComponent implements OnInit {
   searchFilter = '';
   dateFilter = DateFilterTypes.ALLTIME;
 
-  constructor(
-    private transactionsService: TransactionsService,
-    private localStorageService: LocalStorageService
-  ) {}
+  constructor(private transactionsService: TransactionsService) {}
 
   async ngOnInit() {
     this.transactionsService.filterByPix = this.filterByPix;
@@ -45,26 +42,6 @@ export class TransactionHistoryPageComponent implements OnInit {
 
   toggleFilter() {
     this.filterOpen = !this.filterOpen;
-  }
-
-  comprar() {
-    console.log(this.localStorageService.getLoggedUser());
-    let accountId = this.localStorageService.getLoggedUser().accountId;
-    console.log(accountId);
-    let transaction = new Transaction(
-      null,
-      200,
-      'O',
-      '114946',
-      '711716',
-      new Date(2023, 5, 20),
-      'Pix para fulano',
-      TransactionType.PIX,
-      accountId,
-      null,
-      null
-    );
-    this.transactionsService.AddTransaction(transaction);
   }
 
   toggleFitlerByPix() {
