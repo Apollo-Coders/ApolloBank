@@ -1,0 +1,296 @@
+<app-navbar-conta></app-navbar-conta>
+
+<main class="container my-5">
+  <h2 class="h2 fw-bold">Meus Cartões</h2>
+
+  <!-- for - cartaojustify-content-around -->
+  @for (creditCard of creditCards$ | async; track $index) {
+  <div class="my-4 d-flex w-100 align-items-center flex-column flex-md-row">
+    <!-- Desenho cartão -->
+    <div class="pl-0 ml-0 col-lg-3 justify-content-center d-flex">
+      <div class="credit-card card text-white p-2">
+        <p class="w-100">José G D Abrantes</p>
+        <div class="w-100">{{ creditCard.number }}</div>
+        <div class="d-flex gap-5 mt-2">
+          <div class="d-flex flex-column">
+            <p class="">Validade</p>
+            <p class="">
+              {{ dateStringToDate(creditCard.expirationTime).getMonth() + 1 }}/{{
+                dateStringToDate(creditCard.expirationTime).getFullYear()
+              }}
+            </p>
+          </div>
+          <div class="d-flex flex-column">
+            <p class="">cvc</p>
+            <p class="">{{ creditCard.cvc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fatura Atual -->
+    <div class="col-lg-3 d-flex align-items-center flex-column">
+      <p class="">Fatura Atual</p>
+      <span class="fw-bold fs-2">R$ {{ creditCard.creditUsed }}</span>
+    </div>
+
+    <!-- Limite Disponível -->
+    <div class="col-lg-3 d-flex align-items-center flex-column">
+      <p class="">Limite Disponível</p>
+      <span class="fw-bold fs-2"
+        >R$
+        {{
+          (creditCard.creditLimit - creditCard.creditUsed).toLocaleString()
+        }}</span
+      >
+    </div>
+    <div *ngIf="creditCard.isBlocked" class="d-flex col-lg-3 gap-2 justify-content-center align-items-center ">
+      <p class="text-danger ">BLOQUEADO</p>
+    </div>
+    <div *ngIf="!creditCard.isBlocked" class="d-flex col-lg-3 gap-2 justify-content-center align-items-center ">
+      <!-- PAGAR -->
+      <button
+        class="btn btn-settle fw-bold fs-6 text-white"
+        data-bs-toggle="modal"
+        data-bs-target="#payInvoiceModal"
+        type="button"
+        (click)="setPayCard(creditCard.number, creditCard.creditUsed)"
+
+      >
+        PAGAR
+      </button>
+      <!-- LIMITE -->
+      <button
+        (click)="setNewLimit(creditCard)"
+        class="btn-primary btn fw-bold fs-6 text-white p-3"
+        data-bs-toggle="modal"
+        data-bs-target="#LimitModal"
+        type="button"
+      >
+        LIMITE
+      </button>
+      <!-- BLOQUEAR -->
+      <button
+
+        data-bs-toggle="modal"
+        data-bs-target="#blockModal"
+        type="button"
+        class="btn btn-danger"
+        (click)="setBlockCard(creditCard.number)"
+      >
+        <i class="fs-3 bi bi-ban"></i>
+      </button>
+    </div>
+  </div>
+  }
+
+  <div class="w-100 d-flex justify-content-center">
+    <button class="col-lg-3 btn btn-settle fw-bold text-white mb-5" (click)="createCreditCard()">
+      NOVO CARTÃO
+    </button>
+  </div>
+
+  <section class="">
+    <div class="">
+      <h2 class="h2 fw-bold mb-4">FATURA TOTAL</h2>
+
+      <div class="d-flex gap-5 flex-column flex-md-row">
+        <div class="pl-0 col-lg-3 d-flex align-items-center flex-column">
+          <p class="">Fatura Atual</p>
+          <span class="fw-bold fs-2">R$ {{totalCreditUsedInvoice()}}</span>
+        </div>
+
+        <div class="col-lg-3 d-flex align-items-center flex-column">
+          <p class="">Limite Disponível</p>
+          <span class="fw-bold fs-2">R$ {{totalCreditAvailableInvoice()}}</span>
+        </div>
+        <button data-bs-toggle="modal"
+        data-bs-target="#payTotalInvoiceModal"  class="col-lg-3 btn btn-settle fw-bold text-white">
+          PAGAR TUDO
+        </button>
+      </div>
+    </div>
+    <p class="mt-1">Fecha em <span class="my-2 fw-bold">30 de março</span></p>
+  </section>
+</main>
+
+<!-- Limit Modal -->
+<div
+  class="modal fade"
+  id="LimitModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Alterar Limite</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <label for="rangeLimit" class="form-label">Novo limite do Cartão</label>
+        <input
+          [(ngModel)]="cardLimitSet.newLimit"
+          type="range"
+          class="form-range"
+          min="0"
+          max="{{ cardLimitSet.maxLimit }}"
+          step="1"
+          id="rangeLimit"
+        />
+
+        <p class="">
+          Limite Atual: <span class="my-2 fw-bold">R$ {{cardLimitSet.actualLimit}}</span>
+        </p>
+        <p>Ajustar para:</p>
+        <p class="fw-bold fs-2">
+          R$ <span>{{ cardLimitSet.newLimit }}</span>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Fechar
+        </button>
+        <button (click)="updateLimit()" type="button" data-bs-dismiss="modal" class="btn btn-primary">Alterar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- total invoice Modal -->
+<div
+    class="modal fade"
+    id="payTotalInvoiceModal"
+    tabindex="-1"
+    aria-labelledby="payTotalInvoiceModal"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="payTotalInvoiceModal">PAGAR FATURA TOTAL</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <p class="">Pagar a fatura de todos os cartões</p>
+          <p class="">Valor a ser pago</p>
+          <span class="fw-bold fs-2">R$ {{ totalCreditUsedInvoice().toLocaleString() }}</span>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Fechar
+          </button>
+          <button
+
+            type="button"
+            class="btn btn-primary"
+            data-bs-dismiss="modal"
+            (click)="payTotalInvoice()"
+          >
+            Pagar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCK MODAL -->
+  <div
+    class="modal fade"
+    id="blockModal"
+    tabindex="-1"
+    aria-labelledby="blockModal"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="blockModal">Bloquear Cartão</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <p class="">Tem certeza que deseja bloquear esse cartão?</p>
+          <p class="">Número do cartão: {{ blockCardNum }}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Fechar
+          </button>
+          <button
+            (click)="blockCreditCard()"
+            type="button"
+            class="btn btn-danger"
+            data-bs-dismiss="modal"
+          >
+            Bloquear
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAY MODAL -->
+  <div
+    class="modal fade"
+    id="payInvoiceModal"
+    tabindex="-1"
+    aria-labelledby="payInvoiceModal"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="payInvoiceModal">PAGAR FATURA</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <p class="">Número do cartão: {{ payCard.number }}</p>
+          <p class="">Valor a ser pago</p>
+          <span class="fw-bold fs-2">R$ {{ payCard.value }}</span>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Fechar
+          </button>
+          <button
+            (click)="payCardInvoice()"
+            type="button"
+            data-bs-dismiss="modal"
+            class="btn btn-primary"
+          >
+            Pagar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

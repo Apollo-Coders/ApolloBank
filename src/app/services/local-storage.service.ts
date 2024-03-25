@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RegisterTypes } from '../types/register-type';
+import { UserLogged } from '../models/UserLogged';
 
 export interface ILoggedUser {
   cpf: string;
@@ -26,13 +27,14 @@ export class LocalStorageService {
     return user.password;
   }
 
-  getLoggedUser(): ILoggedUser {
+  getLoggedUser(): UserLogged {
     const user = JSON.parse(localStorage.getItem('LoggedUser') || 'null');
     return user;
   }
 
   logout(): void {
     localStorage.removeItem('LoggedUser');
+    
   }
 
   private usersList = this.getRegisteredUsers();
@@ -53,7 +55,7 @@ export class LocalStorageService {
     localStorage.setItem('users', JSON.stringify(this.usersList));
   }
 
-  saveLoggedUserLocalStorage(LoggedUser: ILoggedUser): void {
+  saveLoggedUserLocalStorage(LoggedUser: UserLogged): void {
     localStorage.setItem('LoggedUser', JSON.stringify(LoggedUser));
   }
 }

@@ -1,0 +1,28 @@
+<div class="total-box d-flex flex-column">
+    <form class="d-flex flex-column" [formGroup]="withdrawForm" (ngSubmit)="onSubmit()">
+
+
+        <div class="one">
+            <div class="input-information d-flex flex-column pt-2">
+                <label>Insira um valor para sacar</label>
+                <input type="number" placeholder="digite o valor" formControlName="valor" class="w-50">
+            </div>
+        </div>
+
+
+
+        <div class="two">
+
+            <div class="input-information d-flex flex-column pt-2">
+                <label>Confirme o valor</label>
+                <input type="number" placeholder="confirme" formControlName="valor2" class="w-50">
+            </div>
+        </div>
+
+        <div class="button">
+            <button type="submit" [disabled]="withdrawForm.invalid">Continuar</button>
+        </div>
+
+    </form>
+
+</div>

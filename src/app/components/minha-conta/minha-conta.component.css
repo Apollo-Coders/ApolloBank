@@ -3,6 +3,11 @@
   }
 
 
+  .modals-total {
+    position: absolute;
+  }
+
+
 .section {
     background-color: #fff;
     border-radius: 10px;
@@ -179,6 +184,20 @@
 .opcoes button span{
     color: #002A84;
 }
+
+.custom-btn{
+    background-color: var(--laranja);
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 25px;   
+    font-size: 0.9rem;
+    min-width: 90px;
+}
+
+
 
 @media (max-width: 770px){
     .header{

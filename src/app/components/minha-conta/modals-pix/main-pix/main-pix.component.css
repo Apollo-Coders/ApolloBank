@@ -1,0 +1,38 @@
+.two-icons{
+    gap: 40px;
+}
+
+.total-content i{
+    color: var(--laranja);
+    font-size: 2.9rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+
+.total-content i:hover {
+    transform: scale(1.2); 
+}
+
+.total-content h3{
+    font-size: 1.3rem;
+    
+}
+
+.icons{
+    padding: 28px;
+    padding-left: 40px;
+    padding-right: 40px;
+    gap: 20px;
+    background-color: rgb(225, 225, 225);
+    border-radius: 200px;
+   
+}
+
+.total-content{
+
+    gap: 15px;
+    
+
+}
+

@@ -1,0 +1,9 @@
+<app-main-pix *ngIf="current === 'main'" (goToTransfer)="switchToTransferPage()" (goToDeposit)="switchToDepositPage()" (goToScheduling)=" switchToSchedulingPage()"></app-main-pix>
+<app-first-transfer *ngIf="current === 'firstTransfer'" (formSubmitted)="switchToSecondTransfer()"></app-first-transfer>
+<app-second-confirm *ngIf="current === 'secondTransfer'" (nextStep)="switchToTransferSuccess()" (goBack)="switchToFirst()"></app-second-confirm>
+<app-third-success *ngIf="current === 'successTransfer'" (repeatTransaction)="switchToMain()"></app-third-success>
+<app-first-deposit *ngIf="current === 'firstDeposit'" (formSubmittedThree)="switchToDepositSuccess()"></app-first-deposit>
+<app-success-deposit *ngIf="current === 'successDeposit'" (goingBack)="switchToMain()"></app-success-deposit>
+<app-first-schedule *ngIf="current === 'firstSchedule'" (scheduleFormSubmitted)="switchToConfirmScheduling()"></app-first-schedule>
+<app-confirm-scheduling *ngIf="current === 'confirmScheduling'" (goToSuccess)="switchToSchedulingSuccess()" (goingBack)="switchToSchedulingPage()"></app-confirm-scheduling>
+<app-scheduling-success *ngIf="current === 'successScheduling'" (backToMain)="switchToMain()"></app-scheduling-success>

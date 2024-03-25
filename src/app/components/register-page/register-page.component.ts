@@ -23,6 +23,7 @@ export class RegisterPageComponent {
     this.currentForm = 'subsequent';
   }
   switchToSuccess(){
+    
     this.currentForm = 'success';
   }
   switchToFirst(){

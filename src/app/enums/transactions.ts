@@ -1,7 +1,9 @@
 export enum TransactionType {
-  PIX = 'Pix',
-  CREDIT = 'Crédito',
-  TRANSFER = 'Transferência',
+  PIX = 1,
+  TRANSFER = 2,
+  CREDIT = 3,
+  DEPOSIT = 4,
+  WITHDRAW = 5,
 }
 
 export enum DateFilterTypes {

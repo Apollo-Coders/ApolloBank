@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.total-content{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.total-content h3{
+    font-size: 1.5rem;
+}
+
+
+.total-content p {
+    font-size: 1.3rem;
+    color: var(--laranja);
+}
