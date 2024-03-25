@@ -29,7 +29,6 @@ export class CreditCardsService {
         })
       )
       .subscribe((response) => {
-        console.log(response);
         this._creditCardsSubject.next(response.$values);
       });
   }
@@ -43,7 +42,6 @@ export class CreditCardsService {
         })
       )
       .subscribe((r) => {
-        console.log(r);
         this.loadCreditCards();
       });
   }
@@ -57,7 +55,6 @@ export class CreditCardsService {
         })
       )
       .subscribe((r) => {
-        console.log(r);
         this.loadCreditCards();
       });
   }

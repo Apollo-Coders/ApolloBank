@@ -13,7 +13,6 @@ export function transactionToDisplay(
   yesterday.setDate(today.getDate() - 1);
 
   const groupedTransactions: { [key: string]: Transaction[] } = {};
-  console.log(transactions);
   // Agrupa as transações por data
   transactions.forEach((transaction) => {
     const transactionDate = new Date(transaction.date);
