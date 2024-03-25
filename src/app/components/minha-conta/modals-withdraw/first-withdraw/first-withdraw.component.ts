@@ -58,7 +58,7 @@ export class FirstWithdrawComponent {
 
         this.withdrawForm.reset();
       this.formSubmittedTwo.emit();
-      window.location.reload()
+      
       });
 
 
