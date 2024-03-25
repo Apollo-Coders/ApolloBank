@@ -35,7 +35,7 @@ export class SecondConfirmComponent {
         data.conta,
         this.localStorage.getLoggedUser().accountNumber.toString(),
         new Date(),
-        data.null,
+        data.descricao,
         TransactionType.TRANSFER,
         this.localStorage.getLoggedUser().accountId,
         data.null,
