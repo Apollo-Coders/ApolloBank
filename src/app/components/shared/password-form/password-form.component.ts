@@ -1,7 +1,14 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormService } from '../../../services/form.service';
 import { LocalStorageService } from '../../../services/local-storage.service';
@@ -17,10 +24,16 @@ interface IPairPasswordNums {
   standalone: true,
   imports: [CommonModule, RouterOutlet, RouterLink, ReactiveFormsModule],
   templateUrl: './password-form.component.html',
-  styleUrl: './password-form.component.css'
+  styleUrl: './password-form.component.css',
 })
 export class PasswordFormComponent {
-  constructor(private fb: FormBuilder, private router: Router, private formService: FormService, private localStorageService: LocalStorageService, private AuthService: AuthenticationServiceService) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private formService: FormService,
+    private localStorageService: LocalStorageService,
+    private AuthService: AuthenticationServiceService
+  ) {}
 
   form!: FormGroup;
   title = 'testeLogin';
@@ -28,40 +41,31 @@ export class PasswordFormComponent {
   passwordMask: string = '';
   erroMessage: string = '';
 
-
   private formDataSubscription: Subscription = new Subscription();
   public formData: any;
 
   ngOnInit() {
     this.form = this.fb.group({
-      password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(6),
       ]),
     });
   }
 
-
   sendForm() {
-    
-    
-      this.formService.getFormData().subscribe(formValues => {
-        console.log('formvalue', formValues)
-        const login:Login = {
-          cpf: formValues.cpf,
-          password: this.form.value.password
-        }
-        this.AuthService.login(login).subscribe(userLogged => {
-          this.localStorageService.saveLoggedUserLocalStorage(userLogged);
+    this.formService.getFormData().subscribe((formValues) => {
+      const login: Login = {
+        cpf: formValues.cpf,
+        password: this.form.value.password,
+      };
+      this.AuthService.login(login).subscribe((userLogged) => {
+        this.localStorageService.saveLoggedUserLocalStorage(userLogged);
         this.router.navigate(['/minha-conta']);
         this.formService.clearFormData();
-        this.form.reset(); 
-        })      
+        this.form.reset();
       });
-    
+    });
   }
-
- 
-
-
-
-
 }

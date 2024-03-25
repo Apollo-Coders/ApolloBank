@@ -109,7 +109,6 @@ export class CreditCardsComponent implements OnInit {
   setPayCard(number: string, value: number) {
     this.payCard.number = number;
     this.payCard.value = value;
-    console.log(this.payCard);
   }
   payCardInvoice() {
     this.invoiceService.payParcialMonthInvoice(this.payCard.number);
