@@ -92,5 +92,8 @@ export class MinhaContaComponent {
 
   closeModal() {
     this.isOpen = 'nothing';
+    
+      window.location.reload()
+    
   }
 }

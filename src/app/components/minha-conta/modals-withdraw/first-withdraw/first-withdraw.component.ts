@@ -4,6 +4,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 import { Transaction } from '../../../../models/Transaction';
 import { LocalStorageService } from '../../../../services/local-storage.service';
 import { TransactionsService } from '../../../../services/transactions.service';
+import { TransactionType } from '../../../../enums/transactions';
 
 @Component({
   selector: 'app-first-withdraw',
@@ -15,41 +16,55 @@ import { TransactionsService } from '../../../../services/transactions.service';
 export class FirstWithdrawComponent {
 
   withdrawForm!: FormGroup;
+  error = false;
 
   @Output() formSubmittedTwo = new EventEmitter<void>();
 
   constructor(private localStorage: LocalStorageService, private transactionService: TransactionsService){}
-  
+
 
   ngOnInit(){
     this.withdrawForm = new FormGroup({
       valor: new FormControl(''),
       valor2: new FormControl('')
-      
+
 
     })
   }
 
+
   onSubmit() {
-    if (this.withdrawForm.valid && this.localStorage.getLoggedUser() !== null) {
-      const transactionData = this.withdrawForm.value; 
+    this.error = false;
+    if (this.withdrawForm.valid ) {
+      if( this.withdrawForm.value.valor !== this.withdrawForm.value.valor2){
+        this.error = true;
+        return;
+      }
+      const transactionData = this.withdrawForm.value;
       const transaction = new Transaction(
-        transactionData.null, 
-        transactionData.amount,
+        null,
+        transactionData.valor,
         'O',
         transactionData.null,
-        transactionData.this.localStorage.getLoggedUser().accountId, 
+        this.localStorage.getLoggedUser().accountNumber.toString(),
         new Date(),
         transactionData.null,
-        transactionData.transactionType.withdraw,
-        transactionData.this.localStorage.getLoggedUser().accountId,
+        TransactionType.WITHDRAW,
+        this.localStorage.getLoggedUser().accountId,
         transactionData.null,
         transactionData.null
       );
-      this.transactionService.MakeWithdrawal(transaction);
-      this.withdrawForm.reset();
+      this.transactionService.MakeWithdrawal(transaction).subscribe(msg => {
+
+        this.withdrawForm.reset();
       this.formSubmittedTwo.emit();
+      window.location.reload()
+      });
+
+
     }
+
+
 
 
 }
